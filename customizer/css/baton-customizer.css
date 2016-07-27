@@ -1,0 +1,66 @@
+/**
+ * Baton Customizer
+ */
+
+.baton-font-family-select {
+	width: 100%;
+}
+
+.select2-container.baton-font-family-select .select2-choice {
+	padding: 2px 5px;
+}
+
+.baton-select2-result .select2-result-label {
+	height: 27px;
+	font-size: 0;
+	background-color: #444;
+	background-repeat: no-repeat;
+	background-size: 100% !important;
+	background-position: 0 42%;
+}
+
+.baton-select2-result .select2-result-label:hover {
+	background-color: #0074a2;
+}
+
+.baton-select2-result.standard-font .select2-result-label {
+	background: transparent;
+	color: #444;
+	font-size: 26px;
+	line-height: 1em;
+}
+
+.select2-results .baton-select2-result.standard-font.select2-highlighted,
+.baton-select2-result.standard-font .select2-result-label:hover {
+	color: #0074a2;
+	background-color: transparent;
+}
+
+.baton-select2-result.placeholder .select2-result-label,
+.baton-select2-result.placeholder .select2-result-label:hover {
+	height: auto;
+	font-size: inherit;
+	background: #f4f4f4;
+}
+
+.sds-theme-options-preview {
+	background: #eee;
+}
+
+.sds-theme-options-preview img {
+	vertical-align: top;
+}
+
+#customize-controls .sds-theme-options-preview .description {
+	color: #333;
+}
+
+/* We need to adjust the z-index on Select2 dropdown items due to Customizer CSS */
+.wp-customizer #select2-drop {
+	z-index: 500001;
+}
+
+/* Textareas have a max width of 80% from SDS Theme Options */
+textarea {
+	max-width: 100%;
+}

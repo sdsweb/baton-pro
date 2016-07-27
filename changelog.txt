@@ -1,0 +1,89 @@
+==========================================
+Theme: Baton Pro
+Author: Slocum Themes/Slocum Design Studio
+Author URI: https://slocumthemes.com/
+Current Version: 1.0.4
+==========================================
+
+
+1.0.4 // May 24 2016
+--------------------
+- Adjusted baton_categories_tags() to ensure categories and tags were only displayed on single Posts
+- Adjusted sds_post_meta() to ensure post meta was only displayed on single Posts
+- Adjusted CSS for post meta wrapper to only add padding when meta was displayed
+- Introduced Baton_Customizer::maybe_hash_hex_color() as a fallback function to add a hash (#) to a hex color string (fixes
+  a bug where a potential fatal PHP error could occur if a background color or content background color were set
+  but the transient CSS data did not exist)
+
+1.0.3 // May 20 2016
+--------------------
+- Update Customizer CSS for Select2 boxes to ensure available options are displayed when other components (i.e. plugins)
+  modify Select2 CSS properties
+- Fix a bug where Customizer settings where some settings had quotation marks added around values which caused the CSS
+  output to be invalid (font sizes, line height, etc...)
+- Fixed a bug where Google web fonts would not be enqueued properly due to empty theme mod values
+- Removed is_admin() checks from add_editor_style() calls
+- Added logic to add selected color scheme to editor styles
+- Added logic to add all Customizer setting data as editor styles
+- Adjusted logic which enqueues the FontAwesome stylesheet in TinyMCE editors (use SDS_Theme_Options::sds_core_dir()
+  instead of /includes/)
+- Adjusted default reset type in Baton_Customizer_Reset_Control
+- Added logic in Baton_Customizer_Reset_Control to adjust CSS class based on reset type
+- Added logic to reset background images, font properties (font sizes, letter spacing, and line heights), and font
+  families, as well as an option to reset all of those (including colors)
+- Renamed 'baton_secondary_sub_menu_hover_color' theme mod to 'baton_secondary_header_sub_menu_hover_color' for consistency
+-- Added fallback logic to ensure data stored in 'baton_secondary_sub_menu_hover_color' theme mod was added to
+   'baton_secondary_header_sub_menu_hover_color' if it exists
+- Adjusted logic for localized data in Baton_Customizer to ensure more data could be adjusted via the
+  'baton_customize_controls_localization' filter
+- Adjusted JavaScript logic for Baton Customizer controls to account for new reset features
+- Added logic to clear selected background images from Customizer controls for Baton background image controls
+- Added core Gravity Forms support (CSS) and mc-gravity CSS
+- Fixed broken .baton-note-sidebar .conductor-flex .conductor-widget-6-columns .custom-field CSS selector at 960px breakpoint
+- Fixed a display bug where article content elements within Conductor Widgets within Note Sidebars within content
+  would inherit padding
+- Reset Customizer transient data when switching themes to ensure any new child themes would inherit
+  theme mods from Baton Pro
+- Introduced baton_categories_tags() to output categories and tags
+-- Added CSS for icons within categories and tags output
+- Fixed display bug in IE10 (social icon display)
+- Updated POT file
+
+1.0.2 // February 04 2016
+-------------------------
+- Fixed bug in Customizer where click events on Secondary Navigation menu items and mobile Primary Navigation
+  menu items would not propagate to other elements in the HTML hierarchy, preventing default Customizer Previewer logic
+- Fixed bug where a Google Web Font request would result in a 400 error due to incorrect font families specified
+  (blank list)
+- Added parameter to Baton_Customizer_Fonts::has_default_font_families() to allow checking of Google Web Fonts only
+- Fixed a bug where some CSS values had single quotation marks added before and after due to font family logic checks
+
+1.0.1 // January 29 2016
+-------------------------
+- Introduce Baton Landing Page Conductor template to allow for full-width landing pages on content pieces other than
+  the front page via Conductor
+- Introduce baton_is_conductor_baton_landing_page()
+- Introduce Baton::conductor_widget_has_flexbox_support()
+- Introduce baton_is_note_baton_sidebar_active()
+- Introduce logic to allow for Note Sidebars before and after the content wrapper elements
+- Removed duplicate CSS for Conductor Slider arrows
+- Adjusted Customizer functionality to include Conductor Slider News display in various CSS adjustments
+- Added missing Conductor Slider CSS to color schemes
+- Added Baton specific actions to header and footer templates in various locations
+- Fixed a bug where attachment posts did not have padding on the bottom of the article content container
+- Fixed display issue with Conductor Widgets in After Posts Sidebar
+- Fixed bug in Firefox and IE11 where an image used as the site logo, which had a larger width (i.e. 900px) than
+  the site title container, affected height of header due to the way that flexbox processes aspect ratios
+- Fixed a bug in IE11 where the primary menu would shift when sub-menu items existed and were hovered over in some cases
+- Fixed a bug in Safari where social media icons would not respect viewport width and would appear off screen or outside
+  of their container elements
+- Added logic to add fallback font family values to standard web fonts selected in Customizer settings (fixes bug with
+  Arial Black rendering)
+- Adjusted logic to add single quotation marks to font families with spaces and to Google Web Font families
+- Added missing text domain to translation function
+- Updated to SDS Core Pro 1.4.2
+- Updated POT file for translations
+
+1.0.0 // December 17 2015
+-------------------------
+- Initial Release

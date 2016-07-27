@@ -1,0 +1,78 @@
+/**
+ * Stylesheet for SDS Theme Options - Customizer
+ */
+
+.customize-sds-theme-options-logo-upload {}
+
+
+.customize-sds-theme-options-logo-upload > strong {
+	display: none;
+}
+
+.sds-theme-options-preview {
+	margin: 1em 0;
+	padding: 1em;
+	background: #eee;
+	border: 1px solid #ccc;
+}
+
+.sds-theme-options-preview img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+#customize-controls .sds-theme-options-preview .description {
+	color: #333;
+}
+
+.customize-sds-theme-options-color-schemes-wrap, .customize-sds-theme-options-content-layout-wrap {
+	border-bottom: 1px solid #d6d6d6;
+}
+
+.sds-theme-options-color-scheme {
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+.sds-theme-options-web-font {
+	margin-top: 15px;
+	margin-bottom: 0;
+	padding-bottom: 20px;
+}
+
+.sds-theme-options-web-font label {
+	width: 20%;
+	margin: 0;
+	padding: 0;
+}
+
+.sds-theme-options-web-font .sds-theme-options-web-font-label-default {
+	margin-left: -4px;
+}
+
+.sds-theme-options-web-font .sds-theme-options-web-font-label {
+	width: 78%;
+	margin-left: -4px;
+}
+
+.sds-theme-options-web-font .sds-theme-options-web-font-preview {
+	width: 78%;
+}
+
+.customize-sds-theme-options-content-layout-wrap {
+	padding-bottom: 1em;
+}
+
+.customize-sds-theme-options-content-layout-wrap .customize-control-title {
+	margin-bottom: 5px;
+}
+
+textarea {
+	max-width: 100%;
+}
+
+/* CodeMirror */
+.customize-control-sds_codemirror .CodeMirror {
+	border: 1px solid #ddd;
+}

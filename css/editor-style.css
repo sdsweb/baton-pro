@@ -1,0 +1,411 @@
+/**
+ * CSS Reset - http://meyerweb.com/eric/tools/css/reset/
+ * License: None (public domain)
+ * Copyright: Eric Meyer, http://meyerweb.com/eric/
+ *
+ * We've used Eric Meyer's reset as a base and modified it a bit to suit our needs.
+ */
+
+html, body, div, dl, dt, dd, li,
+pre, form, fieldset, input, textarea,
+blockquote, th, td, section, figure {
+	margin: 0;
+	padding: 0;
+
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+
+	/* Ensure that all long words are broken up so they do not exceed the width of their container elements. */
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+fieldset, img, abbr, acronym {
+	border: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+a img {
+	text-decoration: none;
+}
+
+select, iframe {
+	max-width: 100%;
+}
+
+table {
+	max-width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+address, caption, cite, code, dfn, var {
+	font-weight: normal;
+	font-style: normal;
+}
+
+q:before, q:after {
+	content: '';
+}
+
+mark {
+	background: none;
+}
+
+button {
+	border: none;
+}
+
+/* Remove Apple webkit styling (iPhone/iPad) on submit/button elements */
+input[type="submit"], input[type="button"] {
+	-webkit-appearance: none;
+}
+
+/**
+ * WordPress Core CSS - http://codex.wordprfess.org/CSS#WordPress_Generated_Classes
+ * License: GPL2
+ * Copyright: WordPress.org, http://wordpress.org
+ *
+ * We've modified this to suit our needs.
+ */
+.alignnone {
+	margin: 5px 18px 15px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin: 5px auto;
+}
+
+.alignright {
+	float:right;
+	margin: 5px 0 15px 18px;
+}
+
+.alignleft {
+	float: left;
+	margin: 5px 18px 15px 0;
+}
+
+.aligncenter {
+	display: block;
+	margin: 5px auto;
+}
+
+a img.alignright {
+	float: right;
+	margin: 5px 0 15px 18px;
+}
+
+a img.alignnone {
+	margin: 5px 18px 15px 0;
+}
+
+a img.alignleft {
+	float: left;
+	margin: 5px 18px 15px 0;
+}
+
+a img.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.wp-caption, .gallery-caption {
+	max-width: 100%;
+	padding: 0.5em;
+	background: #f6f6f6;
+	text-align: center;
+	clear: both;
+}
+
+.gallery-caption {
+	background: transparent;
+}
+
+.wp-caption.alignnone {
+	margin: 1.5em 0;
+}
+
+.wp-caption.alignleft {
+	margin: 1.5em 1.5em 1.5em 0;
+}
+
+.wp-caption.alignright {
+	margin: 1.5em 0 1.5em 1.5em;
+}
+
+.wp-caption img, .gallery-caption img {
+}
+
+.wp-caption p.wp-caption-text {
+	margin: 0;
+	padding: 0;
+	font-size: 0.8em;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 1em;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+
+/**
+ * General Styles
+ */
+html {
+	/* For "rem" units */
+	font-size: 1.125rem;
+}
+
+body, body.wp-autoresize {
+	width: auto;
+	max-width: 620px;
+	margin: 2rem;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	color: #4c5357;
+	line-height: 1.8rem;
+
+	/* Ensure that all long words are broken up so they do not exceed the width of their container elements. */
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+a {
+	color: #3ebbbb;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Typography */
+p, ul, ol {
+	margin: 1.5rem 0;
+}
+
+/* Nested Lists */
+ul ul, ol ol,
+ul ol, ol ul {
+	margin: 0;
+}
+
+hr {
+	height: 2px;
+	background: #f1f5f9;
+	border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1rem 0;
+	color: #363a42;
+	font-weight: 900;
+	line-height: 1em;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: 2.2222222rem;
+}
+
+h2 {
+	font-size: 1.8888888rem;
+}
+
+h3 {
+	font-size: 1.7222222rem;
+}
+
+h4 {
+	font-size: 1.4444444rem;
+}
+
+h5 {
+	font-size: 1.2222222rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+blockquote {
+	margin: 1.25rem 0;
+	padding-left: 1.5em;
+	color: #363a42;
+	font-size: 1.2222222rem;
+	font-weight: bold;
+	border-top: 2px solid;
+	position: relative;
+}
+
+blockquote:before {
+	content: "\f10d";
+	margin: 1rem 0;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 0.636375rem;
+	line-height: 2em;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	position: absolute;
+	left: 0;
+}
+
+blockquote p {
+	margin: 0.85rem 0;
+}
+
+blockquote cite {
+	color: #84919e;
+	font-size: 0.636375rem;
+	font-style: italic;
+	text-align: right;
+	display: block;
+}
+
+caption {
+	margin: 0.85rem 0;
+	font-weight: bold;
+}
+
+/* Tables */
+table {
+	width: 100%;
+}
+
+th {
+	padding: 0.5em 1em;
+	color: #363a42;
+	background: #f1f5f9;
+	text-transform: uppercase;
+	font-size: 0.77777777em;
+	font-weight: 900;
+	text-align: left;
+}
+
+tr {
+	border-bottom: 1px solid #f1f5f9;
+}
+
+td {
+	padding: 0.5em 1em;
+	font-size: 0.8888889em;
+}
+
+/* Lists (Unordered, Ordered, Definition) */
+ul {
+	list-style: square;
+}
+
+ol {
+
+}
+
+dl {
+
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	padding-left: 2em;
+}
+
+/* Pre/Code */
+pre {
+	padding: 2em 4.5em 2em 2em;
+	background: #f1f5f9;
+	font-family: Courier, monospace;
+	font-size: 0.83333333em;
+	font-weight: bold;
+	position: relative;
+}
+
+pre:after {
+	content: "\f121";
+	width: 2.5em;
+	height: 100%;
+	margin: 0;
+	padding-top: 0.5em;
+	display: inline-block;
+	color: #fff;
+	background: #84919e;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 1.06666667rem;
+	text-align: center;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+strong, body.webkit strong, body.webkit b {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+fieldset, img, abbr, acronym {
+	border: 0;
+}

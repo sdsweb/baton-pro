@@ -1,0 +1,4 @@
+/* General Styles */
+body, body.wp-autoresize {
+	max-width: 984px;
+}
