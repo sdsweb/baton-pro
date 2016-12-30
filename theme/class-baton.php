@@ -4,7 +4,7 @@
  *
  * @class Baton
  * @author Slocum Studio
- * @version 1.0.4
+ * @version 1.0.8
  * @since 1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		/**
 		 * @var string, Current version number
 		 */
-		public $version = '1.0.4';
+		public $version = '1.0.8';
 
 		/**
 		 * @var string, Slug for Slocum Theme support
@@ -95,6 +95,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ), 20 ); // Register image sizes
+			add_filter( 'theme_page_templates', array( $this, 'theme_page_templates' ) ); // Theme Page Templates
 			add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 1, 2 ); // Early
 			add_action( 'init', array( $this, 'init' ), 20 ); // Adjust SDS Core Theme Options
 			add_action( 'admin_init', array( $this, 'baton_admin_init' ), 20 ); // Adjust SDS Core Theme Options
@@ -1049,6 +1050,21 @@ if ( ! class_exists( 'Baton' ) ) {
 		}
 
 		/**
+		 * This function adjusts the theme page templates.
+		 */
+		public function theme_page_templates( $page_templates ) {
+			// Bail if Beaver Builder exists or we should enable [allow] the Beaver Builder template [to remain in the list of page templates]
+			if ( class_exists( 'FLBuilderLoader' ) || apply_filters( 'baton_enable_beaver_builder_page_template', false ) )
+				return $page_templates;
+
+			// Remove the Beaver Builder template
+			if ( array_key_exists( 'template-beaver-builder.php', $page_templates ) )
+				unset( $page_templates['template-beaver-builder.php'] );
+
+			return $page_templates;
+		}
+
+		/**
 		 * This function adds an admin notice upon theme switch/activation.
 		 */
 		public function after_switch_theme( $old_theme_name, $old_theme = false ) {
@@ -1168,6 +1184,7 @@ if ( ! class_exists( 'Baton' ) ) {
 
 			// Grab the Note Sidebars instance
 			$note_sidebars = Note_Sidebars();
+
 
 			/*
 			 * Note Baton
@@ -1308,7 +1325,7 @@ if ( ! class_exists( 'Baton' ) ) {
 				add_editor_style( 'css/editor-style-full-width.css' );
 
 			// FontAwesome
-			add_editor_style( SDS_Theme_Options::sds_core_dir( true ) .  '/css/font-awesome.min.css' );
+			add_editor_style( SDS_Theme_Options::sds_core_dir( true ) . '/css/font-awesome.min.css' );
 		}
 
 
@@ -1658,7 +1675,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		 *****************/
 
 		/**
-		 * This functions handles theme updates from the ThemeUpdateChecker library.
+		 * This function handles theme updates from the ThemeUpdateChecker library.
 		 */
 		public function admin_init() {
 			// Bail if the EDD Theme Updater class doesn't exist
@@ -2529,7 +2546,7 @@ if ( ! class_exists( 'Baton' ) ) {
 			// If we're on an archive (including the blog) or a singular piece of content
 			if ( is_archive() || is_home() || is_singular() ) :
 				// Grab the Note Sidebars reference
-				$note_sidebars = Note_sidebars();
+				$note_sidebars = Note_Sidebars();
 
 				// Grab the Baton content wrapper sidebar ID and "post_id"
 				$baton_content_wrapper_sidebar_ids = $this->note_sidebar_ids_by_location['baton-content-wrapper'];
@@ -2574,7 +2591,7 @@ if ( ! class_exists( 'Baton' ) ) {
 			// If we're on an archive (including the blog) or a singular piece of content
 			if ( is_archive() || is_home() || is_singular() ) :
 				// Grab the Note Sidebars reference
-				$note_sidebars = Note_sidebars();
+				$note_sidebars = Note_Sidebars();
 
 				// Grab the Baton content wrapper sidebar ID and "post_id"
 				$baton_content_wrapper_sidebar_ids = $this->note_sidebar_ids_by_location['baton-content-wrapper'];
@@ -2813,7 +2830,7 @@ if ( ! class_exists( 'Baton' ) ) {
 
 								// Remove the default action (if there are no output elements before the featured image)
 								if ( ! $output_elements_before_featured_image ) {
-									remove_action( 'conductor_widget_display_content_' . $widget->number, array( $conductor_widget_query, $callback[1] ), $priority, $conductor_widget_query->display_content_args_count );
+									remove_action( 'conductor_widget_display_content_' . $widget->number, array( $conductor_widget_query, $callback[1] ), $priority );
 
 									// Adjust the "hooks" property
 									unset( $hooks[$priority] );

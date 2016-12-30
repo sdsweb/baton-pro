@@ -5,12 +5,12 @@
  * Text Domain: baton
  * Author: Slocum Studio
  * Author URI: https://slocumthemes.com/
- * Version: 1.0.4
+ * Version: 1.0.8
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Tags: blue, green, orange, pink, purple, red, white, light, two-columns, left-sidebar, fluid-layout, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments
 
- * Baton Pro WordPress theme, Copyright (C) 2015-2016 Slocum Studio
+ * Baton Pro WordPress theme, Copyright (C) 2015-2017 Slocum Studio
  * Baton Pro WordPress theme is licensed under the GPL.
 
  * @see attribution.txt for more license information.
@@ -347,7 +347,7 @@ select {
 
 
 /**
- * WordPress Core CSS - http://codex.wordprfess.org/CSS#WordPress_Generated_Classes
+ * WordPress Core CSS - http://codex.wordpress.org/CSS#WordPress_Generated_Classes
  * License: GPL2
  * Copyright: WordPress.org, http://wordpress.org
  *
@@ -1006,36 +1006,6 @@ a img.aligncenter {
 	font-size: 2.2222222rem;
 }
 
-/* Baton Features */
-.baton-features-widget .note-col .note-content h1,
-.baton-features-widget .note-col .note-content h2,
-.baton-features-widget .note-col .note-content h3,
-.baton-features-widget .note-col .note-content h4,
-.baton-features-widget .note-col .note-content h5,
-.baton-features-widget .note-col .note-content h6 {
-	/*display: inline-block;*/
-	position: relative;
-}
-
-.baton-features-widget .note-col .note-content h1:after,
-.baton-features-widget .note-col .note-content h2:after,
-.baton-features-widget .note-col .note-content h3:after,
-.baton-features-widget .note-col .note-content h4:after,
-.baton-features-widget .note-col .note-content h5:after,
-.baton-features-widget .note-col .note-content h6:after {
-	content: '';
-	width: 25%;
-	margin: auto;
-	border-bottom: 2px solid #3ebbbb;
-	display: block;
-	position: relative;
-	top: 5px;
-}
-
-.baton-features-widget .note-content p {
-	line-height: 1.25rem;
-}
-
 /* Baton Hero 3 */
 .baton-hero-widget .baton-hero-3,
 .baton-hero-widget .baton-hero-3-r {
@@ -1081,7 +1051,7 @@ a img.aligncenter {
 }
 
 /* Baton Hero 3 (Content Left) */
-.baton-hero-widget .baton-hero-3 .note-baton-hero-in{
+.baton-hero-widget .baton-hero-3 .note-baton-hero-in {
  	width: 68%;
  	height: 100%;
 	margin-left: -22%;
@@ -1130,6 +1100,37 @@ a img.aligncenter {
  	-ms-transform: skewX(-20deg);
  	transform: skewX(-20deg);
 }
+
+/* Baton Features */
+.baton-features-widget .note-col .note-content h1,
+.baton-features-widget .note-col .note-content h2,
+.baton-features-widget .note-col .note-content h3,
+.baton-features-widget .note-col .note-content h4,
+.baton-features-widget .note-col .note-content h5,
+.baton-features-widget .note-col .note-content h6 {
+	/*display: inline-block;*/
+	position: relative;
+}
+
+.baton-features-widget .note-col .note-content h1:after,
+.baton-features-widget .note-col .note-content h2:after,
+.baton-features-widget .note-col .note-content h3:after,
+.baton-features-widget .note-col .note-content h4:after,
+.baton-features-widget .note-col .note-content h5:after,
+.baton-features-widget .note-col .note-content h6:after {
+	content: '';
+	width: 25%;
+	margin: auto;
+	border-bottom: 2px solid #3ebbbb;
+	display: block;
+	position: relative;
+	top: 5px;
+}
+
+.baton-features-widget .note-content p {
+	line-height: 1.25rem;
+}
+
 
 /* Baton Features 2 */
 .baton-features-widget .baton-features-2 .note-flex .note-col {
@@ -3400,13 +3401,14 @@ body .mc-newsletter_wrapper .gform_heading .gform_description, body .mc_newslett
 	line-height: 1.75rem;
 	text-transform: none;
 	display: inline-block;
+	margin-bottom: 0;
 }
 
 body .mc-gravity .gform_body, body .mc_gravity .gform_body,
 body .mc-newsletter .gform_body, body .mc_newsletter .gform_body,
 body .mc-gravity_wrapper .gform_body, body .mc_gravity_wrapper .gform_body,
 body .mc-newsletter_wrapper .gform_body, body .mc_newsletter_wrapper .gform_body {
-	width: 50%;
+	width: 50% !important;
 	margin: 0 0 0 10%;
 	padding: 0;
 }
@@ -3430,7 +3432,7 @@ body .mc-newsletter .gform_fields input, body .mc_newsletter .gform_fields input
 body .mc-gravity_wrapper .gform_fields input, body .mc_gravity_wrapper .gform_fields input,
 body .mc-newsletter_wrapper .gform_fields input, body .mc_newsletter_wrapper .gform_fields input {
 	width: 100% !important;
-	padding: 0.75em;
+	padding: 0.6em !important;
 }
 
 body .gform_wrapper.mc-gravity_wrapper .gform_fields .gfield_error input,
@@ -3493,7 +3495,8 @@ body .mc-gravity .gform_footer .button, body .mc_gravity .gform_footer .button,
 body .mc-newsletter .gform_footer .button, body .mc_newsletter .gform_footer .button,
 body .mc-gravity_wrapper .gform_footer .button, body .mc_gravity_wrapper .gform_footer .button,
 body .mc-newsletter_wrapper .gform_footer .button, body .mc_newsletter_wrapper .gform_footer .button {
-	width: 100%;
+	width: 100% !important;
+	margin: 0 !important;
 	padding: 0.6em 1% !important; /* !important for IE */
 	white-space: pre-wrap;
 }
@@ -3518,6 +3521,45 @@ body .mc-gravity-confirmation .gform_confirmation_wrapper, body .mc_gravity-conf
 body .mc-newsletter-confirmation .gform_confirmation_wrapper, body .mc_newsletter-confirmation .gform_confirmation_wrapper {
 	padding: 0;
 	border: none;
+}
+
+body .mc-gravity .gform_heading .gform_description:empty,
+body .mc_gravity .gform_heading .gform_description:empty,
+body .mc-newsletter .gform_heading .gform_description:empty,
+body .mc_newsletter .gform_heading .gform_description:empty,
+body .mc-gravity_wrapper .gform_heading .gform_description:empty,
+body .mc_gravity_wrapper .gform_heading .gform_description:empty,
+body .mc-newsletter_wrapper .gform_heading .gform_description:empty,
+body .mc_newsletter_wrapper .gform_heading .gform_description:empty {
+	display: none;
+}
+
+body .mc-gravity .gform_fields .gfield,
+body .mc_gravity .gform_fields .gfield,
+body .mc-newsletter .gform_fields .gfield,
+body .mc_newsletter .gform_fields .gfield,
+body .mc-gravity_wrapper .gform_fields .gfield,
+body .mc_gravity_wrapper .gform_fields .gfield,
+body .mc-newsletter_wrapper .gform_fields .gfield,
+body .mc_newsletter_wrapper .gform_fields .gfield {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+
+/**
+ * Beaver Builder Template
+ */
+.page-template-template-beaver-builder .in.content-wrapper-in {
+	max-width: none;
+}
+
+.page-template-template-beaver-builder.fl-builder .in.content-wrapper-in  {
+	padding: 0;
+}
+
+.page-template-template-beaver-builder #footer {
+	margin-top: 0;
 }
 
 
@@ -3600,6 +3642,33 @@ body .mc-newsletter-confirmation .gform_confirmation_wrapper, body .mc_newslette
 	/**
 	 * Conductor
 	 */
+	/* Headings */
+	.conductor-widget h1 {
+		font-size: 1.7777777rem;
+	}
+
+	.conductor-widget h2 {
+		font-size: 1.5555555rem;
+	}
+
+	.conductor-widget h3,
+	.conductor-widget .article-title {
+		font-size: 1.3333333rem;
+	}
+
+	.conductor-widget h4 {
+		font-size: 1.2222222rem;
+	}
+
+	.conductor-widget h5 {
+		font-size: 1.1111111rem;
+	}
+
+	.conductor-widget h6 {
+		font-size: 1rem;
+	}
+
+	/* General */
 	.conductor-cols-3 .conductor-primary-sidebar,
 	.conductor-cols-3-r .conductor-content,
 	.conductor-cols-3-r .conductor-primary-sidebar,
@@ -3694,8 +3763,42 @@ body .mc-newsletter-confirmation .gform_confirmation_wrapper, body .mc_newslette
 	}
 
 	/**
+	 * Note
+	 */
+	/* Baton Hero 3 */
+	.baton-hero-widget .baton-hero-3 .note-baton-hero-in,
+	.baton-hero-widget .baton-hero-3-r .note-baton-hero-in {
+		width: 80%;
+	}
+
+	/**
 	 * Content
 	 */
+	/* Headings */
+	h1 {
+		font-size: 1.7777777rem;
+	}
+	
+	h2 {
+		font-size: 1.5555555rem;
+	}
+	
+	h3 {
+		font-size: 1.3333333rem;
+	}
+	
+	h4 {
+		font-size: 1.2222222rem;
+	}
+	
+	h5 {
+		font-size: 1.1111111rem;
+	}
+	
+	h6 {
+		font-size: 1rem;
+	}
+	
 	/* Content Layout */
 	.after-posts-widgets .widget, .comments {
 		padding: 0 4em 2em;
@@ -3924,6 +4027,12 @@ body .mc-newsletter-confirmation .gform_confirmation_wrapper, body .mc_newslette
 	/* Baton Hero 2 */
 	.baton-hero-widget .baton-hero-2 .note-content h2 {
 		font-size: 1.8888888rem;
+	}
+
+	/* Baton Hero 3 */
+	.baton-hero-widget .baton-hero-3 .note-baton-hero-in,
+	.baton-hero-widget .baton-hero-3-r .note-baton-hero-in {
+		width: 90%;
 	}
 
 	/**
@@ -4209,6 +4318,28 @@ body .mc-newsletter-confirmation .gform_confirmation_wrapper, body .mc_newslette
 	}
 
 	/**
+	 * Note
+	 */
+	/* Baton Hero 3 */
+	.baton-hero-widget .baton-hero-3 .note-baton-hero-in,
+	.baton-hero-widget .baton-hero-3-r .note-baton-hero-in {
+		width: 100%;
+		margin: 0;
+		padding: 2rem;
+	}
+
+	.baton-hero-widget .baton-hero-3 .note-baton-hero-in,
+	.baton-hero-widget .baton-hero-3-r .note-baton-hero-in,
+	.baton-hero-widget .baton-hero-3 .note-content,
+	.baton-hero-widget .baton-hero-3-r .note-content {
+		-moz-transform: skewX(0deg);
+		-webkit-transform: skewX(0deg);
+		-o-transform: skewX(0deg);
+		-ms-transform: skewX(0deg);
+		transform: skewX(0deg);
+	}
+
+	/**
 	 * Content
 	 */
 	/* Content Layout */
@@ -4336,5 +4467,13 @@ body .mc-newsletter-confirmation .gform_confirmation_wrapper, body .mc_newslette
 	 */
 	#footer {
 		margin-top: 1.5em;
+	}
+
+
+	/**
+	 * Beaver Builder Template
+	 */
+	.page-template-template-beaver-builder #footer {
+		margin-top: 0;
 	}
 }

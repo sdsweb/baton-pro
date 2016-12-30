@@ -2,9 +2,30 @@
 Theme: Baton Pro
 Author: Slocum Themes/Slocum Design Studio
 Author URI: https://slocumthemes.com/
-Current Version: 1.0.4
+Current Version: 1.0.8
 ==========================================
 
+
+1.0.8 // December 30 2016
+-------------------------
+- Added missing Baton Hero 3 Note Widget display CSS to color scheme stylesheets
+- Introduced baton_enable_beaver_builder_page_template filter to allow developers
+  to keep the Beaver Builder page template enabled/active
+
+1.0.7 // December 05 2016
+-------------------------
+- Introduced Beaver Builder page template (hidden when Beaver Builder is inactive)
+
+1.0.6 // October 03 2016
+------------------------
+- Added responsive styles for Baton Hero 3 Note Widget displays
+
+1.0.5 // September 16 2016
+--------------------------
+- Introduced Baton Note Hero 3 Displays
+- Adjusted CSS for mc-gravity forms to ensure better cross-browser display/compatibility
+- Adjusted heading font sizes in responsive viewports
+- Fixed a bug where categories and tags would not display correctly in Conductor Widgets
 
 1.0.4 // May 24 2016
 --------------------
