@@ -77,6 +77,12 @@ select {
 	background: #fff;
 }
 
+/* Baton Hero 3 */
+.baton-hero-widget .baton-hero-3 .note-baton-hero-in,
+.baton-hero-widget .baton-hero-3-r .note-baton-hero-in {
+	background-color: rgba(255, 91, 93, 0.8);
+}
+
 /* Baton Features 1 */
 .baton-features-widget .baton-features-1 .note-col .note-content h1:after,
 .baton-features-widget .baton-features-1 .note-col .note-content h2:after,
