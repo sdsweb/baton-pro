@@ -355,14 +355,6 @@ nav .primary-nav .children .children:after{
 	color: #abb3ad;
 }
 
-/* Front Page Gravity Forms */
-body .mc-gravity, body .mc_gravity,
-body .mc-newsletter, body .mc_newsletter,
-body .mc-gravity_wrapper, body .mc_gravity_wrapper,
-body .mc-newsletter_wrapper, body .mc_newsletter_wrapper {
-	background: #fff;
-}
-
 /* Comments */
 .article-post-navigation a, .comments-navigation a {
 	color: #323b48;

@@ -1,5 +1,8 @@
 <?php
-	global $sidebars_widgets, $sds_theme_options;
+	global $sds_theme_options;
+
+	// Grab the sidebars widgets
+	$sidebars_widgets = wp_get_sidebars_widgets();
 
 	// Bail if accessed directly
 	if ( ! defined( 'ABSPATH' ) )
