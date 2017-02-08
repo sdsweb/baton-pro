@@ -2,9 +2,21 @@
 Theme: Baton Pro
 Author: Slocum Themes/Slocum Design Studio
 Author URI: https://slocumthemes.com/
-Current Version: 1.0.8
+Current Version: 1.0.9
 ==========================================
 
+
+1.0.9 // February 08 2016
+-------------------------
+- Fixed possible PHP fatal error in the Customizer due to Customizer changesets; Thanks Andrew Nyquist
+- Fixed issue where footer widget display did not update in the Customizer Previewer due to the
+  global $sidebars_widgets data not being updated
+- Fixed a display issue where Conductor Widget display was not correct in some cases due to
+  CSS pseudo-elements
+- Adjusted CSS for Conductor Slider add-on displays
+- Removed extra Gravity Forms CSS from green color scheme stylesheet
+- Added missing Customizer controls for background image properties (preset, position, and size)
+- Added missing text domain to translation function
 
 1.0.8 // December 30 2016
 -------------------------

@@ -5,7 +5,7 @@
  * Text Domain: baton
  * Author: Slocum Studio
  * Author URI: https://slocumthemes.com/
- * Version: 1.0.8
+ * Version: 1.0.9
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Tags: blue, green, orange, pink, purple, red, white, light, two-columns, left-sidebar, fluid-layout, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments
@@ -786,12 +786,16 @@ a img.aligncenter {
 .baton-note-sidebar .conductor-widget,
 .baton-note-sidebar .widget.conductor-widget,
 .baton-note-sidebar .conductor-widget .baton-note-sidebar-widget-in,
-.baton-note-sidebar .widget.conductor-widget .baton-note-sidebar-widget-in {
+.baton-note-sidebar .widget.conductor-widget .baton-note-sidebar-widget-in,
+.baton-note-sidebar .conductor-row.conductor-widget-single-flexbox-wrap {
+	width: 100%;
+	margin: auto;
 	max-width: 1272px;
 }
 
 .baton-note-sidebar .conductor-widget.conductor-flex,
-.baton-note-sidebar .widget.conductor-widget.conductor-flex {
+.baton-note-sidebar .widget.conductor-widget.conductor-flex,
+.baton-note-sidebar .conductor-row.conductor-widget-single-flexbox-wrap {
 	padding: 2em 1rem;
 	margin-bottom: 0;
 }
@@ -1199,6 +1203,10 @@ a img.aligncenter {
 /**
  * Conductor
  */
+.conductor-widget.cf:before, .conductor-widget.cf:after {
+	display: none;
+}
+
 .conductor-content, .conductor-primary-sidebar, .conductor-secondary-sidebar,
 .conductor-cols-2-r .conductor-content,
 .conductor-cols-2-r .conductor-primary-sidebar,
@@ -1273,7 +1281,8 @@ a img.aligncenter {
 }
 
 .front-page-widgets .conductor-widget.conductor-flex,
-.front-page-widgets .widget.conductor-widget.conductor-flex {
+.front-page-widgets .widget.conductor-widget.conductor-flex,
+.front-page-widgets .widget.conductor-qb-widget.conductor-flex {
 	padding: 2em 1rem;
 	margin-bottom: 0;
 }
@@ -1999,7 +2008,8 @@ a img.aligncenter {
 	display: block;
 }
 
-.front-page-widgets .conductor-widget.conductor-slider-testimonials-wrap .widget.conductor-widget.conductor-flex {
+.front-page-widgets .conductor-widget.conductor-slider-testimonials-wrap .widget.conductor-widget.conductor-flex,
+.front-page-widgets .conductor-widget.conductor-slider-testimonials-wrap .widget.conductor-qb-widget.conductor-flex {
 	padding-left: 2.2222222rem;
 	padding-right: 2.2222222rem;
 }
@@ -2044,7 +2054,8 @@ a img.aligncenter {
 	margin-right: auto;
 }
 
-.front-page-widgets .conductor-slider-hero-slider .in.conductor-row {
+.front-page-widgets .conductor-slider-hero-slider .in.conductor-row,
+.front-page-widgets .conductor-widget.conductor-slider-hero-widget-wrap .conductor-slider .conductor-slider-hero-wrap {
 	padding: 0;
 }
 
@@ -2071,7 +2082,9 @@ a img.aligncenter {
 }
 
 .front-page-widgets .conductor-slider-news-wrap .conductor-widget.conductor-flex,
-.front-page-widgets .conductor-slider-news-wrap .widget.conductor-widget.conductor-flex {
+.front-page-widgets .conductor-slider-news-wrap .widget.conductor-widget.conductor-flex,
+.front-page-widgets .conductor-slider-news-wrap .conductor-qb-widget.conductor-flex,
+.front-page-widgets .conductor-slider-news-wrap .widget.conductor-qb-widget.conductor-flex {
 	padding-top: 0;
 	padding-bottom: 0;
 }
@@ -3433,6 +3446,7 @@ body .mc-gravity_wrapper .gform_fields input, body .mc_gravity_wrapper .gform_fi
 body .mc-newsletter_wrapper .gform_fields input, body .mc_newsletter_wrapper .gform_fields input {
 	width: 100% !important;
 	padding: 0.6em !important;
+	line-height: 1.5em !important;
 }
 
 body .gform_wrapper.mc-gravity_wrapper .gform_fields .gfield_error input,
@@ -3498,6 +3512,7 @@ body .mc-newsletter_wrapper .gform_footer .button, body .mc_newsletter_wrapper .
 	width: 100% !important;
 	margin: 0 !important;
 	padding: 0.6em 1% !important; /* !important for IE */
+	line-height: 1.5em !important;
 	white-space: pre-wrap;
 }
 
@@ -3931,7 +3946,8 @@ body .mc_newsletter_wrapper .gform_fields .gfield {
 		padding-right: 3.3333333rem;
 	}
 
-	.front-page-widgets .conductor-widget.conductor-slider-testimonials-wrap .widget.conductor-widget.conductor-flex {
+	.front-page-widgets .conductor-widget.conductor-slider-testimonials-wrap .widget.conductor-widget.conductor-flex,
+	.front-page-widgets .conductor-widget.conductor-slider-testimonials-wrap .widget.conductor-qb-widget.conductor-flex{
 		max-width: none;
 		padding-left: 0;
 		padding-right: 0;
@@ -4378,7 +4394,7 @@ body .mc_newsletter_wrapper .gform_fields .gfield {
 	body .mc-newsletter .gform_footer, body .mc_newsletter .gform_footer,
 	body .mc-gravity_wrapper .gform_footer, body .mc_gravity_wrapper .gform_footer,
 	body .mc-newsletter_wrapper .gform_footer, body .mc_newsletter_wrapper .gform_footer {
-		width: 100%;
+		width: 100% !important;
 		margin: 0 10%;
 		text-align: center;
 	}

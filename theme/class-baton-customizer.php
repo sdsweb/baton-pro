@@ -557,6 +557,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 				$background_color_control->section = 'baton_background_body'; // Adjust Section
 				$background_color_control->priority = 10; // Adjust Priority
 			}
+
 			if ( $background_color_setting = $wp_customize->get_setting( 'background_color' ) ) // Get Setting
 				$background_color_setting->transport = 'refresh'; // Adjust Transport
 
@@ -573,19 +574,35 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			}
 
 			/**
+			 * Background Preset
+			 */
+			if ( $background_preset_control = $wp_customize->get_control( 'background_preset' ) ) { // Get Control
+				$background_preset_control->section = 'baton_background_body'; // Adjust Section
+				$background_preset_control->priority = 30; // Adjust Priority
+			}
+
+			/**
+			 * Background Position
+			 */
+			if ( $background_position_control = $wp_customize->get_control( 'background_position' ) ) { // Get Control
+				$background_position_control->section = 'baton_background_body'; // Adjust Section
+				$background_position_control->priority = 40; // Adjust Priority
+			}
+
+			/**
+			 * Background Size
+			 */
+			if ( $background_size_control = $wp_customize->get_control( 'background_size' ) ) { // Get Control
+				$background_size_control->section = 'baton_background_body'; // Adjust Section
+				$background_size_control->priority = 50; // Adjust Priority
+			}
+
+			/**
 			 * Background Repeat
 			 */
 			if ( $background_repeat_control = $wp_customize->get_control( 'background_repeat' ) ) { // Get Control
 				$background_repeat_control->section = 'baton_background_body'; // Adjust Section
-				$background_repeat_control->priority = 30; // Adjust Priority
-			}
-
-			/**
-			 * Background Position X
-			 */
-			if ( $background_position_x_control = $wp_customize->get_control( 'background_position_x' ) ) { // Get Control
-				$background_position_x_control->section = 'baton_background_body'; // Adjust Section
-				$background_position_x_control->priority = 40; // Adjust Priority
+				$background_repeat_control->priority = 60; // Adjust Priority
 			}
 
 			/**
@@ -593,7 +610,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $background_attachment_control = $wp_customize->get_control( 'background_attachment' ) ) { // Get Control
 				$background_attachment_control->section = 'baton_background_body'; // Adjust Section
-				$background_attachment_control->priority = 50; // Adjust Priority
+				$background_attachment_control->priority = 70; // Adjust Priority
 			}
 
 
@@ -2911,7 +2928,8 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$r .= '.baton-note-sidebar .conductor-widget,' . "\n";
 					$r .= '.baton-note-sidebar .widget.conductor-widget,' . "\n";
 					$r .= '.baton-note-sidebar .conductor-widget .baton-note-sidebar-widget-in,' . "\n";
-					$r .= '.baton-note-sidebar .widget.conductor-widget .baton-note-sidebar-widget-in {' . "\n";
+					$r .= '.baton-note-sidebar .widget.conductor-widget .baton-note-sidebar-widget-in,' . "\n";
+					$r .= '.baton-note-sidebar .conductor-row.conductor-widget-single-flexbox-wrap {' . "\n";
 						$r .= 'max-width: ' . $theme_mod_baton_max_width . 'px;' . "\n";
 					$r .= '}' . "\n\n";
 				}

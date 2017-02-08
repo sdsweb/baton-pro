@@ -4,7 +4,7 @@
  *
  * @class Baton
  * @author Slocum Studio
- * @version 1.0.8
+ * @version 1.0.9
  * @since 1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		/**
 		 * @var string, Current version number
 		 */
-		public $version = '1.0.8';
+		public $version = '1.0.9';
 
 		/**
 		 * @var string, Slug for Slocum Theme support
@@ -1294,9 +1294,6 @@ if ( ! class_exists( 'Baton' ) ) {
 			// Grab the Baton Theme Helper instance
 			$baton_theme_helper = Baton_Theme_Helper();
 
-			// Grab the Baton Customizer Fonts instance
-			$baton_customizer_fonts = Baton_Customizer_Fonts();
-
 			// Core editor styles
 			add_editor_style( 'css/editor-style.css' );
 
@@ -1309,9 +1306,15 @@ if ( ! class_exists( 'Baton' ) ) {
 				// Lato and Martel Sans
 				$google_web_fonts = 'Lato:400,700,900|Martel+Sans:400,600';
 
-				// If we have Google Web Font support and have Google Web Fonts selected
-				if ( $baton_theme_helper->has_google_web_font_support() && ! $baton_customizer_fonts->has_default_font_families( true ) )
-					$google_web_fonts .= '|' . $baton_customizer_fonts->get_google_web_font_stylesheet_families();
+				// If the Baton_Customizer_Fonts() function exists
+				if ( function_exists( 'Baton_Customizer_Fonts' ) ) {
+					// Grab the Baton Customizer Fonts instance
+					$baton_customizer_fonts = Baton_Customizer_Fonts();
+
+					// If we have Google Web Font support and have Google Web Fonts selected
+					if ( $baton_theme_helper->has_google_web_font_support() && ! $baton_customizer_fonts->has_default_font_families( true ) )
+						$google_web_fonts .= '|' . $baton_customizer_fonts->get_google_web_font_stylesheet_families();
+				}
 
 				add_editor_style( str_replace( ',', '%2C', $protocol . '://fonts.googleapis.com/css?family=' . $google_web_fonts ) ); // Google Web Fonts
 			}
@@ -1938,7 +1941,7 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $templates['baton-hero-3'] ) )
 				$templates['baton-hero-3'] = array(
 					// Label
-					'label' => __( 'Baton Hero 3 (Content Left)' ),
+					'label' => __( 'Baton Hero 3 (Content Left)', 'baton' ),
 					// Placeholder Content
 					'placeholder' => sprintf( '<h3>%1$s</h3>
 								<p>%2$s</p>',
