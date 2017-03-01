@@ -24,7 +24,7 @@
 				<a class="author-url-link" href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>"><?php echo get_the_author_meta( 'user_url' ); ?></a>
 			</div>
 			<div class="author-view-more-link">
-				<a class="author-view-more-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php _e( 'View more posts from this author', 'baton' ); ?></a>
+				<a class="author-view-more-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php _e( 'View more posts from this author', 'baton-pro' ); ?></a>
 			</div>
 		</div>
 	</div>

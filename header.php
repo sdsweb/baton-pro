@@ -25,7 +25,7 @@
 			<!-- Primary Navigation (Mobile) -->
 			<div id="primary-nav-wrap-mobile" class="primary-nav-wrap-mobile">
 				<nav id="primary-nav-mobile-container" class="primary-nav-mobile-container cf-768">
-					<a href="#" id="primary-nav-button" class="primary-nav-button button" title="<?php esc_attr_e( 'Toggle Navigation', 'baton' ); ?>">
+					<a href="#" id="primary-nav-button" class="primary-nav-button button" title="<?php esc_attr_e( 'Toggle Navigation', 'baton-pro' ); ?>">
 						<span class="primary-nav-button-inner">
 							<?php
 								// Primary Navigation label
@@ -35,7 +35,7 @@
 								}
 								// Fallback
 								else
-									_e( 'Navigation', 'baton' );
+									_e( 'Navigation', 'baton-pro' );
 							?>
 						</span>
 					</a>
@@ -98,7 +98,7 @@
 		<?php if ( has_nav_menu( 'secondary_nav' ) ) : // Secondary Navigation Menu ?>
 		<div id="secondary-nav-wrap" class="secondary-nav-wrap">
 			<nav id="secondary-nav-container" class="secondary-nav-container">
-				<a href="#" id="secondary-nav-button" class="secondary-nav-button button" title="<?php esc_attr_e( 'Toggle Navigation', 'baton' ); ?>">
+				<a href="#" id="secondary-nav-button" class="secondary-nav-button button" title="<?php esc_attr_e( 'Toggle Navigation', 'baton-pro' ); ?>">
 					<span class="secondary-nav-button-inner">
 						<?php
 							// Secondary Navigation label
@@ -108,7 +108,7 @@
 							}
 							// Fallback
 							else
-								_e( 'Navigation', 'baton' );
+								_e( 'Navigation', 'baton-pro' );
 						?>
 					</span>
 				</a>

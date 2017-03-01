@@ -471,10 +471,8 @@ nav .primary-nav .children .children:after{
 }
 
 /**
- * 3rd Party
+ * Gravity Forms
  */
-
-/* Gravity Forms */
 body .mc-gravity .gform_heading, body .mc_gravity .gform_heading,
 body .mc-newsletter .gform_heading, body .mc_newsletter .gform_heading,
 body .mc-gravity_wrapper .gform_heading, body .mc_gravity_wrapper .gform_heading,
@@ -482,6 +480,83 @@ body .mc-newsletter_wrapper .gform_heading, body .mc_newsletter_wrapper .gform_h
 body .mc-gravity-confirmation, body .mc_gravity-confirmation,
 body .mc-newsletter-confirmation, body .mc_newsletter-confirmation {
 	background: #66bc7d;
+}
+
+/**
+ * WooCommerce
+ */
+.woocommerce .woocommerce-breadcrumb a {
+	color: #66bc7d;
+}
+
+.woocommerce .woocommerce-ordering select {
+	background: #fff;
+}
+
+.woocommerce button.button#search-submit {
+	color: #abb3ad;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.wa_wps_add_to_cart a,
+.widget .wa_wps_add_to_cart a {
+	color: #fff;
+	background: #66bc7d;
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover,
+.wa_wps_add_to_cart a:hover,
+.widget .wa_wps_add_to_cart a:hover {
+	color: #fff;
+	background: #323b48;
+}
+
+.woocommerce #respond input#submit.alt.disabled,
+.woocommerce #respond input#submit.alt.disabled:hover,
+.woocommerce #respond input#submit.alt:disabled,
+.woocommerce #respond input#submit.alt:disabled:hover,
+.woocommerce #respond input#submit.alt:disabled[disabled],
+.woocommerce #respond input#submit.alt:disabled[disabled]:hover,
+.woocommerce a.button.alt.disabled,
+.woocommerce a.button.alt.disabled:hover,
+.woocommerce a.button.alt:disabled,
+.woocommerce a.button.alt:disabled:hover,
+.woocommerce a.button.alt:disabled[disabled],
+.woocommerce a.button.alt:disabled[disabled]:hover,
+.woocommerce button.button.alt.disabled,
+.woocommerce button.button.alt.disabled:hover,
+.woocommerce button.button.alt:disabled,
+.woocommerce button.button.alt:disabled:hover,
+.woocommerce button.button.alt:disabled[disabled],
+.woocommerce button.button.alt:disabled[disabled]:hover,
+.woocommerce input.button.alt.disabled,
+.woocommerce input.button.alt.disabled:hover,
+.woocommerce input.button.alt:disabled,
+.woocommerce input.button.alt:disabled:hover,
+.woocommerce input.button.alt:disabled[disabled],
+.woocommerce input.button.alt:disabled[disabled]:hover {
+	color: #fff;
+	background: #66bc7d;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel,
+.woocommerce-message {
+	background: #fff;
+	box-shadow: 0 2px 0 0 #d3d8de;
 }
 
 /**

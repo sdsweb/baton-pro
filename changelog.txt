@@ -2,11 +2,18 @@
 Theme: Baton Pro
 Author: Slocum Themes/Slocum Design Studio
 Author URI: https://slocumthemes.com/
-Current Version: 1.0.9
+Current Version: 1.1.0
 ==========================================
 
 
-1.0.9 // February 08 2016
+1.1.0 // March 01 2017
+----------------------
+- Added WooCommerce support
+- Fixed a bug where a box shadow was added to WordPress editor content
+- Switched text domain to baton-pro
+- Updated POT file
+
+1.0.9 // February 08 2017
 -------------------------
 - Fixed possible PHP fatal error in the Customizer due to Customizer changesets; Thanks Andrew Nyquist
 - Fixed issue where footer widget display did not update in the Customizer Previewer due to the

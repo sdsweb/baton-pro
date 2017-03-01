@@ -114,7 +114,7 @@ if ( ! class_exists( 'Baton_Customizer_Conductor_Fonts' ) ) {
 						 */
 						$wp_customize->add_panel( 'baton_conductor_fonts', array(
 							'priority' => 110, // After Conductor Content Layouts
-							'title' => __( 'Conductor Typography', 'baton' )
+							'title' => __( 'Conductor Typography', 'baton-pro' )
 						) );
 
 						/*
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Baton_Customizer_Conductor_Fonts' ) ) {
 								'priority' => $section_priority,
 								'title' => $widget_display_support['labels']['section'],
 								'panel' => 'baton_conductor_fonts',
-								'description' => __( 'Selecting multiple Google Web Fonts may impact the speed/performance of your website.', 'baton' )
+								'description' => __( 'Selecting multiple Google Web Fonts may impact the speed/performance of your website.', 'baton-pro' )
 							) );
 
 							// Loop through support
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Baton_Customizer_Conductor_Fonts' ) ) {
 															$wp_customize,
 															'baton_conductor_' . $display . '_' . $support_id . '_font_size',
 															array(
-																'label' => sprintf( __( '%1$s Font Size', 'baton' ), $support['labels']['control'] ),
+																'label' => sprintf( __( '%1$s Font Size', 'baton-pro' ), $support['labels']['control'] ),
 																'section' => 'baton_fonts_conductor_' . $display,
 																'settings' => 'baton_conductor_' . $display . '_' . $support_id . '_font_size',
 																'priority' => $setting_priority,
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Baton_Customizer_Conductor_Fonts' ) ) {
 																	'style' => 'width: 70px;'
 																),
 																'units' => array(
-																	'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton' )
+																	'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton-pro' )
 																)
 															)
 														)
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Baton_Customizer_Conductor_Fonts' ) ) {
 															$wp_customize,
 															'baton_conductor_' . $display . '_' . $support_id . '_font_family',
 															array(
-																'label' => sprintf( __( '%1$s Font Family', 'baton' ), $support['labels']['control'] ),
+																'label' => sprintf( __( '%1$s Font Family', 'baton-pro' ), $support['labels']['control'] ),
 																'section' => 'baton_fonts_conductor_' . $display,
 																'settings' => 'baton_conductor_' . $display . '_' . $support_id . '_font_family',
 																'priority' => $setting_priority + 5,

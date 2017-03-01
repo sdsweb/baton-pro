@@ -18,16 +18,16 @@ get_header(); ?>
 						<article class="content error-404 no-posts cf">
 							<!-- Article Header -->
 							<header class="article-title-wrap">
-								<h1 title="<?php _e( '404 Error', 'baton' ); ?>" class="article-title"><?php _e( '404 Error', 'baton' ); ?></h1>
+								<h1 title="<?php _e( '404 Error', 'baton-pro' ); ?>" class="article-title"><?php _e( '404 Error', 'baton-pro' ); ?></h1>
 							</header>
 							<!-- End Article Header -->
 
 							<!-- Article Content -->
 							<div class="article-content cf">
-								<p><?php _e( 'We apologize but something when wrong while trying to find what you were looking for. Please use the navigation below to navigate to your destination.', 'baton' ); ?></p>
+								<p><?php _e( 'We apologize but something when wrong while trying to find what you were looking for. Please use the navigation below to navigate to your destination.', 'baton-pro' ); ?></p>
 
 								<div id="search-404" class="search-404">
-									<p><?php _e( 'Search:', 'baton' ); ?></p>
+									<p><?php _e( 'Search:', 'baton-pro' ); ?></p>
 									<?php echo get_search_form(); ?>
 								</div>
 

@@ -210,6 +210,7 @@ body, body.wp-autoresize {
 	font-size: 18px;
 	color: #4c5357;
 	line-height: 1.8rem;
+	box-shadow: none !important; /* Box shadows are added by color schemes and Customizer settings */
 
 	/* Ensure that all long words are broken up so they do not exceed the width of their container elements. */
 	-ms-word-wrap: break-word;

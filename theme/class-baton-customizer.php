@@ -240,7 +240,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_general_settings', array(
 				'priority' => 10, // Top
-				'title' => __( 'General Settings', 'baton' )
+				'title' => __( 'General Settings', 'baton-pro' )
 			) );
 
 
@@ -280,7 +280,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_design_site_layout', array(
 				'priority' => 40, // After Static Front Page
-				'title' => __( 'Site Layout', 'baton' ),
+				'title' => __( 'Site Layout', 'baton-pro' ),
 				'panel' => 'baton_general_settings'
 			) );
 
@@ -304,8 +304,8 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_max_width',
 					array(
-						'label' => __( 'Maximum Width', 'baton' ),
-						'description' => __( 'The default width is 1272px.', 'baton' ),
+						'label' => __( 'Maximum Width', 'baton-pro' ),
+						'description' => __( 'The default width is 1272px.', 'baton-pro' ),
 						'section' => 'baton_design_site_layout',
 						'settings' => 'baton_max_width',
 						'priority' => 10, // Top
@@ -318,7 +318,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 							'step' => '10'
 						),
 						'units' => array(
-							'title' => _x( 'pixels', 'title attribute for max width Customizer control', 'baton' )
+							'title' => _x( 'pixels', 'title attribute for max width Customizer control', 'baton-pro' )
 						)
 					)
 				)
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			// Section
 			$wp_customize->add_section( 'baton_reset_theme_mods', array(
 				'priority' => 70, // After Show/Hide
-				'title' => __( 'Reset Settings', 'baton' ),
+				'title' => __( 'Reset Settings', 'baton-pro' ),
 				'panel' => 'baton_general_settings'
 			) );
 
@@ -385,12 +385,12 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_reset_colors',
 					array(
-						'label' => __( 'Reset Colors', 'baton' ),
-						'description' => __( 'Reset all individual color settings to their default values based on the selected color scheme.', 'baton' ),
+						'label' => __( 'Reset Colors', 'baton-pro' ),
+						'description' => __( 'Reset all individual color settings to their default values based on the selected color scheme.', 'baton-pro' ),
 						'section' => 'baton_reset_theme_mods',
 						'settings' => 'baton_reset_colors',
 						'priority' => 10,
-						'button_label' => __( 'Reset Colors', 'baton' ),
+						'button_label' => __( 'Reset Colors', 'baton-pro' ),
 						'reset_type' => 'colors'
 					)
 				)
@@ -415,12 +415,12 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_reset_background_images',
 					array(
-						'label' => __( 'Reset Background Images', 'baton' ),
-						'description' => __( 'Reset all individual background image settings back to their default values.', 'baton' ),
+						'label' => __( 'Reset Background Images', 'baton-pro' ),
+						'description' => __( 'Reset all individual background image settings back to their default values.', 'baton-pro' ),
 						'section' => 'baton_reset_theme_mods',
 						'settings' => 'baton_reset_background_images',
 						'priority' => 20, // After Reset Colors
-						'button_label' => __( 'Reset Background Images', 'baton' ),
+						'button_label' => __( 'Reset Background Images', 'baton-pro' ),
 						'reset_type' => 'background_images'
 					)
 				)
@@ -445,12 +445,12 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_reset_font_properties',
 					array(
-						'label' => __( 'Reset Font Attributes', 'baton' ),
-						'description' => __( 'Reset all individual font size, letter spacing, and line height settings back to their default values.', 'baton' ),
+						'label' => __( 'Reset Font Attributes', 'baton-pro' ),
+						'description' => __( 'Reset all individual font size, letter spacing, and line height settings back to their default values.', 'baton-pro' ),
 						'section' => 'baton_reset_theme_mods',
 						'settings' => 'baton_reset_font_properties',
 						'priority' => 30, // After Reset Background Images
-						'button_label' => __( 'Reset Font Attributes', 'baton' ),
+						'button_label' => __( 'Reset Font Attributes', 'baton-pro' ),
 						'reset_type' => 'font_properties'
 					)
 				)
@@ -475,12 +475,12 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_reset_font_families',
 					array(
-						'label' => __( 'Reset Font Families', 'baton' ),
-						'description' => __( 'Reset all individual font family settings back to their default values.', 'baton' ),
+						'label' => __( 'Reset Font Families', 'baton-pro' ),
+						'description' => __( 'Reset all individual font family settings back to their default values.', 'baton-pro' ),
 						'section' => 'baton_reset_theme_mods',
 						'settings' => 'baton_reset_font_families',
 						'priority' => 40, // After Reset Font Properties
-						'button_label' => __( 'Reset Font Families', 'baton' ),
+						'button_label' => __( 'Reset Font Families', 'baton-pro' ),
 						'reset_type' => 'font_families'
 					)
 				)
@@ -505,12 +505,12 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_reset_all_theme_mods',
 					array(
-						'label' => __( 'Reset All of the Above', 'baton' ),
-						'description' => __( 'Reset ALL individual color, background image, font attribute, and font family settings back to their default values.', 'baton' ),
+						'label' => __( 'Reset All of the Above', 'baton-pro' ),
+						'description' => __( 'Reset ALL individual color, background image, font attribute, and font family settings back to their default values.', 'baton-pro' ),
 						'section' => 'baton_reset_theme_mods',
 						'settings' => 'baton_reset_all_theme_mods',
 						'priority' => 50, // After Reset Font Sizes
-						'button_label' => __( 'Reset All', 'baton' ),
+						'button_label' => __( 'Reset All', 'baton-pro' ),
 						'reset_type' => 'all'
 					)
 				)
@@ -522,12 +522,12 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 
 			if ( $colors_section = $wp_customize->get_section( 'colors' ) ) { // Get Section
-				$colors_section->title = __( 'Color Scheme', 'baton' ); // Adjust Label
+				$colors_section->title = __( 'Color Scheme', 'baton-pro' ); // Adjust Label
 				$colors_section->priority = 20; // Adjust priority (after General Settings)
 			}
 
 			if ( $sds_theme_options_color_scheme_control = $wp_customize->get_control( 'sds_theme_options[color_scheme]' ) ) { // Get Control
-				$sds_theme_options_color_scheme_control->description = __( 'Select a color scheme to use on your site. Individual color settings exist throughout the Customizer for even more flexibility.', 'baton' ); // Adjust description
+				$sds_theme_options_color_scheme_control->description = __( 'Select a color scheme to use on your site. Individual color settings exist throughout the Customizer for even more flexibility.', 'baton-pro' ); // Adjust description
 
 				// Store a reference of the color controls
 				$this->sds_color_scheme_control_ids = $sds_theme_options_color_scheme_control->color_controls;
@@ -538,7 +538,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_background_color_image', array(
 				'priority' => 25, // After Color Scheme Section
-				'title' => __( 'Background Colors &amp; Images', 'baton' )
+				'title' => __( 'Background Colors &amp; Images', 'baton-pro' )
 			) );
 
 			/**
@@ -546,7 +546,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_background_body', array(
 				'priority' => 10, // Top
-				'title' => __( 'Body', 'baton' ),
+				'title' => __( 'Body', 'baton-pro' ),
 				'panel' => 'baton_background_color_image'
 			) );
 
@@ -619,7 +619,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_background_content', array(
 				'priority' => 20, // After Body
-				'title' => __( 'Content', 'baton' ),
+				'title' => __( 'Content', 'baton-pro' ),
 				'panel' => 'baton_background_color_image'
 			) );
 
@@ -642,7 +642,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_content_background_color',
 					array(
-						'label' => __( 'Content Background Color', 'baton' ),
+						'label' => __( 'Content Background Color', 'baton-pro' ),
 						'section' => 'baton_background_content',
 						'settings' => 'baton_content_background_color',
 						'priority' => 10
@@ -668,7 +668,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_content_background_image',
 					array(
-						'label' => __( 'Content Background Image', 'baton' ),
+						'label' => __( 'Content Background Image', 'baton-pro' ),
 						'section' => 'baton_background_content',
 						'settings' => 'baton_content_background_image',
 						'priority' => 20
@@ -697,16 +697,16 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_content_background_image_repeat',
 					array(
-						'label' => __( 'Background Repeat', 'baton' ),
+						'label' => __( 'Background Repeat', 'baton-pro' ),
 						'section' => 'baton_background_content',
 						'settings' => 'baton_content_background_image_repeat',
 						'priority' => 30,
 						'type' => 'radio',
 						'choices' => array(
-							'no-repeat' => __( 'No Repeat', 'baton' ),
-							'repeat' => __( 'Tile', 'baton' ),
-							'repeat-x' => __( 'Tile Horizontally', 'baton' ),
-							'repeat-y' => __( 'Tile Vertically', 'baton' )
+							'no-repeat' => __( 'No Repeat', 'baton-pro' ),
+							'repeat' => __( 'Tile', 'baton-pro' ),
+							'repeat-x' => __( 'Tile Horizontally', 'baton-pro' ),
+							'repeat-y' => __( 'Tile Vertically', 'baton-pro' )
 						)
 					)
 				)
@@ -730,15 +730,15 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_content_background_image_position_x',
 					array(
-						'label' => __( 'Background Position', 'baton' ),
+						'label' => __( 'Background Position', 'baton-pro' ),
 						'section' => 'baton_background_content',
 						'settings' => 'baton_content_background_image_position_x',
 						'priority' => 40,
 						'type' => 'radio',
 						'choices' => array(
-							'left' => __( 'Left', 'baton' ),
-							'center' => __( 'Center', 'baton' ),
-							'right' => __( 'Right', 'baton' )
+							'left' => __( 'Left', 'baton-pro' ),
+							'center' => __( 'Center', 'baton-pro' ),
+							'right' => __( 'Right', 'baton-pro' )
 						)
 					)
 				)
@@ -762,14 +762,14 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_content_background_image_attachment',
 					array(
-						'label' => __( 'Background Attachment', 'baton' ),
+						'label' => __( 'Background Attachment', 'baton-pro' ),
 						'section' => 'baton_background_content',
 						'settings' => 'baton_content_background_image_attachment',
 						'priority' => 50,
 						'type' => 'radio',
 						'choices' => array(
-							'scroll' => __( 'Scroll', 'baton' ),
-							'fixed' => __( 'Fixed', 'baton' )
+							'scroll' => __( 'Scroll', 'baton-pro' ),
+							'fixed' => __( 'Fixed', 'baton-pro' )
 						)
 					)
 				)
@@ -781,7 +781,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_main_header', array(
 				'priority' => 40,
-				'title' => __( 'Header', 'baton' )
+				'title' => __( 'Header', 'baton-pro' )
 			) );
 
 			/**
@@ -789,7 +789,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_main_header_alignment', array(
 				'priority' => 10, // Top
-				'title' => __( 'Alignment', 'baton' ),
+				'title' => __( 'Alignment', 'baton-pro' ),
 				'panel' => 'baton_main_header'
 			) );
 
@@ -811,17 +811,17 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_main_header_alignment',
 					array(
-						'label' => __( 'Alignment', 'baton' ),
+						'label' => __( 'Alignment', 'baton-pro' ),
 						'section' => 'baton_main_header_alignment',
 						'settings' => 'baton_main_header_alignment',
 						'priority' => 10,
 						'type' => 'select',
 						'choices' => array(
-							'' => __( '&mdash; Select &mdash;', 'baton' ),
-							'traditional' => __( 'Default', 'baton' ),
-							'centered' => __( 'Centered', 'baton' ),
-							'flipped' => __( 'Flipped', 'baton' ),
-							'nav-below' => __( 'Navigation Below', 'baton' )
+							'' => __( '&mdash; Select &mdash;', 'baton-pro' ),
+							'traditional' => __( 'Default', 'baton-pro' ),
+							'centered' => __( 'Centered', 'baton-pro' ),
+							'flipped' => __( 'Flipped', 'baton-pro' ),
+							'nav-below' => __( 'Navigation Below', 'baton-pro' )
 						)
 					)
 				)
@@ -833,7 +833,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_main_header_site_title', array(
 				'priority' => 20, // After Main Header Alignment
-				'title' => __( 'Site Title', 'baton' ),
+				'title' => __( 'Site Title', 'baton-pro' ),
 				'panel' => 'baton_main_header'
 			) );
 
@@ -856,7 +856,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_site_title_color',
 					array(
-						'label' => __( 'Site Title Color', 'baton' ),
+						'label' => __( 'Site Title Color', 'baton-pro' ),
 						'section' => 'baton_main_header_site_title',
 						'settings' => 'baton_site_title_color',
 						'priority' => 10
@@ -895,7 +895,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_main_header_tagline', array(
 				'priority' => 30, // After Site Title
-				'title' => __( 'Tagline', 'baton' ),
+				'title' => __( 'Tagline', 'baton-pro' ),
 				'panel' => 'baton_main_header'
 			) );
 
@@ -918,7 +918,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_tagline_color',
 					array(
-						'label' => __( 'Tagline Color', 'baton' ),
+						'label' => __( 'Tagline Color', 'baton-pro' ),
 						'section' => 'baton_main_header_tagline',
 						'settings' => 'baton_tagline_color',
 						'priority' => 10
@@ -956,7 +956,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_main_header_navigation', array(
 				'priority' => 40, // After Tagline
-				'title' => __( 'Navigation', 'baton' ),
+				'title' => __( 'Navigation', 'baton-pro' ),
 				'panel' => 'baton_main_header'
 			) );
 
@@ -966,7 +966,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			if ( $primary_color_control = $wp_customize->get_control( 'primary_color' ) ) { // Get Control
 				$primary_color_control->section = 'baton_main_header_navigation'; // Adjust Section
 				$primary_color_control->priority = 10; // Adjust Priority
-				$primary_color_control->label = _x( 'Color','primary navigation color label', 'baton' );
+				$primary_color_control->label = _x( 'Color','primary navigation color label', 'baton-pro' );
 			}
 
 			/**
@@ -988,7 +988,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_primary_hover_active_color',
 					array(
-						'label' => __( 'Hover/Active Color', 'baton' ),
+						'label' => __( 'Hover/Active Color', 'baton-pro' ),
 						'section' => 'baton_main_header_navigation',
 						'settings' => 'baton_primary_hover_active_color',
 						'priority' => 20
@@ -1015,7 +1015,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_primary_sub_menu_color',
 					array(
-						'label' => __( 'Sub Menu Color', 'baton' ),
+						'label' => __( 'Sub Menu Color', 'baton-pro' ),
 						'section' => 'baton_main_header_navigation',
 						'settings' => 'baton_primary_sub_menu_color',
 						'priority' => 30
@@ -1042,7 +1042,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_primary_sub_menu_hover_color',
 					array(
-						'label' => __( 'Sub Menu Hover Color', 'baton' ),
+						'label' => __( 'Sub Menu Hover Color', 'baton-pro' ),
 						'section' => 'baton_main_header_navigation',
 						'settings' => 'baton_primary_sub_menu_hover_color',
 						'priority' => 40
@@ -1069,7 +1069,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_primary_sub_menu_background_color',
 					array(
-						'label' => __( 'Sub Menu Background Color', 'baton' ),
+						'label' => __( 'Sub Menu Background Color', 'baton-pro' ),
 						'section' => 'baton_main_header_navigation',
 						'settings' => 'baton_primary_sub_menu_background_color',
 						'priority' => 50
@@ -1082,7 +1082,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $primary_nav_font_size_control = $wp_customize->get_control( 'baton_navigation_primary_nav_font_size' ) ) { // Get Control
 				$primary_nav_font_size_control->section = 'baton_main_header_navigation'; // Adjust Section
-				$primary_nav_font_size_control->label = __( 'Font Size', 'baton' ); // Adjust Label
+				$primary_nav_font_size_control->label = __( 'Font Size', 'baton-pro' ); // Adjust Label
 				$primary_nav_font_size_control->priority = 60; // Adjust Priority
 			}
 
@@ -1091,7 +1091,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $primary_nav_font_family_control = $wp_customize->get_control( 'baton_navigation_primary_nav_font_family' ) ) { // Get Control
 				$primary_nav_font_family_control->section = 'baton_main_header_navigation'; // Adjust Section
-				$primary_nav_font_family_control->label = __( 'Font Family', 'baton' ); // Adjust Label
+				$primary_nav_font_family_control->label = __( 'Font Family', 'baton-pro' ); // Adjust Label
 				$primary_nav_font_family_control->priority = 70; // Adjust Priority
 			}
 
@@ -1101,7 +1101,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_main_header_background', array(
 				'priority' => 50, // After Navigation
-				'title' => __( 'Background', 'baton' ),
+				'title' => __( 'Background', 'baton-pro' ),
 				'panel' => 'baton_main_header'
 			) );
 
@@ -1124,7 +1124,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_header_background_color',
 					array(
-						'label' => __( 'Background Color', 'baton' ),
+						'label' => __( 'Background Color', 'baton-pro' ),
 						'section' => 'baton_main_header_background',
 						'settings' => 'baton_header_background_color',
 						'priority' => 10
@@ -1150,7 +1150,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_header_background_image',
 					array(
-						'label' => __( 'Background Image', 'baton' ),
+						'label' => __( 'Background Image', 'baton-pro' ),
 						'section' => 'baton_main_header_background',
 						'settings' => 'baton_header_background_image',
 						'priority' => 20,
@@ -1179,16 +1179,16 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_header_background_image_repeat',
 					array(
-						'label' => __( 'Background Repeat', 'baton' ),
+						'label' => __( 'Background Repeat', 'baton-pro' ),
 						'section' => 'baton_main_header_background',
 						'settings' => 'baton_header_background_image_repeat',
 						'priority' => 30,
 						'type' => 'radio',
 						'choices' => array(
-							'no-repeat' => __( 'No Repeat', 'baton' ),
-							'repeat' => __( 'Tile', 'baton' ),
-							'repeat-x' => __( 'Tile Horizontally', 'baton' ),
-							'repeat-y' => __( 'Tile Vertically', 'baton' )
+							'no-repeat' => __( 'No Repeat', 'baton-pro' ),
+							'repeat' => __( 'Tile', 'baton-pro' ),
+							'repeat-x' => __( 'Tile Horizontally', 'baton-pro' ),
+							'repeat-y' => __( 'Tile Vertically', 'baton-pro' )
 						)
 					)
 				)
@@ -1212,15 +1212,15 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_header_background_image_position_x',
 					array(
-						'label' => __( 'Background Position', 'baton' ),
+						'label' => __( 'Background Position', 'baton-pro' ),
 						'section' => 'baton_main_header_background',
 						'settings' => 'baton_header_background_image_position_x',
 						'priority' => 40,
 						'type' => 'radio',
 						'choices' => array(
-							'left' => __( 'Left', 'baton' ),
-							'center' => __( 'Center', 'baton' ),
-							'right' => __( 'Right', 'baton' )
+							'left' => __( 'Left', 'baton-pro' ),
+							'center' => __( 'Center', 'baton-pro' ),
+							'right' => __( 'Right', 'baton-pro' )
 						)
 					)
 				)
@@ -1244,14 +1244,14 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_header_background_image_attachment',
 					array(
-						'label' => __( 'Background Attachment', 'baton' ),
+						'label' => __( 'Background Attachment', 'baton-pro' ),
 						'section' => 'baton_main_header_background',
 						'settings' => 'baton_header_background_image_attachment',
 						'priority' => 50,
 						'type' => 'radio',
 						'choices' => array(
-							'scroll' => __( 'Scroll', 'baton' ),
-							'fixed' => __( 'Fixed', 'baton' )
+							'scroll' => __( 'Scroll', 'baton-pro' ),
+							'fixed' => __( 'Fixed', 'baton-pro' )
 						)
 					)
 				)
@@ -1262,7 +1262,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_secondary_header', array(
 				'priority' => 50, // After Main Header
-				'title' => __( 'Secondary Header', 'baton' )
+				'title' => __( 'Secondary Header', 'baton-pro' )
 			) );
 
 			/**
@@ -1270,7 +1270,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_secondary_header_alignment', array(
 				'priority' => 10, // Top
-				'title' => __( 'Alignment', 'baton' ),
+				'title' => __( 'Alignment', 'baton-pro' ),
 				'panel' => 'baton_secondary_header'
 			) );
 
@@ -1292,16 +1292,16 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_alignment',
 					array(
-						'label' => __( 'Alignment', 'baton' ),
+						'label' => __( 'Alignment', 'baton-pro' ),
 						'section' => 'baton_secondary_header_alignment',
 						'settings' => 'baton_secondary_header_alignment',
 						'priority' => 10,
 						'type' => 'select',
 						'choices' => array(
-							'' => __( '&mdash; Select &mdash;', 'baton' ),
-							'traditional' => __( 'Default', 'baton' ),
-							'centered' => __( 'Centered', 'baton' ),
-							'flipped' => __( 'Flipped', 'baton' )
+							'' => __( '&mdash; Select &mdash;', 'baton-pro' ),
+							'traditional' => __( 'Default', 'baton-pro' ),
+							'centered' => __( 'Centered', 'baton-pro' ),
+							'flipped' => __( 'Flipped', 'baton-pro' )
 						)
 					)
 				)
@@ -1313,8 +1313,8 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_secondary_header_navigation', array(
 				'priority' => 20, // After Secondary Header Alignment
-				'title' => __( 'Navigation', 'baton' ),
-				'description' => __( 'This section is displayed on the front-end when a "Secondary Navigation" menu is set under Appearance &gt; Menus or a widget is placed in the "Secondary Sidebar" under Appearance &gt; Widgets.', 'baton' ),
+				'title' => __( 'Navigation', 'baton-pro' ),
+				'description' => __( 'This section is displayed on the front-end when a "Secondary Navigation" menu is set under Appearance &gt; Menus or a widget is placed in the "Secondary Sidebar" under Appearance &gt; Widgets.', 'baton-pro' ),
 				'panel' => 'baton_secondary_header'
 			) );
 
@@ -1325,7 +1325,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			if ( $secondary_color_control = $wp_customize->get_control( 'secondary_color' ) ) { // Get Control
 				$secondary_color_control->section = 'baton_secondary_header_navigation'; // Add panel
 				$secondary_color_control->priority = 10; // Adjust Priority
-				$secondary_color_control->label = _x( 'Color', 'secondary navigation color label', 'baton' );
+				$secondary_color_control->label = _x( 'Color', 'secondary navigation color label', 'baton-pro' );
 			}
 
 
@@ -1348,7 +1348,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_hover_active_color',
 					array(
-						'label' => __( 'Hover/Active Color', 'baton' ),
+						'label' => __( 'Hover/Active Color', 'baton-pro' ),
 						'section' => 'baton_secondary_header_navigation',
 						'settings' => 'baton_secondary_hover_active_color',
 						'priority' => 20
@@ -1376,7 +1376,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_sub_menu_color',
 					array(
-						'label' => __( 'Sub Menu Color', 'baton' ),
+						'label' => __( 'Sub Menu Color', 'baton-pro' ),
 						'section' => 'baton_secondary_header_navigation',
 						'settings' => 'baton_secondary_header_sub_menu_color',
 						'priority' => 30
@@ -1404,7 +1404,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_sub_menu_hover_color',
 					array(
-						'label' => __( 'Sub Menu Hover Color', 'baton' ),
+						'label' => __( 'Sub Menu Hover Color', 'baton-pro' ),
 						'section' => 'baton_secondary_header_navigation',
 						'settings' => 'baton_secondary_header_sub_menu_hover_color',
 						'priority' => 40
@@ -1432,7 +1432,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_sub_menu_background_color',
 					array(
-						'label' => __( 'Sub Menu Background Color', 'baton' ),
+						'label' => __( 'Sub Menu Background Color', 'baton-pro' ),
 						'section' => 'baton_secondary_header_navigation',
 						'settings' => 'baton_secondary_header_sub_menu_background_color',
 						'priority' => 50
@@ -1446,7 +1446,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $secondary_nav_font_size_control = $wp_customize->get_control( 'baton_navigation_secondary_nav_font_size' ) ) { // Get Control
 				$secondary_nav_font_size_control->section = 'baton_secondary_header_navigation'; // Adjust Section
-				$secondary_nav_font_size_control->label = __( 'Font Size', 'baton' ); // Adjust Label
+				$secondary_nav_font_size_control->label = __( 'Font Size', 'baton-pro' ); // Adjust Label
 				$secondary_nav_font_size_control->priority = 60; // Adjust Priority
 			}
 
@@ -1456,7 +1456,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $secondary_nav_font_family_control = $wp_customize->get_control( 'baton_navigation_secondary_nav_font_family' ) ) { // Get Control
 				$secondary_nav_font_family_control->section = 'baton_secondary_header_navigation'; // Adjust Section
-				$secondary_nav_font_family_control->label = __( 'Font Family', 'baton' ); // Adjust Label
+				$secondary_nav_font_family_control->label = __( 'Font Family', 'baton-pro' ); // Adjust Label
 				$secondary_nav_font_family_control->priority = 70; // Adjust Priority
 			}
 
@@ -1466,7 +1466,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_secondary_header_background', array(
 				'priority' => 30, // After Secondary Header Color
-				'title' => __( 'Background', 'baton' ),
+				'title' => __( 'Background', 'baton-pro' ),
 				'panel' => 'baton_secondary_header'
 			) );
 
@@ -1490,7 +1490,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_background_color',
 					array(
-						'label' => __( 'Background Color', 'baton' ),
+						'label' => __( 'Background Color', 'baton-pro' ),
 						'section' => 'baton_secondary_header_background',
 						'settings' => 'baton_secondary_header_background_color',
 						'priority' => 10
@@ -1517,7 +1517,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_background_image',
 					array(
-						'label' => __( 'Background Image', 'baton' ),
+						'label' => __( 'Background Image', 'baton-pro' ),
 						'section' => 'baton_secondary_header_background',
 						'settings' => 'baton_secondary_header_background_image',
 						'priority' => 20,
@@ -1546,16 +1546,16 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_background_image_repeat',
 					array(
-						'label' => __( 'Background Repeat', 'baton' ),
+						'label' => __( 'Background Repeat', 'baton-pro' ),
 						'section' => 'baton_secondary_header_background',
 						'settings' => 'baton_secondary_header_background_image_repeat',
 						'priority' => 30,
 						'type' => 'radio',
 						'choices' => array(
-							'no-repeat' => __( 'No Repeat', 'baton' ),
-							'repeat' => __( 'Tile', 'baton' ),
-							'repeat-x' => __( 'Tile Horizontally', 'baton' ),
-							'repeat-y' => __( 'Tile Vertically', 'baton' )
+							'no-repeat' => __( 'No Repeat', 'baton-pro' ),
+							'repeat' => __( 'Tile', 'baton-pro' ),
+							'repeat-x' => __( 'Tile Horizontally', 'baton-pro' ),
+							'repeat-y' => __( 'Tile Vertically', 'baton-pro' )
 						)
 					)
 				)
@@ -1580,15 +1580,15 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_background_image_position_x',
 					array(
-						'label' => __( 'Background Position', 'baton' ),
+						'label' => __( 'Background Position', 'baton-pro' ),
 						'section' => 'baton_secondary_header_background',
 						'settings' => 'baton_secondary_header_background_image_position_x',
 						'priority' => 40,
 						'type' => 'radio',
 						'choices' => array(
-							'left' => __( 'Left', 'baton' ),
-							'center' => __( 'Center', 'baton' ),
-							'right' => __( 'Right', 'baton' )
+							'left' => __( 'Left', 'baton-pro' ),
+							'center' => __( 'Center', 'baton-pro' ),
+							'right' => __( 'Right', 'baton-pro' )
 						)
 					)
 				)
@@ -1613,14 +1613,14 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_secondary_header_background_image_attachment',
 					array(
-						'label' => __( 'Background Attachment', 'baton' ),
+						'label' => __( 'Background Attachment', 'baton-pro' ),
 						'section' => 'baton_secondary_header_background',
 						'settings' => 'baton_secondary_header_background_image_attachment',
 						'priority' => 50,
 						'type' => 'radio',
 						'choices' => array(
-							'scroll' => __( 'Scroll', 'baton' ),
-							'fixed' => __( 'Fixed', 'baton' )
+							'scroll' => __( 'Scroll', 'baton-pro' ),
+							'fixed' => __( 'Fixed', 'baton-pro' )
 						)
 					)
 				)
@@ -1632,7 +1632,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_content', array(
 				'priority' => 60, // After Secondary Header
-				'title' => __( 'Content', 'baton' )
+				'title' => __( 'Content', 'baton-pro' )
 			) );
 
 
@@ -1641,7 +1641,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_content_colors', array(
 				'priority' => 10, // Top
-				'title' => __( 'Colors', 'baton' ),
+				'title' => __( 'Colors', 'baton-pro' ),
 				'panel' => 'baton_content'
 			) );
 
@@ -1665,7 +1665,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_archive_title_color',
 					array(
-						'label' => __( 'Archive Title', 'baton' ),
+						'label' => __( 'Archive Title', 'baton-pro' ),
 						'section' => 'baton_content_colors',
 						'settings' => 'baton_archive_title_color',
 						'priority' => 10
@@ -1693,7 +1693,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_post_title_color',
 					array(
-						'label' => __( 'Post Title', 'baton' ),
+						'label' => __( 'Post Title', 'baton-pro' ),
 						'section' => 'baton_content_colors',
 						'settings' => 'baton_post_title_color',
 						'priority' => 20
@@ -1707,7 +1707,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $content_color_control = $wp_customize->get_control( 'content_color' ) ) { // Get Control
 				$content_color_control->section = 'baton_content_colors'; // Adjust Section
-				$content_color_control->label = __( 'Content', 'baton' ); // Adjust Label
+				$content_color_control->label = __( 'Content', 'baton-pro' ); // Adjust Label
 				$content_color_control->priority = 30; // Adjust Priority
 			}
 
@@ -1717,7 +1717,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			if ( $link_color_control = $wp_customize->get_control( 'link_color' ) ) { // Get Control
 				$link_color_control->section = 'baton_content_colors'; // Adjust Section
-				$link_color_control->label = __( 'Link', 'baton' ); // Adjust Label
+				$link_color_control->label = __( 'Link', 'baton-pro' ); // Adjust Label
 				$link_color_control->priority = 40; // Adjust Priority
 			}
 
@@ -1741,7 +1741,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_button_text_color',
 					array(
-						'label' => __( 'Button Text', 'baton' ),
+						'label' => __( 'Button Text', 'baton-pro' ),
 						'section' => 'baton_content_colors',
 						'settings' => 'baton_button_text_color',
 						'priority' => 50
@@ -1769,7 +1769,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_button_hover_text_color',
 					array(
-						'label' => __( 'Button Text Hover', 'baton' ),
+						'label' => __( 'Button Text Hover', 'baton-pro' ),
 						'section' => 'baton_content_colors',
 						'settings' => 'baton_button_hover_text_color',
 						'priority' => 60
@@ -1797,7 +1797,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_button_background_color',
 					array(
-						'label' => __( 'Button Background', 'baton' ),
+						'label' => __( 'Button Background', 'baton-pro' ),
 						'section' => 'baton_content_colors',
 						'settings' => 'baton_button_background_color',
 						'priority' => 70
@@ -1825,7 +1825,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_button_hover_background_color',
 					array(
-						'label' => __( 'Button Background Hover', 'baton' ),
+						'label' => __( 'Button Background Hover', 'baton-pro' ),
 						'section' => 'baton_content_colors',
 						'settings' => 'baton_button_hover_background_color',
 						'priority' => 80
@@ -1839,7 +1839,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_content_headings', array(
 				'priority' => 20, // After Colors
-				'title' => __( 'Headings', 'baton' ),
+				'title' => __( 'Headings', 'baton-pro' ),
 				'panel' => 'baton_content'
 			) );
 
@@ -1932,7 +1932,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_content_body', array(
 				'priority' => 30, // After Headings
-				'title' => __( 'Body', 'baton' ),
+				'title' => __( 'Body', 'baton-pro' ),
 				'panel' => 'baton_content'
 			) );
 
@@ -1963,7 +1963,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_content_more_link', array(
 				'priority' => 40, // After Body (Content)
-				'title' => __( 'More Link', 'baton' ),
+				'title' => __( 'More Link', 'baton-pro' ),
 				'panel' => 'baton_content'
 			) );
 
@@ -1986,7 +1986,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_more_link_label',
 					array(
-						'label' => __( 'Button Label', 'baton' ),
+						'label' => __( 'Button Label', 'baton-pro' ),
 						'section' => 'baton_content_more_link',
 						'settings' => 'baton_more_link_label',
 						'priority' => 10
@@ -2000,7 +2000,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_widget_design', array(
 				'priority' => 70, // After Content
-				'title' => __( 'Widget Design', 'baton' )
+				'title' => __( 'Widget Design', 'baton-pro' )
 			) );
 
 
@@ -2009,7 +2009,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_widget_colors', array(
 				'priority' => 10, // Top
-				'title' => _x( 'Colors', 'widget colors Customizer section label', 'baton' ),
+				'title' => _x( 'Colors', 'widget colors Customizer section label', 'baton-pro' ),
 				'panel' => 'baton_widget_design'
 			) );
 
@@ -2033,7 +2033,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_widget_title_color',
 					array(
-						'label' => __( 'Widget Title Color', 'baton' ),
+						'label' => __( 'Widget Title Color', 'baton-pro' ),
 						'section' => 'baton_widget_colors',
 						'settings' => 'baton_widget_title_color',
 						'priority' => 10
@@ -2061,7 +2061,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_widget_color',
 					array(
-						'label' => _x( 'Text Color', 'widget text color Customizer control label', 'baton' ),
+						'label' => _x( 'Text Color', 'widget text color Customizer control label', 'baton-pro' ),
 						'section' => 'baton_widget_colors',
 						'settings' => 'baton_widget_color',
 						'priority' => 20
@@ -2088,7 +2088,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_widget_link_color',
 					array(
-						'label' => _x( 'Link Color', 'widget link color Customizer control label', 'baton' ),
+						'label' => _x( 'Link Color', 'widget link color Customizer control label', 'baton-pro' ),
 						'section' => 'baton_widget_colors',
 						'settings' => 'baton_widget_link_color',
 						'priority' => 30
@@ -2102,7 +2102,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_panel( 'baton_footer', array(
 				'priority' => 80, // After Content
-				'title' => __( 'Footer', 'baton' )
+				'title' => __( 'Footer', 'baton-pro' )
 			) );
 
 
@@ -2111,7 +2111,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_footer_colors', array(
 				'priority' => 10, // Top
-				'title' => __( 'Colors', 'baton' ),
+				'title' => __( 'Colors', 'baton-pro' ),
 				'panel' => 'baton_footer'
 			) );
 
@@ -2134,7 +2134,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_text_color',
 					array(
-						'label' => __( 'Text Color', 'baton' ),
+						'label' => __( 'Text Color', 'baton-pro' ),
 						'section' => 'baton_footer_colors',
 						'settings' => 'baton_footer_text_color',
 						'priority' => 10
@@ -2161,7 +2161,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_link_color',
 					array(
-						'label' => __( 'Link', 'baton' ),
+						'label' => __( 'Link', 'baton-pro' ),
 						'section' => 'baton_footer_colors',
 						'settings' => 'baton_footer_link_color',
 						'priority' => 20
@@ -2188,7 +2188,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_heading_color',
 					array(
-						'label' => __( 'Headings', 'baton' ),
+						'label' => __( 'Headings', 'baton-pro' ),
 						'section' => 'baton_footer_colors',
 						'settings' => 'baton_footer_heading_color',
 						'priority' => 30
@@ -2209,7 +2209,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			 */
 			$wp_customize->add_section( 'baton_footer_background', array(
 				'priority' => 30, // After Branding/Copyright
-				'title' => __( 'Background', 'baton' ),
+				'title' => __( 'Background', 'baton-pro' ),
 				'panel' => 'baton_footer'
 			) );
 
@@ -2233,7 +2233,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_background_color',
 					array(
-						'label' => __( 'Background Color', 'baton' ),
+						'label' => __( 'Background Color', 'baton-pro' ),
 						'section' => 'baton_footer_background',
 						'settings' => 'baton_footer_background_color',
 						'priority' => 10
@@ -2260,7 +2260,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_background_image',
 					array(
-						'label' => __( 'Background Image', 'baton' ),
+						'label' => __( 'Background Image', 'baton-pro' ),
 						'section' => 'baton_footer_background',
 						'settings' => 'baton_footer_background_image',
 						'priority' => 20,
@@ -2289,16 +2289,16 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_background_image_repeat',
 					array(
-						'label' => __( 'Background Repeat', 'baton' ),
+						'label' => __( 'Background Repeat', 'baton-pro' ),
 						'section' => 'baton_footer_background',
 						'settings' => 'baton_footer_background_image_repeat',
 						'priority' => 30,
 						'type' => 'radio',
 						'choices' => array(
-							'no-repeat' => __( 'No Repeat', 'baton' ),
-							'repeat' => __( 'Tile', 'baton' ),
-							'repeat-x' => __( 'Tile Horizontally', 'baton' ),
-							'repeat-y' => __( 'Tile Vertically', 'baton' )
+							'no-repeat' => __( 'No Repeat', 'baton-pro' ),
+							'repeat' => __( 'Tile', 'baton-pro' ),
+							'repeat-x' => __( 'Tile Horizontally', 'baton-pro' ),
+							'repeat-y' => __( 'Tile Vertically', 'baton-pro' )
 						)
 					)
 				)
@@ -2323,15 +2323,15 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_background_image_position_x',
 					array(
-						'label' => __( 'Background Position', 'baton' ),
+						'label' => __( 'Background Position', 'baton-pro' ),
 						'section' => 'baton_footer_background',
 						'settings' => 'baton_footer_background_image_position_x',
 						'priority' => 40,
 						'type' => 'radio',
 						'choices' => array(
-							'left' => __( 'Left', 'baton' ),
-							'center' => __( 'Center', 'baton' ),
-							'right' => __( 'Right', 'baton' )
+							'left' => __( 'Left', 'baton-pro' ),
+							'center' => __( 'Center', 'baton-pro' ),
+							'right' => __( 'Right', 'baton-pro' )
 						)
 					)
 				)
@@ -2356,14 +2356,14 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$wp_customize,
 					'baton_footer_background_image_attachment',
 					array(
-						'label' => __( 'Background Attachment', 'baton' ),
+						'label' => __( 'Background Attachment', 'baton-pro' ),
 						'section' => 'baton_footer_background',
 						'settings' => 'baton_footer_background_image_attachment',
 						'priority' => 50,
 						'type' => 'radio',
 						'choices' => array(
-							'scroll' => __( 'Scroll', 'baton' ),
-							'fixed' => __( 'Fixed', 'baton' )
+							'scroll' => __( 'Scroll', 'baton-pro' ),
+							'fixed' => __( 'Fixed', 'baton-pro' )
 						)
 					)
 				)
@@ -2965,6 +2965,11 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$r .= 'body .mc-gravity, .mc_gravity, body .mc-newsletter, .mc_newsletter, body .mc-gravity_wrapper, .mc_gravity_wrapper, body .mc-newsletter_wrapper, .mc_newsletter_wrapper {' . "\n";
 						$r .= 'border-color: ' . $baton_background_color . ';' . "\n";
 					$r .= '}' . "\n\n";
+
+					$r .= '/* WooCommerce */' . "\n";
+					$r .= '.woocommerce div.product .woocommerce-tabs .panel, .woocommerce-message {' . "\n";
+						$r .= 'box-shadow: 0 2px 0 0 ' . $baton_background_color_variant . ';' . "\n";
+					$r .= '}' . "\n\n";
 				}
 
 				// If we have a primary color selected by the user
@@ -3074,6 +3079,11 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 					$r .= 'body .mc-gravity-confirmation, body .mc_gravity-confirmation, body .mc-newsletter-confirmation, body .mc_newsletter-confirmation {' . "\n";
 						$r .= 'background: ' . $theme_mod_link_color . ';' . "\n";
 					$r .= '}' . "\n\n";
+
+					$r .= '/* WooCommerce */' . "\n";
+					$r .= '.woocommerce .woocommerce-breadcrumb a {' . "\n";
+						$r .= 'color: ' . $theme_mod_link_color . ';' . "\n";
+					$r .= '}' . "\n\n";
 				}
 
 				// If we have a post title color selected by the user
@@ -3116,6 +3126,19 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 							$r .= 'color: ' . $this->theme_mod_baton_button_hover_text_color() . ';' . "\n";
 						$r .= '}' . "\n\n";
 					}
+
+					$r .= '/* WooCommerce */' . "\n";
+					$r .= '.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.alt,' . "\n";
+					$r .= '.woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .wa_wps_add_to_cart a, .widget .wa_wps_add_to_cart a {' . "\n";
+						$r .= 'color: ' . $theme_mod_baton_button_text_color . ';' . "\n";
+					$r .= '}' . "\n\n";
+
+					$r .= '.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover,' . "\n";
+					$r .= '.woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover,' . "\n";
+					$r .= '.woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover,' . "\n";
+					$r .= '.woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {' . "\n";
+						$r .= 'color: ' . $theme_mod_baton_button_text_color . ';' . "\n";
+					$r .= '}' . "\n\n";
 				}
 
 				// If we have a button background color selected by the user
@@ -3137,6 +3160,19 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 
 					$r .= '/* Button Alternate Hover Background Color */' . "\n";
 					$r .= '.button-alt:hover, a.button-alt:hover, .widget a.button-alt:hover {' . "\n";
+						$r .= 'background: ' . $theme_mod_baton_button_background_color . ';' . "\n";
+					$r .= '}' . "\n\n";
+
+					$r .= '/* WooCommerce */' . "\n";
+					$r .= '.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.alt,' . "\n";
+					$r .= '.woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .wa_wps_add_to_cart a, .widget .wa_wps_add_to_cart a {' . "\n";
+						$r .= 'background: ' . $theme_mod_baton_button_background_color . ';' . "\n";
+					$r .= '}' . "\n\n";
+
+					$r .= '.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover,' . "\n";
+					$r .= '.woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover,' . "\n";
+					$r .= '.woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover,' . "\n";
+					$r .= '.woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {' . "\n";
 						$r .= 'background: ' . $theme_mod_baton_button_background_color . ';' . "\n";
 					$r .= '}' . "\n\n";
 				}
@@ -3162,12 +3198,24 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 							$r .= 'color: ' . $theme_mod_baton_button_text_color . ';' . "\n"; // $theme_mod_baton_button_text_color is set above in a conditional
 						$r .= '}' . "\n\n";
 					}
+
+					$r .= '/* WooCommerce */' . "\n";
+					$r .= '.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit.alt:hover,' . "\n";
+					$r .= '.woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .wa_wps_add_to_cart a:hover, .widget .wa_wps_add_to_cart a:hover {' . "\n";
+						$r .= 'color: ' . $theme_mod_baton_button_hover_text_color . ';' . "\n";
+					$r .= '}' . "\n\n";
 				}
 
 				// If we have a button background color selected by the user
 				if ( ( $theme_mod_baton_button_hover_background_color = $this->get_theme_mod( 'baton_button_hover_background_color', $this->theme_mod_baton_button_hover_background_color() ) ) ) {
 					$r .= '/* Button Hover Background Color */' . "\n";
 					$r .= '.button:hover, a.button:hover, .widget a.button:hover, input[type="submit"]:hover, .page-numbers li a:hover {' . "\n";
+						$r .= 'background: ' . $theme_mod_baton_button_hover_background_color . ';' . "\n";
+					$r .= '}' . "\n\n";
+
+					$r .= '/* WooCommerce */' . "\n";
+					$r .= '.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit.alt:hover,' . "\n";
+					$r .= '.woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .wa_wps_add_to_cart a:hover, .widget .wa_wps_add_to_cart a:hover {' . "\n";
 						$r .= 'background: ' . $theme_mod_baton_button_hover_background_color . ';' . "\n";
 					$r .= '}' . "\n\n";
 				}
