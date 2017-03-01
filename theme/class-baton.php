@@ -4,7 +4,7 @@
  *
  * @class Baton
  * @author Slocum Studio
- * @version 1.0.9
+ * @version 1.1.0
  * @since 1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		/**
 		 * @var string, Current version number
 		 */
-		public $version = '1.0.9';
+		public $version = '1.1.0';
 
 		/**
 		 * @var string, Slug for Slocum Theme support
@@ -70,6 +70,11 @@ if ( ! class_exists( 'Baton' ) ) {
 		public $current_note_sidebar_id = false;
 
 		/**
+		 * @var string
+         */
+		public $page_template = null;
+
+		/**
 		 * @var Baton, Instance of the class
 		 */
 		private static $instance;
@@ -98,15 +103,18 @@ if ( ! class_exists( 'Baton' ) ) {
 			add_filter( 'theme_page_templates', array( $this, 'theme_page_templates' ) ); // Theme Page Templates
 			add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 1, 2 ); // Early
 			add_action( 'init', array( $this, 'init' ), 20 ); // Adjust SDS Core Theme Options
+			add_action( 'wp', array( $this, 'wp' ) ); // WordPress
 			add_action( 'admin_init', array( $this, 'baton_admin_init' ), 20 ); // Adjust SDS Core Theme Options
 			add_action( 'widgets_init', array( $this, 'widgets_init' ), 20 ); // Register sidebars
 			add_action( 'customize_register', array( $this, 'customize_register' ) ); // Customizer Register
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 25 ); // Customizer Controls Enqueue Scripts (after Note)
 			add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) ); // Customizer Preview Initialization
 			add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) ); // Used to enqueue editor styles based on post type
+			add_action( 'do_meta_boxes', array( $this, 'do_meta_boxes' ), 1 ); // Do Meta Boxes (Early)
 			add_action( 'wp_head', array( $this, 'wp_head' ), 1 ); // Add <meta> tags to <head> section
 			add_action( 'tiny_mce_before_init', array( $this, 'tiny_mce_before_init' ), 10, 2 ); // Output TinyMCE Setup function
 			add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) ); // Enqueue all stylesheets (Main Stylesheet, Fonts, etc...)
+			add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 ); // Post Class
 			add_filter( 'the_content_more_link', array( $this, 'the_content_more_link' ) ); // Adjust default more link
 			add_filter( 'dynamic_sidebar_params', array( $this, 'dynamic_sidebar_params' ) ); // Dynamic sidebar parameters (Note/Conductor Widgets)
 			add_filter( 'edit_post_link', array( $this, 'edit_post_link' ) ); // Adjust CSS class on post edit links
@@ -162,6 +170,36 @@ if ( ! class_exists( 'Baton' ) ) {
 			// Gravity Forms
 			add_filter( 'gform_field_input', array( $this, 'gform_field_input' ), 10, 5 ); // Add placholder to newsletter form
 			add_filter( 'gform_confirmation', array( $this, 'gform_confirmation' ), 10, 4 ); // Change confirmation message on newsletter form
+
+			// WooCommerce
+			add_filter( 'woocommerce_product_settings', array( $this, 'woocommerce_product_settings' ) ); // WooCommerce - Product Settings
+			add_filter( 'woocommerce_get_image_size_shop_catalog', array( $this, 'woocommerce_get_image_size_shop_catalog' ) ); // WooCommerce - Get Image Size - Shop Catelog
+			add_filter( 'woocommerce_get_image_size_shop_single', array( $this, 'woocommerce_get_image_size_shop_single' ) ); // WooCommerce - Get Image Size - Shop Single
+			add_filter( 'woocommerce_get_image_size_shop_thumbnail', array( $this, 'woocommerce_get_image_size_shop_thumbnail' ) ); // WooCommerce - Get Image Size - Shop Thumbnail
+			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' ); // Remove WooCommerce - Before Main Content
+			add_action( 'woocommerce_before_main_content', array( $this, 'woocommerce_before_main_content' ) ); // WooCommerce - Before Main Content
+			add_action( 'woocommerce_before_main_content', array( $this, 'woocommerce_before_main_content_article_content_wrapper_before' ), 30 ); // WooCommerce - Before Main Content (Article Content Wrapper Before)
+			add_filter( 'loop_shop_per_page', array( $this, 'loop_shop_per_page' ) ); // WooCommerce - Loop Shop Per Page
+			add_filter( 'loop_shop_columns', array( $this, 'loop_shop_columns' ) ); // WooCommerce - Loop Shop Columns
+			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'woocommerce_before_shop_loop_item_title_thumbnail_wrapper_before' ), 5 ); // WooCommerce - Before Shop Loop Item Title (Thumbnail Wrapper Before)
+			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'woocommerce_before_shop_loop_item_title_thumbnail_wrapper_after' ), 15 ); // WooCommerce - Before Shop Loop Item Title (Thumbnail Wrapper After)
+			add_action( 'woocommerce_shop_loop_item_title', array( $this, 'woocommerce_shop_loop_item_title' ), 5 ); // WooCommerce - Shop Loop Item Title
+			add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'woocommerce_after_shop_loop_item_title' ), 15 ); // WooCommerce - After Shop Loop Item Title
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'woocommerce_after_shop_loop_item_article_content_wrapper_before' ), 8 ); // WooCommerce - After Shop Loop Item (Article Content Wrapper Before)
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'woocommerce_after_shop_loop_item_article_content_wrapper_after' ), 15 ); // WooCommerce - After Shop Loop Item (Article Content Wrapper After)
+			add_action( 'woocommerce_before_single_product_summary', array( $this, 'woocommerce_before_single_product_summary' ), 5 ); // WooCommerce - Before Single Product Summary
+			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'woocommerce_product_thumbnails_columns' ) ); // WooCommerce - Single Product Thumbnails Columns
+			add_action( 'woocommerce_before_single_product_summary', array( $this, 'woocommerce_before_single_product_summary_baton_col_wrappers' ), 30 ); // WooCommerce - Before Single Product Summary (Baton Column Wrapper Before)
+			add_action( 'woocommerce_single_product_summary', array( $this, 'woocommerce_single_product_summary' ), 2 ); // WooCommerce - Single Product Summary
+			add_action( 'woocommerce_single_product_summary', array( $this, 'woocommerce_single_product_summary_article_content_wrapper_after' ), 70 ); // WooCommerce - Single Product Summary (Article Content Wrapper After)
+			add_action( 'woocommerce_after_single_product_summary', array( $this, 'woocommerce_after_single_product_summary' ), 5 ); // WooCommerce - After Single Product Summary
+			add_filter( 'woocommerce_output_related_products_args', array( $this, 'woocommerce_output_related_products_args' ) ); // WooCommerce - Related Products Arguments
+			remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 ); // Remove WooCommerce - Related Products
+			add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products' ); // WooCommerce - Related Products
+			add_filter( 'single_product_archive_thumbnail_size', array( $this, 'single_product_archive_thumbnail_size' ) ); // WooCommerce - Single Product Archive Thumbnail Size
+			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 ); // Remove WooCommerce - Sidebar
+			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' ); // Remove WooCommerce - After Main Content
+			add_action( 'woocommerce_after_main_content', array( $this, 'woocommerce_after_main_content' ) ); // WooCommerce - After Main Content
 		}
 
 
@@ -201,8 +239,11 @@ if ( ! class_exists( 'Baton' ) ) {
 			// Yoast WordPress SEO Breadcrumbs (automatically enables breadcrumbs)
 			//add_theme_support( 'yoast-seo-breadcrumbs', true );
 
+			// Add Woocommerce Support
+			add_theme_support( 'woocommerce' );
+
 			// Theme textdomain
-			load_theme_textdomain( 'baton', get_template_directory() . '/languages' );
+			load_theme_textdomain( 'baton-pro', get_template_directory() . '/languages' );
 
 			add_image_size( 'baton-600x400', 600, 400, true ); // Portfolio Archive Page Featured Image Size
 			add_image_size( 'baton-1200x9999', 1200, 9999, false ); // Single Post/Page Featured Image Size
@@ -215,7 +256,7 @@ if ( ! class_exists( 'Baton' ) ) {
 
 			// Register menus which are used in Baton
 			register_nav_menus( array(
-				'secondary_nav' => __( 'Secondary Navigation', 'baton' ),
+				'secondary_nav' => __( 'Secondary Navigation', 'baton-pro' ),
 			) );
 
 			// Unregister menus which are registered in SDS Core
@@ -429,14 +470,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: Large Widget Display', 'baton' )
+								'section' => __( 'Conductor: Large Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -456,7 +497,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -476,7 +517,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -496,7 +537,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -517,14 +558,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: Medium Widget Display', 'baton' )
+								'section' => __( 'Conductor: Medium Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -544,7 +585,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -564,7 +605,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -584,7 +625,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -605,14 +646,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: Small Widget Display', 'baton' )
+								'section' => __( 'Conductor: Small Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -632,7 +673,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -652,7 +693,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -672,7 +713,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -693,14 +734,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: List Widget Display', 'baton' )
+								'section' => __( 'Conductor: List Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -720,7 +761,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -740,7 +781,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -760,7 +801,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -781,14 +822,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: Table Widget Display', 'baton' )
+								'section' => __( 'Conductor: Table Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -808,7 +849,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -828,7 +869,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -848,7 +889,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -869,14 +910,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: Grid Widget Display', 'baton' )
+								'section' => __( 'Conductor: Grid Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -896,7 +937,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -916,7 +957,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -936,7 +977,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -957,14 +998,14 @@ if ( ! class_exists( 'Baton' ) ) {
 							// Labels
 							'labels' => array(
 								// Customizer Section
-								'section' => __( 'Conductor: Portfolio Widget Display', 'baton' )
+								'section' => __( 'Conductor: Portfolio Widget Display', 'baton-pro' )
 							),
 							// Title (Post Title)
 							'title' => array(
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Title', 'baton' )
+									'control' => __( 'Title', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -984,7 +1025,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Author Byline', 'baton' )
+									'control' => __( 'Author Byline', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -1004,7 +1045,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Content', 'baton' )
+									'control' => __( 'Content', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -1024,7 +1065,7 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Labels
 								'labels' => array(
 									// Customizer Control (prefix)
-									'control' => __( 'Read More', 'baton' )
+									'control' => __( 'Read More', 'baton-pro' )
 								),
 								// Font Size
 								'font_size' => array(
@@ -1083,7 +1124,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		 * This function outputs admin notices.
 		 */
 		public function admin_notices() {
-			printf( __( '<div class="updated"><p>Welcome to Baton Pro! Get started by visiting the <a href="%1$s">Customizer</a>!</p></div>', 'baton' ), esc_url( wp_customize_url() ) );
+			printf( __( '<div class="updated"><p>Welcome to Baton Pro! Get started by visiting the <a href="%1$s">Customizer</a>!</p></div>', 'baton-pro' ), esc_url( wp_customize_url() ) );
 		}
 
 		/**
@@ -1093,6 +1134,17 @@ if ( ! class_exists( 'Baton' ) ) {
 		public function init() {
 			// Update Conductor Widgets
 			$this->update_conductor_widgets();
+		}
+
+		/**
+		 * This function runs after the WordPress object it setup.
+		 */
+		public function wp() {
+			// Store the current page template on the class
+			$this->page_template = get_post_meta( get_queried_object_id(), '_wp_page_template', true );
+
+			// Hook into get_post_metadata
+			add_filter( 'get_post_metadata', array( $this, 'get_post_metadata' ), 10, 4 );
 		}
 
 		/**
@@ -1107,6 +1159,9 @@ if ( ! class_exists( 'Baton' ) ) {
 
 			// Remove the featured image size field
 			unset( $wp_settings_fields['sds-theme-options[general]']['sds_theme_options_featured_image_size_section']['sds_theme_options_featured_image_size_field'] );
+
+			// Hook into update
+			add_filter( 'update_post_metadata', array( $this, 'update_post_metadata' ), 10, 4 );
 		}
 
 		/**
@@ -1150,7 +1205,7 @@ if ( ! class_exists( 'Baton' ) ) {
 						// Front Page Sidebar
 						if ( $sidebar_id === 'front-page-sidebar' ) {
 							// description
-							$sidebar['description'] = __( '*This widget area is only displayed if a Front Page is selected via Settings &gt; Reading in the Dashboard.* This widget area is displayed on the Front Page and will replace the Front Page content.', 'baton' );
+							$sidebar['description'] = __( '*This widget area is only displayed if a Front Page is selected via Settings &gt; Reading in the Dashboard.* This widget area is displayed on the Front Page and will replace the Front Page content.', 'baton-pro' );
 
 							// before_widget
 							$sidebar['before_widget'] .= '<div class="in front-page-widget-in cf">';
@@ -1209,7 +1264,7 @@ if ( ! class_exists( 'Baton' ) ) {
 					$wp_customize,
 					'note_baton',
 					array(
-						'label' => __( 'Note Baton', 'baton' ),
+						'label' => __( 'Note Baton', 'baton-pro' ),
 						'section' => 'note_sidebars',
 						'settings' => 'note[baton]',
 						'priority' => 20, // After Note Sidebars
@@ -1282,6 +1337,48 @@ if ( ! class_exists( 'Baton' ) ) {
 		}
 
 		/**
+		 * This function adjusts post meta data.
+		 */
+		public function get_post_metadata( $value, $post_id, $meta_key, $single ) {
+			// Bail if WooCommerce doesn't exist, we already have a check value, this isn't a single request, or the meta key doesn't match "_wp_page_template"
+			if ( ! class_exists( 'WooCommerce' ) || $value !== null || ! $single || $meta_key !== '_wp_page_template' )
+				return $value;
+
+			// Bail if this isn't the admin and we're not on the WooCommerce cart and the WooCommerce checkout page
+			if ( ! is_admin() && ! is_cart() && ! is_checkout() )
+				return $value;
+
+			// Bail if this is the admin and we're not on the WooCommerce cart and the WooCommerce checkout page
+			if ( is_admin() && $post_id !== wc_get_page_id( 'cart' ) && $post_id !== wc_get_page_id( 'checkout' ) )
+				return $value;
+
+			// If we don't have a page template
+			if ( $this->page_template === '' )
+				// Set the page template to the full width page template
+				$value = 'template-full-width.php';
+
+			return $value;
+		}
+
+		/**
+		 * This function adjusts post meta data while updating.
+		 */
+		public function update_post_metadata( $value, $post_id, $meta_key, $single ) {
+			// Bail if WooCommerce doesn't exist, we already have a check value, this isn't a single request, or the meta key doesn't match "_wp_page_template"
+			if ( ! class_exists( 'WooCommerce' ) || $value !== null || ! $single || $meta_key !== '_wp_page_template' )
+				return $value;
+
+			// Bail if this is the admin and we're not on the WooCommerce cart and the WooCommerce checkout page
+			if ( is_admin() && $post_id !== wc_get_page_id( 'cart' ) && $post_id !== wc_get_page_id( 'checkout' ) )
+				return $value;
+
+			// Remove the get_post_metadata adjustment
+			remove_filter( 'get_post_metadata', array( $this, 'get_post_metadata' ) );
+
+			return $value;
+		}
+
+		/**
 		 * This function adds editor styles based on post type, before TinyMCE is initialized.
 		 * It will also enqueue the correct color scheme stylesheet to better match front-end display.
 		 */
@@ -1331,6 +1428,21 @@ if ( ! class_exists( 'Baton' ) ) {
 			add_editor_style( SDS_Theme_Options::sds_core_dir( true ) . '/css/font-awesome.min.css' );
 		}
 
+		/**
+		 * This function runs when meta boxes are loaded.
+		 */
+		public function do_meta_boxes() {
+			global $post;
+
+			// If we have a post
+			if ( $post ) {
+				// Store the current page template on the class
+				$this->page_template = get_post_meta( get_post_field( 'ID', $post ), '_wp_page_template', true );
+
+				// Hook into get_post_metadata
+				add_filter( 'get_post_metadata', array( $this, 'get_post_metadata' ), 10, 4 );
+			}
+		}
 
 		/**
 		 * This function adds <meta> tags to the <head> element.
@@ -1361,10 +1473,11 @@ if ( ! class_exists( 'Baton' ) ) {
 			$customizer_css = preg_replace( '/<style.+?>/', '', $customizer_css ); // Remove opening <style> tag
 			$customizer_css = preg_replace( '/\/\*.+?\*\//', '', $customizer_css ); // Remove comments
 			$customizer_css = preg_replace( '/\r?\n/', ' ', $customizer_css ); // Replace newlines with spaces
+			$customizer_css = preg_replace( '/box-shadow:\s?(.+)?;/', '', $customizer_css ); // Remove box shadow styles
 			$customizer_css = str_replace( '</style>', '', $customizer_css ); // Remove closing </style> tag
 			$customizer_css = str_replace( ';', ' !important;', $customizer_css ); // Ensure all styles take precedence
 			$customizer_css = str_replace( '"','\'', $customizer_css ); // Replace all quotation marks with single quotes
-			$customizer_css = str_replace( '.content-container','body', $customizer_css ); // Replace all .content-container references (selectors) with body
+			$customizer_css = str_replace( '.content-container', 'body', $customizer_css ); // Replace all .content-container references (selectors) with body
 
 			// Default maximum width
 			$max_width = 1272;
@@ -1445,6 +1558,40 @@ if ( ! class_exists( 'Baton' ) ) {
 
 			// FontAwesome
 			wp_enqueue_style( 'font-awesome-css-min', get_template_directory_uri() . '/includes/css/font-awesome.min.css' );
+		}
+
+		/**
+		 * This function adjusts the post class.
+		 */
+		public function post_class( $classes, $class, $post_id ) {
+			// Bail if WooCommerce doesn't exist, this isn't WooCommerce, we're in the cart, or we're checking out
+			if ( ! class_exists( 'WooCommerce' ) || ! is_woocommerce() || is_cart() || is_checkout() )
+				return $classes;
+
+			// Grab the post
+			$post = get_post( $post_id );
+
+			// If this isn't a single WooCommerce Product and the post type is a WooCommerce Product (i.e. archive) or this is a single WooCommerce Product and the queried object ID doesn't match the post ID
+			if ( ( ! is_product() && get_post_type( $post ) === 'product' ) || ( get_queried_object_id() !== get_post_field( 'ID', $post ) ) ) {
+				// Add the Baton content CSS class
+				$classes[] = esc_attr( 'content' );
+				$classes[] = esc_attr( 'content-woocommerce' );
+			}
+
+			// If this isn't a single WooCommerce Product
+			if ( ! is_product() ) {
+				// Add the Baton column CSS classes
+				$classes[] = esc_attr( 'baton-col' );
+				$classes[] = esc_attr( 'baton-col-woocommerce-product' );
+				$classes[] = esc_attr( 'baton-col-woocommerce-product-' . $post_id );
+			}
+			// Otherwise if this is a single WooCommerce Product and the queried object ID matches the post ID
+			else if ( get_queried_object_id() === get_post_field( 'ID', $post ) ) {
+				$classes[] = 'baton-flex';
+				$classes[] = 'baton-flex-2-columns';
+			}
+
+			return $classes;
 		}
 
 		/**
@@ -1697,7 +1844,7 @@ if ( ! class_exists( 'Baton' ) ) {
 				'version' 	=> $this->version,
 				'license' 	=> $sds_theme_options['license']['key'],
 				'item_name' => $sds_theme_options_instance->theme->get( 'Name' ),
-				'author' 	=> __( 'Slocum Studio', 'baton' )
+				'author' 	=> __( 'Slocum Studio', 'baton-pro' )
 			) );
 
 			// Ensure theme updates "work" on multisite (@see function descriptions below)
@@ -1797,14 +1944,14 @@ if ( ! class_exists( 'Baton' ) ) {
 				default:
 					// Adjust the style formats
 					$settings['style_formats'][] = array(
-						'title' => __( 'Button', 'baton' ),
+						'title' => __( 'Button', 'baton-pro' ),
 						'selector' => 'a',
 						'attributes' => array(
 							'class' => 'button'
 						)
 					);
 					$settings['style_formats'][] = array(
-						'title' => __( 'Button Alternate', 'baton' ),
+						'title' => __( 'Button Alternate', 'baton-pro' ),
 						'selector' => 'a',
 						'attributes' => array(
 							'class' => 'button-alt'
@@ -1822,11 +1969,11 @@ if ( ! class_exists( 'Baton' ) ) {
 		public function note_widget_template_types( $types ) {
 			// Hero type
 			if ( ! isset( $types['baton-hero'] ) )
-				$types['baton-hero'] = __( 'Baton Hero', 'baton' );
+				$types['baton-hero'] = __( 'Baton Hero', 'baton-pro' );
 
 			// Features type
 			if ( ! isset( $types['baton-features'] ) )
-				$types['baton-features'] = __( 'Baton Features', 'baton' );
+				$types['baton-features'] = __( 'Baton Features', 'baton-pro' );
 
 			return $types;
 		}
@@ -1870,15 +2017,15 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $templates['baton-hero-1'] ) )
 				$templates['baton-hero-1'] = array(
 					// Label
-					'label' => __( 'Baton Hero 1', 'baton' ),
+					'label' => __( 'Baton Hero 1', 'baton-pro' ),
 					// Placeholder Content
 					'placeholder' => sprintf( '<h2>%1$s</h2>
 							<p data-note-placeholder="false"><strong data-note-placeholder="false"><span style="font-size: 24px;">%2$s</span></strong></p>
 							<p data-note-placeholder="false"><br data-note-placeholder="false" /></p>
 							<p data-note-placeholder="false"><a href="#" class="button" data-note-placeholder="false">%3$s</a></p>',
-						__( 'Hero 1', 'baton' ),
-						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-						__( 'Button', 'baton' ) ),
+						__( 'Hero 1', 'baton-pro' ),
+						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+						__( 'Button', 'baton-pro' ) ),
 					// Type
 					'type' => 'baton-hero',
 					// Template
@@ -1906,14 +2053,14 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $templates['baton-hero-2'] ) )
 				$templates['baton-hero-2'] = array(
 					// Label
-					'label' => __( 'Baton Hero 2', 'baton' ),
+					'label' => __( 'Baton Hero 2', 'baton-pro' ),
 					// Placeholder Content
 					'placeholder' => sprintf( '<h2 style="text-align: center;">%1$s</h2>
 							<p style="text-align: center;">%2$s</p>
 							<p style="text-align: center;" data-note-placeholder="false"><a href="#" class="button" data-note-placeholder="false">%3$s</a></p>',
-						__( 'Hero 2', 'baton' ),
-						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-						__( 'Button', 'baton' ) ),
+						__( 'Hero 2', 'baton-pro' ),
+						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+						__( 'Button', 'baton-pro' ) ),
 					// Type
 					'type' => 'baton-hero',
 					// Template
@@ -1941,12 +2088,12 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $templates['baton-hero-3'] ) )
 				$templates['baton-hero-3'] = array(
 					// Label
-					'label' => __( 'Baton Hero 3 (Content Left)', 'baton' ),
+					'label' => __( 'Baton Hero 3 (Content Left)', 'baton-pro' ),
 					// Placeholder Content
 					'placeholder' => sprintf( '<h3>%1$s</h3>
 								<p>%2$s</p>',
-						__( 'Baton Hero 3 (Content Left)', 'baton' ),
-						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+						__( 'Baton Hero 3 (Content Left)', 'baton-pro' ),
+						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 					// Type
 					'type' => 'baton-hero',
 					// Template
@@ -1978,8 +2125,8 @@ if ( ! class_exists( 'Baton' ) ) {
 					// Placeholder Content
 					'placeholder' => sprintf( '<h3 text-align: right;">%1$s</h3>
 								<p text-align: right;">%2$s</p>',
-						 __( 'Baton Hero 3 (Content Right)', 'baton' ),
-						 __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+						 __( 'Baton Hero 3 (Content Right)', 'baton-pro' ),
+						 __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 					// Type
 					'type' => 'baton-hero',
 					// Template
@@ -2007,12 +2154,12 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $templates['baton-features-1'] ) )
 				$templates['baton-features-1'] = array(
 					// Label
-					'label' => __( 'Baton Features 1', 'baton' ),
+					'label' => __( 'Baton Features 1', 'baton-pro' ),
 					// Placeholder Content
 					'placeholder' => sprintf( '<h2 style="text-align: center;">%1$s</h2>
 							<p style="text-align: center;">%2$s</p>',
-						__( 'Features', 'baton' ),
-						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+						__( 'Features', 'baton-pro' ),
+						__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 					// Type
 					'type' => 'baton-features',
 					// Template
@@ -2028,9 +2175,9 @@ if ( ! class_exists( 'Baton' ) ) {
 						'placeholder' => sprintf( '<h6 style="text-align: center;">%1$s</h6>
 								<p style="text-align: center;" data-note-placeholder="false"><span style="font-size: 16px;">%2$s</span></p>
 								<p style="text-align: center;" data-note-placeholder="false"><strong data-note-placeholder="false"><span style="font-size: 16px;">%3$s</span></strong></p>',
-							__( 'Feature', 'baton' ),
-							__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-							__( 'Read More', 'baton' ) ),
+							__( 'Feature', 'baton-pro' ),
+							__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+							__( 'Read More', 'baton-pro' ) ),
 						// Column configuration
 						'columns' => array(
 							// Column 1
@@ -2039,9 +2186,9 @@ if ( ! class_exists( 'Baton' ) ) {
 								'placeholder' => sprintf( '<h6 style="text-align: center;">%1$s</h6>
 										<p style="text-align: center;" data-note-placeholder="false"><span style="font-size: 16px;">%2$s</span></p>
 										<p style="text-align: center;" data-note-placeholder="false"><strong data-note-placeholder="false"><span style="font-size: 16px;">%3$s</span></strong></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-									__( 'Read More', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+									__( 'Read More', 'baton-pro' ) ),
 							),
 							// Column 2
 							2 => array(
@@ -2049,9 +2196,9 @@ if ( ! class_exists( 'Baton' ) ) {
 								'placeholder' => sprintf( '<h6 style="text-align: center;">%1$s</h6>
 										<p style="text-align: center;" data-note-placeholder="false"><span style="font-size: 16px;">%2$s</span></p>
 										<p style="text-align: center;" data-note-placeholder="false"><strong data-note-placeholder="false"><span style="font-size: 16px;">%3$s</span></strong></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-									__( 'Read More', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+									__( 'Read More', 'baton-pro' ) ),
 							),
 							// Column 2
 							3 => array(
@@ -2059,9 +2206,9 @@ if ( ! class_exists( 'Baton' ) ) {
 								'placeholder' => sprintf( '<h6 style="text-align: center;">%1$s</h6>
 										<p style="text-align: center;" data-note-placeholder="false"><span style="font-size: 16px;">%2$s</span></p>
 										<p style="text-align: center;" data-note-placeholder="false"><strong data-note-placeholder="false"><span style="font-size: 16px;">%3$s</span></strong></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-									__( 'Read More', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+									__( 'Read More', 'baton-pro' ) ),
 							),
 							// Column 4
 							4 => array(
@@ -2069,9 +2216,9 @@ if ( ! class_exists( 'Baton' ) ) {
 								'placeholder' => sprintf( '<h6 style="text-align: center;">%1$s</h6>
 										<p style="text-align: center;" data-note-placeholder="false"><span style="font-size: 16px;">%2$s</span></p>
 										<p style="text-align: center;" data-note-placeholder="false"><strong data-note-placeholder="false"><span style="font-size: 16px;">%3$s</span></strong></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ),
-									__( 'Read More', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ),
+									__( 'Read More', 'baton-pro' ) ),
 							)
 						)
 					)
@@ -2081,11 +2228,11 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $templates['baton-features-2'] ) ) {
 				$templates['baton-features-2'] = array(
 					// Label
-					'label' => __( 'Baton Features 2', 'baton' ),
+					'label' => __( 'Baton Features 2', 'baton-pro' ),
 					// Placeholder Content
 					'placeholder' => sprintf( '<h2 style="text-align: center;">%1$s</h2>
 							<p style="text-align: center;"><br /></p>',
-						__( 'Features', 'baton' ) ),
+						__( 'Features', 'baton-pro' ) ),
 					// Type
 					'type' => 'baton-features',
 					// Template
@@ -2100,8 +2247,8 @@ if ( ! class_exists( 'Baton' ) ) {
 						// Placeholder (Columns; used in place for "extra" columns that aren't found in configuration below)
 						'placeholder' => sprintf( '<h5 data-note-placeholder="false"><span style="color: #fff;">%1$s</span></h5>
 								<p data-note-placeholder="false"><span style="color: #fff; font-size: 16px;">%2$s</span></p>',
-							__( 'Feature', 'baton' ),
-							__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+							__( 'Feature', 'baton-pro' ),
+							__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 						// Column configuration
 						'columns' => array(
 							// Column 1
@@ -2109,32 +2256,32 @@ if ( ! class_exists( 'Baton' ) ) {
 								// Placeholder (Column)
 								'placeholder' => sprintf( '<h5 data-note-placeholder="false"><span style="color: #fff;">%1$s</span></h5>
 										<p data-note-placeholder="false"><span style="color: #fff; font-size: 16px;">%2$s</span></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 							),
 							// Column 2
 							2 => array(
 								// Placeholder (Column)
 								'placeholder' => sprintf( '<h5 data-note-placeholder="false"><span style="color: #fff;">%1$s</span></h5>
 										<p data-note-placeholder="false"><span style="color: #fff; font-size: 16px;">%2$s</span></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 							),
 							// Column 2
 							3 => array(
 								// Placeholder (Column)
 								'placeholder' => sprintf( '<h5 data-note-placeholder="false"><span style="color: #fff;">%1$s</span></h5>
 										<p data-note-placeholder="false"><span style="color: #fff; font-size: 16px;">%2$s</span></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 							),
 							// Column 4
 							4 => array(
 								// Placeholder (Column)
 								'placeholder' => sprintf( '<h5 data-note-placeholder="false"><span style="color: #fff;">%1$s</span></h5>
 										<p data-note-placeholder="false"><span style="color: #fff; font-size: 16px;">%2$s</span></p>',
-									__( 'Feature', 'baton' ),
-									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton' ) ),
+									__( 'Feature', 'baton-pro' ),
+									__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque purus, quis vulputate lacus.', 'baton-pro' ) ),
 							)
 						)
 					)
@@ -2457,7 +2604,7 @@ if ( ! class_exists( 'Baton' ) ) {
 							$queried_object = get_category( $baton_post_id['ID'] );
 
 						// Adjust the sidebar name
-						$sidebar_args['name'] = sprintf( __( 'Category - %1$s - %2$s', 'baton' ), $queried_object->name, $sidebar_args['name'] );
+						$sidebar_args['name'] = sprintf( __( 'Category - %1$s - %2$s', 'baton-pro' ), $queried_object->name, $sidebar_args['name'] );
 					}
 					// Tag
 					else if ( is_tag() || ( is_admin() && $is_tag ) ) {
@@ -2467,7 +2614,7 @@ if ( ! class_exists( 'Baton' ) ) {
 							$queried_object = get_tag( $baton_post_id['ID'] );
 
 						// Adjust the sidebar name
-						$sidebar_args['name'] = sprintf( __( 'Tag - %1$s - %2$s', 'baton' ), $queried_object->name, $sidebar_args['name'] );
+						$sidebar_args['name'] = sprintf( __( 'Tag - %1$s - %2$s', 'baton-pro' ), $queried_object->name, $sidebar_args['name'] );
 					}
 					// Taxonomy
 					else if ( is_tax() || ( is_admin() && $is_tax ) ) {
@@ -2477,11 +2624,11 @@ if ( ! class_exists( 'Baton' ) ) {
 						// If we don't have a queried object or a taxonomy yet, check if we have data stored in Note Options
 						if ( ( ! $queried_object || is_wp_error( $queried_object ) || ! $taxonomy || is_wp_error( $taxonomy ) ) && isset( $note_options['baton'][$post_id] ) )
 							// Adjust the sidebar name
-							$sidebar_args['name'] = sprintf( __( '%1$s - %2$s - %3$s', 'baton' ), $note_options['baton'][$post_id]['tax_label'], $note_options['baton'][$post_id]['term_label'], $sidebar_args['name'] ); // TODO: _x()
+							$sidebar_args['name'] = sprintf( __( '%1$s - %2$s - %3$s', 'baton-pro' ), $note_options['baton'][$post_id]['tax_label'], $note_options['baton'][$post_id]['term_label'], $sidebar_args['name'] ); // TODO: _x()
 						// Otherwise use the queried object
 						else
 							// Adjust the sidebar name
-							$sidebar_args['name'] = sprintf( __( '%1$s - %2$s - %3$s', 'baton' ), $taxonomy->labels->name, $queried_object->name, $sidebar_args['name'] ); // TODO: _x()
+							$sidebar_args['name'] = sprintf( __( '%1$s - %2$s - %3$s', 'baton-pro' ), $taxonomy->labels->name, $queried_object->name, $sidebar_args['name'] ); // TODO: _x()
 					}
 				}
 				// Post Type Archive
@@ -2494,22 +2641,22 @@ if ( ! class_exists( 'Baton' ) ) {
 					// If we don't have a queried object yet, check if we have data stored in Note Options
 					if ( ( ! $queried_object || is_wp_error( $queried_object ) ) && isset( $note_options['baton'][$post_id] ) )
 						// Adjust the sidebar name
-						$sidebar_args['name'] = sprintf( __( 'Post Type Archive - %1$s - %2$s', 'baton' ), $note_options['baton'][$post_id]['label'], $sidebar_args['name'] );
+						$sidebar_args['name'] = sprintf( __( 'Post Type Archive - %1$s - %2$s', 'baton-pro' ), $note_options['baton'][$post_id]['label'], $sidebar_args['name'] );
 					// Otherwise use the queried object
 					else
 						// Adjust the sidebar name
-						$sidebar_args['name'] = sprintf( __( 'Post Type Archive - %1$s - %2$s', 'baton' ), $queried_object->labels->name, $sidebar_args['name'] );
+						$sidebar_args['name'] = sprintf( __( 'Post Type Archive - %1$s - %2$s', 'baton-pro' ), $queried_object->labels->name, $sidebar_args['name'] );
 				}
 				// Home (Blog) Archive (WP_Post)
 				else if ( is_home() || ( is_admin() && $is_home ) ) {
 					// If this is the front page (posts are set to display on the front page)
 					if ( ( is_front_page() && get_option( 'show_on_front' ) === 'posts' ) || ( is_admin() && $baton_post_id['ID'] === 'front_page' ) )
 						// Adjust the sidebar name
-						$sidebar_args['name'] = sprintf( __( 'Blog (Front Page) - %1$s', 'baton' ), $sidebar_args['name'] );
+						$sidebar_args['name'] = sprintf( __( 'Blog (Front Page) - %1$s', 'baton-pro' ), $sidebar_args['name'] );
 					// Otherwise this is just a blog page (separate page from the front page)
 					else
 						// Adjust the sidebar name
-						$sidebar_args['name'] = sprintf( __( 'Blog - %1$s', 'baton' ), $sidebar_args['name'] );
+						$sidebar_args['name'] = sprintf( __( 'Blog - %1$s', 'baton-pro' ), $sidebar_args['name'] );
 				}
 				// Author (WP_User)
 				else if ( is_author() || ( is_admin() && $is_author ) ) {
@@ -2519,11 +2666,11 @@ if ( ! class_exists( 'Baton' ) ) {
 						$queried_object = get_user_by( 'id', $baton_post_id['ID'] );
 
 					// Adjust the sidebar name
-					$sidebar_args['name'] = sprintf( __( 'Author Archive - %1$s - %2$s', 'baton' ), $queried_object->data->display_name, $sidebar_args['name'] );
+					$sidebar_args['name'] = sprintf( __( 'Author Archive - %1$s - %2$s', 'baton-pro' ), $queried_object->data->display_name, $sidebar_args['name'] );
 				}
 
 				// Adjust the sidebar description (use updated sidebar name instead of original generic name; Note uses "post_id" to grab the title of the current singular content piece)
-				$sidebar_args['description'] = sprintf( __( 'This is the %1$s widget area.', 'baton' ), $sidebar_args['name'] );
+				$sidebar_args['description'] = sprintf( __( 'This is the %1$s widget area.', 'baton-pro' ), $sidebar_args['name'] );
 
 				// Store a reference to the "post_id" on this class
 				$this->note_post_ids_by_sidebar_id[$sidebar_id] = $post_id;
@@ -2642,7 +2789,7 @@ if ( ! class_exists( 'Baton' ) ) {
 			if ( ! isset( $content_layouts['baton-landing-page'] ) )
 				$content_layouts['baton-landing-page'] = array(
 					// Label for this content layout
-					'label' => __( 'Baton Landing Page', 'baton' ),
+					'label' => __( 'Baton Landing Page', 'baton-pro' ),
 					// Preview HTML for this content layout(required; %1$s is replaced with values below on options panel if specified)
 					'preview' => '<div class="cols cols-1">
 						<div class="col col-content" title="%1$s" style="font-size: 12px;">
@@ -2650,7 +2797,7 @@ if ( ! class_exists( 'Baton' ) ) {
 						</div>
 					</div>',
 					// Preview values for this content layout(values that will be applied to the layout preview above)
-					'preview_values' => array( __( 'Baton Landing Page', 'baton' ) ),
+					'preview_values' => array( __( 'Baton Landing Page', 'baton-pro' ) ),
 					// Body classes appended when this layout is selected
 					'body_class' => array(
 						'conductor-cols-1', // Conductor
@@ -2704,7 +2851,7 @@ if ( ! class_exists( 'Baton' ) ) {
 			}
 
 			// Read More output features (Baton deault)
-			$defaults['output_features']['read_more']['edit_label']['default'] = _x( 'Continue Reading', '"read more" label for Conductor widgets', 'baton' );
+			$defaults['output_features']['read_more']['edit_label']['default'] = _x( 'Continue Reading', '"read more" label for Conductor widgets', 'baton-pro' );
 
 			/*
 			 * Author Byline (move to bottom of default output elements)
@@ -3300,6 +3447,298 @@ if ( ! class_exists( 'Baton' ) ) {
 			}
 
 			return $confirmation;
+		}
+
+
+		/***************
+		 * WooCommerce *
+		 ***************/
+
+		/**
+		 * This function adjusts the default WooCommerce Product settings.
+		 */
+		public function woocommerce_product_settings( $settings ) {
+			// Loop through the WooCommerce product settings
+			foreach ( $settings as &$setting ) {
+				// Adjust the shop catalog image size
+				if ( $setting['id'] === 'shop_catalog_image_size' ) {
+					$setting['default']['width'] = $setting['default']['height'] = 550;
+
+					$setting['default']['crop'] = 0;
+				}
+
+				// Adjust the shop single image size
+				if ( $setting['id'] === 'shop_single_image_size' ) {
+					$setting['default']['width'] = $setting['default']['height'] = 850;
+
+					$setting['default']['crop'] = 0;
+				}
+
+				// Adjust the shop thumbnail image size
+				if ( $setting['id'] === 'shop_thumbnail_image_size' ) {
+					$setting['default']['width'] = $setting['default']['height'] = 175;
+
+					$setting['default']['crop'] = 0;
+				}
+			}
+
+			return $settings;
+		}
+
+		/**
+		 * This function adjusts the WooCommerce shop catalog image size
+		 */
+		public function woocommerce_get_image_size_shop_catalog( $size ) {
+			$size['width'] = $size['height'] = '550';
+
+			return $size;
+		}
+
+		/**
+		 * This function adjusts the WooCommerce shop single image size
+		 */
+		public function woocommerce_get_image_size_shop_single( $size ) {
+			$size['width'] = $size['height'] = '850';
+
+			return $size;
+		}
+
+		/**
+		 * This function adjusts the WooCommerce shop thumbnail image size
+		 */
+		public function woocommerce_get_image_size_shop_thumbnail( $size ) {
+			$size['width'] = $size['height'] = '175';
+
+			return $size;
+		}
+
+		/**
+		 * This function outputs a content wrapper element before WooCommerce output.
+		 */
+		public function woocommerce_before_main_content() {
+		?>
+			<!-- Main -->
+			<main role="main" class="content-wrap content-wrap-page content-wrap-woocommerce content-wrap-full-width-page baton-flex baton-flex-1-columns">
+				<!-- Page Content -->
+				<div class="baton-col baton-col-content">
+					<section class="content-container content-page-container content-woocommerce-container">
+		<?php
+		}
+
+		/**
+		 * This function outputs the opening article content wrapper element before the main WooCommerce content.
+		 */
+		public function woocommerce_before_main_content_article_content_wrapper_before() {
+			// If we're not displaying a singular piece of content
+			if ( ! is_singular() ) :
+		?>
+						<!-- Article -->
+						<article id="post-<?php the_ID(); ?>" class="content-woocommerce cf">
+		<?php
+			endif;
+		}
+
+		/**
+		 * This function adjusts the number of products per page on WooCommerce pages.
+		 */
+		public function loop_shop_per_page() {
+			// Set the posts per page to 12
+			return 12;
+		}
+
+		/**
+		 * This function adjusts the number of columns per page on WooCommerce pages.
+		 */
+		public function loop_shop_columns() {
+			// Set the columns to 3
+			return 3;
+		}
+
+		/**
+		 * This function outputs the opening thumbnail wrapper element.
+		 */
+		public function woocommerce_before_shop_loop_item_title_thumbnail_wrapper_before() {
+		?>
+			<!-- Post Thumbnail/Featured Image -->
+			<div class="article-thumbnail-wrap article-featured-image-wrap post-thumbnail-wrap featured-image-wrap cf">
+		<?php
+		}
+
+		/**
+		 * This function outputs the closing thumbnail wrapper element.
+		 */
+		public function woocommerce_before_shop_loop_item_title_thumbnail_wrapper_after() {
+		?>
+			</div>
+			<!-- End Post Thumbnail/Featured Image -->
+		<?php
+		}
+
+		/**
+		 * This function outputs the opening article content wrapper element before the product title.
+		 */
+		public function woocommerce_shop_loop_item_title() {
+		?>
+			<!-- Article Content -->
+			<div class="article-content cf">
+		<?php
+		}
+
+		/**
+		 * This function outputs the closing article content wrapper element after the product title.
+		 */
+		public function woocommerce_after_shop_loop_item_title() {
+		?>
+				<div class="clear"></div>
+			</div>
+			<!-- End Article Content -->
+		<?php
+		}
+
+		/**
+		 * This function outputs the opening article content wrapper element before the add to cart link.
+		 */
+		public function woocommerce_after_shop_loop_item_article_content_wrapper_before() {
+		?>
+			<!-- Article Content -->
+			<div class="article-content cf">
+		<?php
+		}
+
+		/**
+		 * This function outputs the closing article content wrapper element after the add to cart link.
+		 */
+		public function woocommerce_after_shop_loop_item_article_content_wrapper_after() {
+		?>
+				<div class="clear"></div>
+			</div>
+			<!-- End Article Content -->
+		<?php
+		}
+
+		/**
+		 * This function outputs the opening baton column wrapper element before the single product images.
+		 */
+		public function woocommerce_before_single_product_summary() {
+		?>
+			<div class="baton-col baton-col-woocommerce-product baton-col-woocommerce-product-images">
+		<?php
+		}
+
+		/**
+		 * This function adjusts the single product thumbnails columns.
+		 */
+		public function woocommerce_product_thumbnails_columns( $columns ) {
+			// Bail if the columns are already set to three
+			if ( $columns === 3 )
+				return $columns;
+
+			// Set the columns to three
+			$columns = 3;
+
+			return $columns;
+		}
+
+		/**
+		 * This function outputs the closing and opening baton column wrapper element before
+         * the single product summary.
+		 */
+		public function woocommerce_before_single_product_summary_baton_col_wrappers() {
+		?>
+			</div>
+
+			<div class="baton-col baton-col-woocommerce-product baton-col-woocommerce-product-summary">
+				<!-- Article -->
+				<article class="content content-woocommerce-product cf">
+		<?php
+		}
+
+		/**
+		 * This function outputs the opening article content wrapper element before the product summary.
+		 */
+		public function woocommerce_single_product_summary() {
+		?>
+			<!-- Article Content -->
+			<div class="article-content cf">
+		<?php
+		}
+
+		/**
+		 * This function outputs the closing article content wrapper element after the product summary.
+		 */
+		public function woocommerce_single_product_summary_article_content_wrapper_after() {
+		?>
+				<div class="clear"></div>
+			</div>
+			<!-- End Article Content -->
+		<?php
+		}
+
+		/**
+		 * This function outputs the closing baton column wrapper element before the single product summary.
+		 */
+		public function woocommerce_after_single_product_summary() {
+		?>
+					<div class="clear"></div>
+				</article>
+				<!-- End Article -->
+			</div>
+		<?php
+		}
+
+		/**
+		 * This function adjusts the WooCommerce related products arguments.
+		 */
+		public function woocommerce_output_related_products_args( $args ) {
+			// Bail if the posts per page and columns are already set to three
+			if ( $args['posts_per_page'] === 3 && $args['columns'] === 3 )
+				return $args;
+
+			// Set the posts per page and columns arguments to three
+			$args['posts_per_page'] = $args['columns'] = 3;
+
+			return $args;
+		}
+
+		/**
+		 * This function adjusts the WooCommerce single product archive thumbnail size.
+         */
+		public function single_product_archive_thumbnail_size( $size ) {
+			// Bail if we're not on the cart and the size isn't set to the shop catalog
+			if ( ! is_cart() || $size !== 'shop_catalog' )
+				return $size;
+
+			// Set the size to shop single
+			$size = 'shop_single';
+
+			return $size;
+		}
+
+		/**
+		 * This function outputs a closing content wrapper element after WooCommerce output.
+		 */
+		public function woocommerce_after_main_content() {
+			// If we're not displaying a singular piece of content
+			if ( ! is_singular() ) :
+		?>
+							<div class="clear"></div>
+						</article>
+						<!-- End Article -->
+		<?php
+			endif;
+		?>
+
+						<div class="clear"></div>
+					</section>
+
+					<div class="clear"></div>
+				</div>
+				<!-- End Page Content -->
+
+				<div class="clear"></div>
+			</main>
+			<!-- End Main -->
+		<?php
 		}
 
 

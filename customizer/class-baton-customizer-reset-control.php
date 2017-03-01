@@ -31,7 +31,7 @@ if ( ! class_exists( 'Baton_Customizer_Font_Size_Control' ) ) {
 		 */
 		function __construct( $manager, $id, $args ) {
 			// i18n
-			$this->button_label = __( 'Reset', 'baton' );
+			$this->button_label = __( 'Reset', 'baton-pro' );
 
 			// Call the parent constructor here
 			parent::__construct( $manager, $id, $args );

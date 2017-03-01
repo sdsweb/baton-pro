@@ -39,7 +39,7 @@
 					<div class="clear"></div>
 				<?php endif; ?>
 
-				<?php edit_post_link( __( 'Edit Page', 'baton' ) ); // Allow logged in users to edit ?>
+				<?php edit_post_link( __( 'Edit Page', 'baton-pro' ) ); // Allow logged in users to edit ?>
 
 				<div class="clear"></div>
 			</div>

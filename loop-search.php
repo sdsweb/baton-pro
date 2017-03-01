@@ -9,7 +9,7 @@
 	if ( have_posts() ) :
 ?>
 		<header class="search-title">
-			<h1 title="<?php esc_attr_e( sprintf( __( 'Search results for \'%s\'', 'baton' ), get_search_query() ) ); ?>" class="page-title"><?php printf( __( 'Search results for "%s"', 'baton' ), get_search_query() ); ?></h1>
+			<h1 title="<?php esc_attr_e( sprintf( __( 'Search results for \'%s\'', 'baton-pro' ), get_search_query() ) ); ?>" class="page-title"><?php printf( __( 'Search results for "%s"', 'baton-pro' ), get_search_query() ); ?></h1>
 		</header>
 <?php
 		while ( have_posts() ) : the_post();
@@ -67,7 +67,7 @@
 	else: // No Posts
 ?>
 	<header class="search-title search-title-no-results">
-		<h1 title="<?php esc_attr_e( sprintf( __( 'No results for \'%s\'', 'baton' ), get_search_query() ) ); ?>'" class="page-title"><?php printf( __( 'No results for "%s"', 'baton' ), get_search_query() ); ?></h1>
+		<h1 title="<?php esc_attr_e( sprintf( __( 'No results for \'%s\'', 'baton-pro' ), get_search_query() ) ); ?>'" class="page-title"><?php printf( __( 'No results for "%s"', 'baton-pro' ), get_search_query() ); ?></h1>
 	</header>
 
 	<!-- Article (No Posts) -->
@@ -77,7 +77,7 @@
 			<?php sds_no_posts(); ?>
 
 			<div class="search-again search-block no-posts no-search-results">
-				<p><?php _e( 'Would you like to search again?', 'baton' ); ?></p>
+				<p><?php _e( 'Would you like to search again?', 'baton-pro' ); ?></p>
 				<?php echo get_search_form(); ?>
 			</div>
 

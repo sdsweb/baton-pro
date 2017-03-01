@@ -45,8 +45,8 @@ class SDS_Theme_Options_Customize_Checkbox_Control extends WP_Customize_Control 
 	 */
 	function __construct( $manager, $id, $args ) {
 		// i18n
-		$this->checked_label = __( 'Show', 'baton' );
-		$this->unchecked_label = __( 'Hide', 'baton' );
+		$this->checked_label = __( 'Show', 'baton-pro' );
+		$this->unchecked_label = __( 'Hide', 'baton-pro' );
 
 		// Actions/ Filters
 		add_action( 'customize_controls_print_styles', array( $this, 'customize_controls_print_styles' ) ); // Output styles on Customizer

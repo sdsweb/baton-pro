@@ -102,7 +102,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 * This function adds a menu item under "Appearance" in the Dashboard.
 		 */
 		function admin_menu() {
-			add_theme_page( __( 'Theme Options', 'baton' ), __( 'Theme Options', 'baton' ), 'edit_theme_options', 'sds-theme-options', array( $this, 'sds_theme_options_page' ) );
+			add_theme_page( __( 'Theme Options', 'baton-pro' ), __( 'Theme Options', 'baton-pro' ), 'edit_theme_options', 'sds-theme-options', array( $this, 'sds_theme_options_page' ) );
 		}
 
 		/**
@@ -114,7 +114,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'appearance',
 					'id'  => 'sds-theme-options',
-					'title' => __( 'Theme Options', 'baton' ),
+					'title' => __( 'Theme Options', 'baton-pro' ),
 					'href' => admin_url( 'themes.php?page=sds-theme-options' ),
 					'meta' => array(
 						'class' => 'sds-theme-options'
@@ -135,52 +135,52 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			 */
 
 			// Logo
-			add_settings_section( 'sds_theme_options_logo_section', __( 'Upload A Logo', 'baton' ), array( $this, 'sds_theme_options_logo_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_logo_field', __( 'Logo:', 'baton' ), array( $this, 'sds_theme_options_logo_field' ), 'sds-theme-options[general]', 'sds_theme_options_logo_section' );
+			add_settings_section( 'sds_theme_options_logo_section', __( 'Upload A Logo', 'baton-pro' ), array( $this, 'sds_theme_options_logo_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_logo_field', __( 'Logo:', 'baton-pro' ), array( $this, 'sds_theme_options_logo_field' ), 'sds-theme-options[general]', 'sds_theme_options_logo_section' );
 
 			// Show/Hide Elements
-			add_settings_section( 'sds_theme_options_show_hide_elements_section', __( 'Show or Hide Elements', 'baton' ), array( $this, 'sds_theme_options_show_hide_elements_section' ), 'sds-theme-options[general]' );
+			add_settings_section( 'sds_theme_options_show_hide_elements_section', __( 'Show or Hide Elements', 'baton-pro' ), array( $this, 'sds_theme_options_show_hide_elements_section' ), 'sds-theme-options[general]' );
 
 			// Hide Tagline
-			//add_settings_section( 'sds_theme_options_hide_tagline_section', __( 'Show/Hide Site Tagline', 'baton' ), array( $this, 'sds_theme_options_hide_tagline_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_hide_tagline_field', __( 'Show or Hide Site Tagline:', 'baton' ), array( $this, 'sds_theme_options_hide_tagline_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
+			//add_settings_section( 'sds_theme_options_hide_tagline_section', __( 'Show/Hide Site Tagline', 'baton-pro' ), array( $this, 'sds_theme_options_hide_tagline_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_hide_tagline_field', __( 'Show or Hide Site Tagline:', 'baton-pro' ), array( $this, 'sds_theme_options_hide_tagline_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
 
 			// Hide Archive Titles
-			//add_settings_section( 'sds_theme_options_hide_archive_titles_section', __( 'Show/Hide Archive Titles', 'baton' ), array( $this, 'sds_theme_options_hide_archive_titles_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_hide_archive_titles_field', __( 'Show or Hide Archive Titles:', 'baton' ), array( $this, 'sds_theme_options_hide_archive_titles_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
+			//add_settings_section( 'sds_theme_options_hide_archive_titles_section', __( 'Show/Hide Archive Titles', 'baton-pro' ), array( $this, 'sds_theme_options_hide_archive_titles_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_hide_archive_titles_field', __( 'Show or Hide Archive Titles:', 'baton-pro' ), array( $this, 'sds_theme_options_hide_archive_titles_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
 
 			// Hide Post Meta
-			//add_settings_section( 'sds_theme_options_hide_post_meta_section', __( 'Show/Hide Post Meta', 'baton' ), array( $this, 'sds_theme_options_hide_post_meta_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_hide_post_meta_field', __( 'Show or Hide Post Meta:', 'baton' ), array( $this, 'sds_theme_options_hide_post_meta_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
+			//add_settings_section( 'sds_theme_options_hide_post_meta_section', __( 'Show/Hide Post Meta', 'baton-pro' ), array( $this, 'sds_theme_options_hide_post_meta_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_hide_post_meta_field', __( 'Show or Hide Post Meta:', 'baton-pro' ), array( $this, 'sds_theme_options_hide_post_meta_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
 
 			// Hide Author Meta
-			//add_settings_section( 'sds_theme_options_hide_author_meta_section', __( 'Show/Hide Author Details', 'baton' ), array( $this, 'sds_theme_options_hide_author_meta_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_hide_author_meta_field', __( 'Show or Hide Author Details:', 'baton' ), array( $this, 'sds_theme_options_hide_author_meta_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
+			//add_settings_section( 'sds_theme_options_hide_author_meta_section', __( 'Show/Hide Author Details', 'baton-pro' ), array( $this, 'sds_theme_options_hide_author_meta_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_hide_author_meta_field', __( 'Show or Hide Author Details:', 'baton-pro' ), array( $this, 'sds_theme_options_hide_author_meta_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
 
 			// Color Schemes (if specified by theme)
 			if ( function_exists( 'sds_color_schemes' ) ) {
-				add_settings_section( 'sds_theme_options_color_schemes_section', __( 'Color Scheme', 'baton' ), array( $this, 'sds_theme_options_color_schemes_section' ), 'sds-theme-options[general]' );
-				add_settings_field( 'sds_theme_options_color_schemes_field', __( 'Select A Color Scheme:', 'baton' ), array( $this, 'sds_theme_options_color_schemes_field' ), 'sds-theme-options[general]', 'sds_theme_options_color_schemes_section' );
+				add_settings_section( 'sds_theme_options_color_schemes_section', __( 'Color Scheme', 'baton-pro' ), array( $this, 'sds_theme_options_color_schemes_section' ), 'sds-theme-options[general]' );
+				add_settings_field( 'sds_theme_options_color_schemes_field', __( 'Select A Color Scheme:', 'baton-pro' ), array( $this, 'sds_theme_options_color_schemes_field' ), 'sds-theme-options[general]', 'sds_theme_options_color_schemes_section' );
 			}
 
 			// Google Web Fonts (if specified by theme)
 			if ( function_exists( 'sds_web_fonts' ) ) {
-				add_settings_section( 'sds_theme_options_web_fonts_section', __( 'Web Fonts', 'baton' ), array( $this, 'sds_theme_options_web_fonts_section' ), 'sds-theme-options[general]' );
-				add_settings_field( 'sds_theme_options_web_fonts_field', __( 'Select A Web Font:', 'baton' ), array( $this, 'sds_theme_options_web_fonts_field' ), 'sds-theme-options[general]', 'sds_theme_options_web_fonts_section' );
+				add_settings_section( 'sds_theme_options_web_fonts_section', __( 'Web Fonts', 'baton-pro' ), array( $this, 'sds_theme_options_web_fonts_section' ), 'sds-theme-options[general]' );
+				add_settings_field( 'sds_theme_options_web_fonts_field', __( 'Select A Web Font:', 'baton-pro' ), array( $this, 'sds_theme_options_web_fonts_field' ), 'sds-theme-options[general]', 'sds_theme_options_web_fonts_section' );
 			}
 
 			// Featured Image Size
-			add_settings_section( 'sds_theme_options_featured_image_size_section', __( 'Featured Image Size', 'baton' ), array( $this, 'sds_theme_options_featured_image_size_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_featured_image_size_field', __( 'Featured Image Size:', 'baton' ), array( $this, 'sds_theme_options_featured_image_size_field' ), 'sds-theme-options[general]', 'sds_theme_options_featured_image_size_section' );
+			add_settings_section( 'sds_theme_options_featured_image_size_section', __( 'Featured Image Size', 'baton-pro' ), array( $this, 'sds_theme_options_featured_image_size_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_featured_image_size_field', __( 'Featured Image Size:', 'baton-pro' ), array( $this, 'sds_theme_options_featured_image_size_field' ), 'sds-theme-options[general]', 'sds_theme_options_featured_image_size_section' );
 
 
 			// Footer Branding (Slug)
-			add_settings_section( 'sds_theme_options_footer_branding_section', __( 'Footer Branding', 'baton' ), array( $this, 'sds_theme_options_footer_branding_section' ), 'sds-theme-options[general]' );
-			add_settings_field( 'sds_theme_options_footer_copyright_field', __( 'Footer Copyright:', 'baton' ), array( $this, 'sds_theme_options_footer_copyright_field' ), 'sds-theme-options[general]', 'sds_theme_options_footer_branding_section' );
-			add_settings_field( 'sds_theme_options_footer_branding_field', __( 'Footer Branding:', 'baton' ), array( $this, 'sds_theme_options_footer_branding_field' ), 'sds-theme-options[general]', 'sds_theme_options_footer_branding_section' );
+			add_settings_section( 'sds_theme_options_footer_branding_section', __( 'Footer Branding', 'baton-pro' ), array( $this, 'sds_theme_options_footer_branding_section' ), 'sds-theme-options[general]' );
+			add_settings_field( 'sds_theme_options_footer_copyright_field', __( 'Footer Copyright:', 'baton-pro' ), array( $this, 'sds_theme_options_footer_copyright_field' ), 'sds-theme-options[general]', 'sds_theme_options_footer_branding_section' );
+			add_settings_field( 'sds_theme_options_footer_branding_field', __( 'Footer Branding:', 'baton-pro' ), array( $this, 'sds_theme_options_footer_branding_field' ), 'sds-theme-options[general]', 'sds_theme_options_footer_branding_section' );
 
 			// Hide Footer Branding (Slug)
-			add_settings_field( 'sds_theme_options_hide_footer_branding_field', __( 'Show or Hide Footer Branding:', 'baton' ), array( $this, 'sds_theme_options_hide_footer_branding_field' ), 'sds-theme-options[general]', 'sds_theme_options_footer_branding_section' );
+			add_settings_field( 'sds_theme_options_hide_footer_branding_field', __( 'Show or Hide Footer Branding:', 'baton-pro' ), array( $this, 'sds_theme_options_hide_footer_branding_field' ), 'sds-theme-options[general]', 'sds_theme_options_footer_branding_section' );
 
 
 			/*
@@ -188,35 +188,35 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			 */
 
 			if ( function_exists( 'sds_content_layouts' ) ) {
-				add_settings_section( 'sds_theme_options_content_layout_section', __( 'Content Layout', 'baton' ), array( $this, 'sds_theme_options_content_layout_section' ), 'sds-theme-options[content-layout]' );
-				add_settings_field( 'sds_theme_options_content_layout_global_field', __( 'Global', 'baton' ), array( $this, 'sds_theme_options_content_layout_global_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_front_page_field', __( 'Front Page', 'baton' ), array( $this, 'sds_theme_options_content_layout_front_page_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_home_field', __( 'Home (Blog)', 'baton' ), array( $this, 'sds_theme_options_content_layout_home_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_single_field', __( 'Single Post', 'baton' ), array( $this, 'sds_theme_options_content_layout_single_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_page_field', __( 'Single Page', 'baton' ), array( $this, 'sds_theme_options_content_layout_page_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_archive_field', __( 'Archive', 'baton' ), array( $this, 'sds_theme_options_content_layout_archive_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_category_field', __( 'Category', 'baton' ), array( $this, 'sds_theme_options_content_layout_category_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_tag_field', __( 'Tag', 'baton' ), array( $this, 'sds_theme_options_content_layout_tag_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
-				add_settings_field( 'sds_theme_options_content_layout_404_field', __( '404 Error', 'baton' ), array( $this, 'sds_theme_options_content_layout_404_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_section( 'sds_theme_options_content_layout_section', __( 'Content Layout', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_section' ), 'sds-theme-options[content-layout]' );
+				add_settings_field( 'sds_theme_options_content_layout_global_field', __( 'Global', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_global_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_front_page_field', __( 'Front Page', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_front_page_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_home_field', __( 'Home (Blog)', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_home_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_single_field', __( 'Single Post', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_single_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_page_field', __( 'Single Page', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_page_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_archive_field', __( 'Archive', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_archive_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_category_field', __( 'Category', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_category_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_tag_field', __( 'Tag', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_tag_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
+				add_settings_field( 'sds_theme_options_content_layout_404_field', __( '404 Error', 'baton-pro' ), array( $this, 'sds_theme_options_content_layout_404_field' ), 'sds-theme-options[content-layout]', 'sds_theme_options_content_layout_section' );
 			}
 
 			/*
 			 * Social Media Settings (belong to the sds-theme-options[social-media] "page", used during page render to display section in tab format)
 			 */
 
- 			add_settings_section( 'sds_theme_options_social_media_section', __( 'Social Media', 'baton' ), array( $this, 'sds_theme_options_social_media_section' ), 'sds-theme-options[social-media]' );
-			add_settings_field( 'sds_theme_options_social_media_facebook_url_field', __( 'Facebook:', 'baton' ), array( $this, 'sds_theme_options_social_media_facebook_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_twitter_url_field', __( 'Twitter:', 'baton' ), array( $this, 'sds_theme_options_social_media_twitter_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_linkedin_url_field', __( 'LinkedIn:', 'baton' ), array( $this, 'sds_theme_options_social_media_linkedin_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_google_plus_url_field', __( 'Google+:', 'baton' ), array( $this, 'sds_theme_options_social_media_google_plus_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_youtube_url_field', __( 'YouTube:', 'baton' ), array( $this, 'sds_theme_options_social_media_youtube_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_vimeo_url_field', __( 'Vimeo:', 'baton' ), array( $this, 'sds_theme_options_social_media_vimeo_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_instagram_url_field', __( 'Instagram:', 'baton' ), array( $this, 'sds_theme_options_social_media_instagram_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_pinterest_url_field', __( 'Pinterest:', 'baton' ), array( $this, 'sds_theme_options_social_media_pinterest_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_flickr_url_field', __( 'Flickr:', 'baton' ), array( $this, 'sds_theme_options_social_media_flickr_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			//add_settings_field( 'sds_theme_options_social_media_yelp_url_field', __( 'Yelp:', 'baton' ), array( $this, 'sds_theme_options_social_media_yelp_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_foursquare_url_field', __( 'Foursquare:', 'baton' ), array( $this, 'sds_theme_options_social_media_foursquare_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
-			add_settings_field( 'sds_theme_options_social_media_rss_url_field', __( 'RSS:', 'baton' ), array( $this, 'sds_theme_options_social_media_rss_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+ 			add_settings_section( 'sds_theme_options_social_media_section', __( 'Social Media', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_section' ), 'sds-theme-options[social-media]' );
+			add_settings_field( 'sds_theme_options_social_media_facebook_url_field', __( 'Facebook:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_facebook_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_twitter_url_field', __( 'Twitter:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_twitter_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_linkedin_url_field', __( 'LinkedIn:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_linkedin_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_google_plus_url_field', __( 'Google+:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_google_plus_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_youtube_url_field', __( 'YouTube:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_youtube_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_vimeo_url_field', __( 'Vimeo:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_vimeo_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_instagram_url_field', __( 'Instagram:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_instagram_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_pinterest_url_field', __( 'Pinterest:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_pinterest_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_flickr_url_field', __( 'Flickr:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_flickr_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			//add_settings_field( 'sds_theme_options_social_media_yelp_url_field', __( 'Yelp:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_yelp_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_foursquare_url_field', __( 'Foursquare:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_foursquare_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
+			add_settings_field( 'sds_theme_options_social_media_rss_url_field', __( 'RSS:', 'baton-pro' ), array( $this, 'sds_theme_options_social_media_rss_url_field' ), 'sds-theme-options[social-media]', 'sds_theme_options_social_media_section' );
 
 
 			/*
@@ -224,21 +224,21 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			 */
 
 			// Custom Scripts
- 			add_settings_section( 'sds_theme_options_custom_scripts_section', __( 'Custom Scripts', 'baton' ), array( $this, 'sds_theme_options_custom_scripts_section' ), 'sds-theme-options[custom-scripts-styles]' );
-			add_settings_field( 'sds_theme_options_custom_scripts_head_field', __( 'Head:', 'baton' ), array( $this, 'sds_theme_options_custom_scripts_head_field' ), 'sds-theme-options[custom-scripts-styles]', 'sds_theme_options_custom_scripts_section' );
-			add_settings_field( 'sds_theme_options_custom_scripts_footer_field', __( 'Footer:', 'baton' ), array( $this, 'sds_theme_options_custom_scripts_footer_field' ), 'sds-theme-options[custom-scripts-styles]', 'sds_theme_options_custom_scripts_section' );
+ 			add_settings_section( 'sds_theme_options_custom_scripts_section', __( 'Custom Scripts', 'baton-pro' ), array( $this, 'sds_theme_options_custom_scripts_section' ), 'sds-theme-options[custom-scripts-styles]' );
+			add_settings_field( 'sds_theme_options_custom_scripts_head_field', __( 'Head:', 'baton-pro' ), array( $this, 'sds_theme_options_custom_scripts_head_field' ), 'sds-theme-options[custom-scripts-styles]', 'sds_theme_options_custom_scripts_section' );
+			add_settings_field( 'sds_theme_options_custom_scripts_footer_field', __( 'Footer:', 'baton-pro' ), array( $this, 'sds_theme_options_custom_scripts_footer_field' ), 'sds-theme-options[custom-scripts-styles]', 'sds_theme_options_custom_scripts_section' );
 
 			// Custom Styles
-			add_settings_section( 'sds_theme_options_custom_styles_section', __( 'Custom Styles', 'baton' ), array( $this, 'sds_theme_options_custom_styles_section' ), 'sds-theme-options[custom-scripts-styles]' );
-			add_settings_field( 'sds_theme_options_custom_styles_field', __( 'Custom CSS:', 'baton' ), array( $this, 'sds_theme_options_custom_styles_field' ), 'sds-theme-options[custom-scripts-styles]', 'sds_theme_options_custom_styles_section' );
+			add_settings_section( 'sds_theme_options_custom_styles_section', __( 'Custom Styles', 'baton-pro' ), array( $this, 'sds_theme_options_custom_styles_section' ), 'sds-theme-options[custom-scripts-styles]' );
+			add_settings_field( 'sds_theme_options_custom_styles_field', __( 'Custom CSS:', 'baton-pro' ), array( $this, 'sds_theme_options_custom_styles_field' ), 'sds-theme-options[custom-scripts-styles]', 'sds_theme_options_custom_styles_section' );
 
 
 			/*
 			 * License Settings (belong to the sds-theme-options[license] "page", used during page render to display section in tab format)
 			 */
 
-			add_settings_section( 'sds_theme_options_license_section', __( 'License', 'baton' ), array( $this, 'sds_theme_options_license_section' ), 'sds-theme-options[license]' );
-			add_settings_field( 'sds_theme_options_license_key_field', __( 'License Key:', 'baton' ), array( $this, 'sds_theme_options_license_key_field' ), 'sds-theme-options[license]', 'sds_theme_options_license_section' );
+			add_settings_section( 'sds_theme_options_license_section', __( 'License', 'baton-pro' ), array( $this, 'sds_theme_options_license_section' ), 'sds-theme-options[license]' );
+			add_settings_field( 'sds_theme_options_license_key_field', __( 'License Key:', 'baton-pro' ), array( $this, 'sds_theme_options_license_key_field' ), 'sds-theme-options[license]', 'sds_theme_options_license_section' );
 		}
 
 		/**
@@ -249,7 +249,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			<p>
 				<?php
 					$sds_logo_dimensions = apply_filters( 'sds_theme_options_logo_dimensions', '300x100' );
-					printf( __( 'Upload a logo to to replace the site name. Recommended dimensions: %1$s.', 'baton' ), $sds_logo_dimensions );
+					printf( __( 'Upload a logo to to replace the site name. Recommended dimensions: %1$s.', 'baton-pro' ), $sds_logo_dimensions );
 				?>
 			</p>
 		<?php
@@ -267,27 +267,27 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 				<p>
 					<?php
 						$sds_logo_dimensions = apply_filters( 'sds_theme_options_logo_dimensions', '300x100' );
-						printf( __( 'Upload a logo to to replace the site name. Recommended dimensions: %1$s.', 'baton' ), $sds_logo_dimensions );
+						printf( __( 'Upload a logo to to replace the site name. Recommended dimensions: %1$s.', 'baton-pro' ), $sds_logo_dimensions );
 					?>
 				</p>
 		<?php
 			endif;
 		?>
 
-			<strong><?php _e( 'Current Logo:', 'baton' ); ?></strong>
+			<strong><?php _e( 'Current Logo:', 'baton-pro' ); ?></strong>
 			<div class="sds-theme-options-preview sds-theme-options-logo-preview">
 				<?php
 					if ( isset( $sds_theme_options['logo_attachment_id'] ) && $sds_theme_options['logo_attachment_id'] ) :
 						echo wp_get_attachment_image( $sds_theme_options['logo_attachment_id'], 'full' );
 					else :
 				?>
-						<div class="description"><?php _e( 'No logo selected.', 'baton' ); ?></div>
+						<div class="description"><?php _e( 'No logo selected.', 'baton-pro' ); ?></div>
 				<?php endif; ?>
 			</div>
 
 			<input type="hidden" id="sds_theme_options_logo" class="sds-theme-options-upload-value" name="sds_theme_options[logo_attachment_id]"  value="<?php echo ( isset( $sds_theme_options['logo_attachment_id'] ) && ! empty( $sds_theme_options['logo_attachment_id'] ) ) ? esc_attr( $sds_theme_options['logo_attachment_id'] ) : false; ?>" />
-			<input type="submit" id="sds_theme_options_logo_attach" class="button-primary sds-theme-options-upload" name="sds_theme_options_logo_attach"  value="<?php esc_attr_e( 'Choose Logo', 'baton' ); ?>" data-media-title="Choose A Logo" data-media-button-text="Use As Logo" />
-			<?php submit_button( __( 'Remove Logo', 'baton' ), array( 'secondary', 'button-remove-logo' ), 'sds_theme_options[remove-logo]', false, ( ! isset( $sds_theme_options['logo_attachment_id'] ) || empty( $sds_theme_options['logo_attachment_id'] ) ) ? array( 'disabled' => 'disabled', 'data-init-empty' => 'true' ) : false ); ?>
+			<input type="submit" id="sds_theme_options_logo_attach" class="button-primary sds-theme-options-upload" name="sds_theme_options_logo_attach"  value="<?php esc_attr_e( 'Choose Logo', 'baton-pro' ); ?>" data-media-title="Choose A Logo" data-media-button-text="Use As Logo" />
+			<?php submit_button( __( 'Remove Logo', 'baton-pro' ), array( 'secondary', 'button-remove-logo' ), 'sds_theme_options[remove-logo]', false, ( ! isset( $sds_theme_options['logo_attachment_id'] ) || empty( $sds_theme_options['logo_attachment_id'] ) ) ? array( 'disabled' => 'disabled', 'data-init-empty' => 'true' ) : false ); ?>
 		<?php
 		}
 
@@ -297,7 +297,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_show_hide_elements_section() {
 		?>
-			<p><?php _e( 'Use this option to show or hide various elements on your site.', 'baton' ); ?></p>
+			<p><?php _e( 'Use this option to show or hide various elements on your site.', 'baton-pro' ); ?></p>
 		<?php
 		}
 
@@ -307,11 +307,11 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		function sds_theme_options_hide_tagline_field() {
 			global $sds_theme_options;
 		?>
-			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-tagline" data-label-left="<?php esc_attr_e( 'Show', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton' ); ?>">
+			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-tagline" data-label-left="<?php esc_attr_e( 'Show', 'baton-pro' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton-pro' ); ?>">
 				<input type="checkbox" id="sds_theme_options_hide_tagline" name="sds_theme_options[hide_tagline]" <?php ( isset( $sds_theme_options['hide_tagline'] ) ) ? checked( $sds_theme_options['hide_tagline'] ) : checked( false ); ?> />
 				<label for="sds_theme_options_hide_tagline">| | |</label>
 			</div>
-			<span class="description"><?php _e( 'When "show" is displayed, the tagline will be displayed on your site and vise-versa.', 'baton' ); ?></span>
+			<span class="description"><?php _e( 'When "show" is displayed, the tagline will be displayed on your site and vise-versa.', 'baton-pro' ); ?></span>
 		<?php
 		}
 
@@ -321,11 +321,11 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		function sds_theme_options_hide_archive_titles_field() {
 			global $sds_theme_options;
 		?>
-			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-archive-titles" data-label-left="<?php esc_attr_e( 'Show', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton' ); ?>">
+			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-archive-titles" data-label-left="<?php esc_attr_e( 'Show', 'baton-pro' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton-pro' ); ?>">
 				<input type="checkbox" id="sds_theme_options_hide_archive_titles" name="sds_theme_options[hide_archive_titles]" <?php ( isset( $sds_theme_options['hide_archive_titles'] ) ) ? checked( $sds_theme_options['hide_archive_titles'] ) : checked( false ); ?> />
 				<label for="sds_theme_options_hide_archive_titles">| | |</label>
 			</div>
-			<span class="description"><?php _e( 'When "show" is displayed, the archive titles will be displayed on your site and vise-versa.', 'baton' ); ?></span>
+			<span class="description"><?php _e( 'When "show" is displayed, the archive titles will be displayed on your site and vise-versa.', 'baton-pro' ); ?></span>
 		<?php
 		}
 
@@ -335,11 +335,11 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		function sds_theme_options_hide_post_meta_field() {
 			global $sds_theme_options;
 		?>
-			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-post-meta" data-label-left="<?php esc_attr_e( 'Show', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton' ); ?>">
+			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-post-meta" data-label-left="<?php esc_attr_e( 'Show', 'baton-pro' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton-pro' ); ?>">
 				<input type="checkbox" id="sds_theme_options_hide_post_meta" name="sds_theme_options[hide_post_meta]" <?php ( isset( $sds_theme_options['hide_post_meta'] ) ) ? checked( $sds_theme_options['hide_post_meta'] ) : checked( false ); ?> />
 				<label for="sds_theme_options_hide_post_meta">| | |</label>
 			</div>
-			<span class="description"><?php _e( 'When "show" is displayed, the post meta will be displayed on your site and vise-versa.', 'baton' ); ?></span>
+			<span class="description"><?php _e( 'When "show" is displayed, the post meta will be displayed on your site and vise-versa.', 'baton-pro' ); ?></span>
 		<?php
 		}
 
@@ -349,11 +349,11 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		function sds_theme_options_hide_author_meta_field() {
 			global $sds_theme_options;
 		?>
-			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-author-meta" data-label-left="<?php esc_attr_e( 'Show', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton' ); ?>">
+			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-author-meta" data-label-left="<?php esc_attr_e( 'Show', 'baton-pro' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton-pro' ); ?>">
 				<input type="checkbox" id="sds_theme_options_hide_author_meta" name="sds_theme_options[hide_author_meta]" <?php ( isset( $sds_theme_options['hide_author_meta'] ) ) ? checked( $sds_theme_options['hide_author_meta'] ) : checked( false ); ?> />
 				<label for="sds_theme_options_hide_author_meta">| | |</label>
 			</div>
-			<span class="description"><?php _e( 'When "show" is displayed, the author details will be displayed on your site and vise-versa.', 'baton' ); ?></span>
+			<span class="description"><?php _e( 'When "show" is displayed, the author details will be displayed on your site and vise-versa.', 'baton-pro' ); ?></span>
 		<?php
 		}
 
@@ -363,7 +363,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_color_schemes_section() {
 		?>
-			<p><?php _e( 'Select a color scheme to use on your site.', 'baton' ); ?></p>
+			<p><?php _e( 'Select a color scheme to use on your site.', 'baton-pro' ); ?></p>
 		<?php
 		}
 
@@ -401,7 +401,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_web_fonts_section() {
 		?>
-			<p><?php _e( 'Select a Google Web Font to use on your site.', 'baton' ); ?></p>
+			<p><?php _e( 'Select a Google Web Font to use on your site.', 'baton-pro' ); ?></p>
 		<?php
 		}
 
@@ -417,7 +417,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 						<input type="radio" id="sds_theme_options_web_font_default" name="sds_theme_options[web_font]" <?php ( ! isset( $sds_theme_options['web_font'] ) || empty( $sds_theme_options['web_font'] ) || $sds_theme_options['web_font'] === 'default' ) ? checked( true ) : checked( false ); ?> value="default" />
 						<div class="sds-theme-options-web-font-selected">&nbsp;</div>
 					</label>
-					<span class="sds-theme-options-web-font-label-default"><?php _e( 'Default', 'baton' ); ?></span>
+					<span class="sds-theme-options-web-font-label-default"><?php _e( 'Default', 'baton-pro' ); ?></span>
 				</div>
 
 				<?php
@@ -430,7 +430,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 								<div class="sds-theme-options-web-font-selected">&nbsp;</div>
 							</label>
 							<span class="sds-theme-options-web-font-label"><?php echo ( isset( $atts['label'] ) ) ? $atts['label'] : false; ?></span>
-							<span class="sds-theme-options-web-font-preview"><?php _e( 'Grumpy wizards make toxic brew for the evil Queen and Jack.', 'baton' ); ?></span>
+							<span class="sds-theme-options-web-font-preview"><?php _e( 'Grumpy wizards make toxic brew for the evil Queen and Jack.', 'baton-pro' ); ?></span>
 						</div>
 				<?php
 					endforeach;
@@ -445,7 +445,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_featured_image_size_section() {
 		?>
-			<p><?php _e( 'Use this section to modify how featured images are displayed on your site.', 'baton' ); ?></p>
+			<p><?php _e( 'Use this section to modify how featured images are displayed on your site.', 'baton-pro' ); ?></p>
 		<?php
 		}
 		
@@ -470,7 +470,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 							<?php
 								// Default featured image size
 								if ( $size === $default_featured_image_size )
-									printf( _x( '%1$s %2$s (Default)', 'default featured image size label, %1$s is the image size name, %2$s is the image dimensions', 'baton' ), $size, implode( 'x', $atts ) );
+									printf( _x( '%1$s %2$s (Default)', 'default featured image size label, %1$s is the image size name, %2$s is the image dimensions', 'baton-pro' ), $size, implode( 'x', $atts ) );
 								// Other featured image sizes
 								else
 									echo $size . ' ' . implode( 'x', $atts );
@@ -488,7 +488,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_footer_branding_section() {
 		?>
-			<p><?php _e( 'Use this section to modify the footer branding of your website. Entering a value here will over-write the default footer branding. You may use the following HTML tags: <code>&lt;a&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;span&gt;</code>', 'baton' ); ?></p>
+			<p><?php _e( 'Use this section to modify the footer branding of your website. Entering a value here will over-write the default footer branding. You may use the following HTML tags: <code>&lt;a&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;span&gt;</code>', 'baton-pro' ); ?></p>
 		<?php
 		}
 
@@ -524,11 +524,11 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		function sds_theme_options_hide_footer_branding_field() {
 			global $sds_theme_options;
 		?>
-			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-footer-branding" data-label-left="<?php esc_attr_e( 'Show', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton' ); ?>">
+			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-footer-branding" data-label-left="<?php esc_attr_e( 'Show', 'baton-pro' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton-pro' ); ?>">
 				<input type="checkbox" id="sds_theme_options_hide_footer_branding" name="sds_theme_options[footer][hide_branding]" <?php ( isset( $sds_theme_options['footer']['hide_branding'] ) ) ? checked( $sds_theme_options['footer']['hide_branding'] ) : checked( false ); ?> />
 				<label for="sds_theme_options_hide_footer_branding">| | |</label>
 			</div>
-			<span class="description"><?php _e( 'When "show" is displayed, the footer branding will be displayed on your site and vise-versa.', 'baton' ); ?></span>
+			<span class="description"><?php _e( 'When "show" is displayed, the footer branding will be displayed on your site and vise-versa.', 'baton-pro' ); ?></span>
 		<?php
 		}
 
@@ -538,7 +538,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_content_layout_section() {
 		?>
-			<p><?php _e( 'Control the layout of the content on your site here. Choose a global layout scheme to be used across your entire site or specifiy individual content type layout schemes by adjusting the options below.', 'baton' ); ?></p>
+			<p><?php _e( 'Control the layout of the content on your site here. Choose a global layout scheme to be used across your entire site or specifiy individual content type layout schemes by adjusting the options below.', 'baton-pro' ); ?></p>
 		<?php
 		}
 
@@ -546,63 +546,63 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 * This function is the callback for the global content layout settings field.
 		 */
 		function sds_theme_options_content_layout_global_field() {
-			$this->content_layouts_field( 'global', __( 'Select a content layout that will be applied globally on your site. Select more specific content layouts below.', 'baton' ) );
+			$this->content_layouts_field( 'global', __( 'Select a content layout that will be applied globally on your site. Select more specific content layouts below.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the front page content layout settings field.
 		 */
 		function sds_theme_options_content_layout_front_page_field() {
-			$this->content_layouts_field( 'front_page', __( 'Select a content layout that will be applied to the front page on your site (if selected in Settings > Reading).', 'baton' ) );
+			$this->content_layouts_field( 'front_page', __( 'Select a content layout that will be applied to the front page on your site (if selected in Settings > Reading).', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the home (blog) page content layout settings field.
 		 */
 		function sds_theme_options_content_layout_home_field() {
-			$this->content_layouts_field( 'home', __( 'Select a content layout that will be applied to the blog on your site.', 'baton' ) );
+			$this->content_layouts_field( 'home', __( 'Select a content layout that will be applied to the blog on your site.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the single post content layout settings field.
 		 */
 		function sds_theme_options_content_layout_single_field() {
-			$this->content_layouts_field( 'single', __( 'Select a content layout that will be applied to single posts on your site.', 'baton' ) );
+			$this->content_layouts_field( 'single', __( 'Select a content layout that will be applied to single posts on your site.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the single page content layout settings field.
 		 */
 		function sds_theme_options_content_layout_page_field() {
-			$this->content_layouts_field( 'page', __( 'Select a content layout that will be applied to single pages on your site.', 'baton' ) );
+			$this->content_layouts_field( 'page', __( 'Select a content layout that will be applied to single pages on your site.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the archive content layout settings field.
 		 */
 		function sds_theme_options_content_layout_archive_field() {
-			$this->content_layouts_field( 'archive', __( 'Select a content layout that will be applied to archives on your site.', 'baton' ) );
+			$this->content_layouts_field( 'archive', __( 'Select a content layout that will be applied to archives on your site.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the category content layout settings field.
 		 */
 		function sds_theme_options_content_layout_category_field() {
-			$this->content_layouts_field( 'category', __( 'Select a content layout that will be applied to category archives on your site.', 'baton' ) );
+			$this->content_layouts_field( 'category', __( 'Select a content layout that will be applied to category archives on your site.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the tag content layout settings field.
 		 */
 		function sds_theme_options_content_layout_tag_field() {
-			$this->content_layouts_field( 'tag', __( 'Select a content layout that will be applied to tag archives on your site.', 'baton' ) );
+			$this->content_layouts_field( 'tag', __( 'Select a content layout that will be applied to tag archives on your site.', 'baton-pro' ) );
 		}
 
 		/**
 		 * This function is the callback for the 404 (error) content layout settings field.
 		 */
 		function sds_theme_options_content_layout_404_field() {
-			$this->content_layouts_field( '404', __( 'Select a content layout that will be applied to the 404 error page on your site.', 'baton' ) );
+			$this->content_layouts_field( '404', __( 'Select a content layout that will be applied to the 404 error page on your site.', 'baton-pro' ) );
 		}
 
 
@@ -611,7 +611,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 */
 		function sds_theme_options_social_media_section() {
 		?>
-			<p><?php _e( 'Enter your social media links here. This section is used throughout the site to display social media links to visitors. Some themes display social media links automatically, and some only display them within the Social Media widget.', 'baton' ); ?></p>
+			<p><?php _e( 'Enter your social media links here. This section is used throughout the site to display social media links to visitors. Some themes display social media links automatically, and some only display them within the Social Media widget.', 'baton-pro' ); ?></p>
 		<?php
 		}
 
@@ -698,15 +698,15 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		function sds_theme_options_social_media_rss_url_field() {
 			global $sds_theme_options;
 		?>
-			<strong><?php _e( 'Use Site RSS Feed:', 'baton' ); ?></strong>
-			<div class="checkbox sds-theme-options-checkbox checkbox-social_media-rss_url-use-site-feed" data-label-left="<?php esc_attr_e( 'Yes', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'No', 'baton' ); ?>">
+			<strong><?php _e( 'Use Site RSS Feed:', 'baton-pro' ); ?></strong>
+			<div class="checkbox sds-theme-options-checkbox checkbox-social_media-rss_url-use-site-feed" data-label-left="<?php esc_attr_e( 'Yes', 'baton-pro' ); ?>" data-label-right="<?php esc_attr_e( 'No', 'baton-pro' ); ?>">
 				<input type="checkbox" id="sds_theme_options_social_media_rss_url_use_site_feed" name="sds_theme_options[social_media][rss_url_use_site_feed]" <?php ( isset( $sds_theme_options['social_media']['rss_url_use_site_feed'] ) ) ? checked( $sds_theme_options['social_media']['rss_url_use_site_feed'] ) : checked( false ); ?> />
 				<label for="sds_theme_options_social_media_rss_url_use_site_feed">| | |</label>
 			</div>
-			<span class="description"><?php _e( 'When "yes" is displayed, the RSS feed for your site will be used.', 'baton' ); ?></span>
+			<span class="description"><?php _e( 'When "yes" is displayed, the RSS feed for your site will be used.', 'baton-pro' ); ?></span>
 
 			<div id="sds_theme_options_social_media_rss_url_custom">
-				<strong><?php _e( 'Custom RSS Feed:', 'baton' ); ?></strong>
+				<strong><?php _e( 'Custom RSS Feed:', 'baton-pro' ); ?></strong>
 				<input type="text" id="sds_theme_options_social_media_rss_url" name="sds_theme_options[social_media][rss_url]" class="large-text" value="<?php echo ( isset( $sds_theme_options['social_media']['rss_url'] ) && ! empty( $sds_theme_options['social_media']['rss_url'] ) ) ? esc_attr( esc_url( $sds_theme_options['social_media']['rss_url'] ) ) : false; ?>" />
 			</div>
 		<?php
@@ -717,7 +717,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 * This function is the callback for the custom scripts section.
 		 */
 		function sds_theme_options_custom_scripts_section() { ?>
-			<p><?php _e( 'Add custom scripts to either the head section or the footer section of your site. See <a href="http://codex.wordpress.org/Using_Javascript" target="_blank">WordPress Codex: Using Javascript</a> for more information.', 'baton' ); ?></p>
+			<p><?php _e( 'Add custom scripts to either the head section or the footer section of your site. See <a href="http://codex.wordpress.org/Using_Javascript" target="_blank">WordPress Codex: Using Javascript</a> for more information.', 'baton-pro' ); ?></p>
 		<?php
 		}
 		
@@ -746,7 +746,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 * This function is the callback for the custom styles section.
 		 */
 		function sds_theme_options_custom_styles_section() { ?>
-			<p><?php _e( 'Add custom styles your site. See <a href="https://developer.mozilla.org/en/CSS" target="_blank">Mozilla Developer Network: CSS</a> for more information.', 'baton' ); ?></p>
+			<p><?php _e( 'Add custom styles your site. See <a href="https://developer.mozilla.org/en/CSS" target="_blank">Mozilla Developer Network: CSS</a> for more information.', 'baton-pro' ); ?></p>
 		<?php
 		}
 		
@@ -765,7 +765,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 		 * This function is the callback for the license section.
 		 */
 		function sds_theme_options_license_section() { ?>
-			<p><?php printf( __( 'Enter your license key below to continue to receive updates for %1$s.', 'baton' ), $this->theme->get( 'Name' ) ); ?></p>
+			<p><?php printf( __( 'Enter your license key below to continue to receive updates for %1$s.', 'baton-pro' ), $this->theme->get( 'Name' ) ); ?></p>
 		<?php
 		}
 
@@ -1054,8 +1054,8 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 					</style>
 				<?php endif; ?>
 
-				<h1><?php echo $this->theme->get( 'Name' ); ?> <?php _e( 'Theme Options', 'baton' ); ?></h1>
-				<div class="about-text sds-about-text"><?php _e( 'Customize your theme to the fullest extent by using the options below.', 'baton' ); ?></div>
+				<h1><?php echo $this->theme->get( 'Name' ); ?> <?php _e( 'Theme Options', 'baton-pro' ); ?></h1>
+				<div class="about-text sds-about-text"><?php _e( 'Customize your theme to the fullest extent by using the options below.', 'baton-pro' ); ?></div>
 
 				<?php do_action( 'sds_theme_options_notifications' ); ?>
 
@@ -1065,15 +1065,15 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 				?>
 
 				<h3 class="nav-tab-wrapper sds-theme-options-nav-tab-wrapper sds-theme-options-tab-wrap">
-					<a href="#general" id="general-tab" class="nav-tab sds-theme-options-tab nav-tab-active"><?php _e( 'General', 'baton' ); ?></a>
+					<a href="#general" id="general-tab" class="nav-tab sds-theme-options-tab nav-tab-active"><?php _e( 'General', 'baton-pro' ); ?></a>
 					<?php if ( function_exists( 'sds_content_layouts' ) ) : ?>
-						<a href="#content-layout" id="content-layout-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Layout', 'baton' ); ?></a>
+						<a href="#content-layout" id="content-layout-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Layout', 'baton-pro' ); ?></a>
 					<?php endif; ?>
-					<a href="#social-media" id="social-media-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Social Media', 'baton' ); ?></a>
-					<a href="#custom-scripts-styles" id="custom-scripts-styles-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Custom Scripts/Styles', 'baton' ); ?></a>
-					<a href="#license" id="license-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'License', 'baton' ); ?></a>
+					<a href="#social-media" id="social-media-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Social Media', 'baton-pro' ); ?></a>
+					<a href="#custom-scripts-styles" id="custom-scripts-styles-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Custom Scripts/Styles', 'baton-pro' ); ?></a>
+					<a href="#license" id="license-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'License', 'baton-pro' ); ?></a>
 					<?php do_action( 'sds_theme_options_navigation_tabs' ); // Hook for extending tabs ?>
-					<a href="#help-support" id="help-support-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Support', 'baton' ); ?></a>
+					<a href="#help-support" id="help-support-tab" class="nav-tab sds-theme-options-tab"><?php _e( 'Support', 'baton-pro' ); ?></a>
 				</h3>
 
 				<form method="post" action="options.php" enctype="multipart/form-data" id="sds-theme-options-form">
@@ -1133,13 +1133,13 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 					 */
 					?>
 					<div id="help-support-tab-content" class="sds-theme-options-tab-content">
-						<h3><?php _e( 'Help/Support', 'baton' ); ?></h3>
+						<h3><?php _e( 'Help/Support', 'baton-pro' ); ?></h3>
 
-						<p><?php _e( 'If you\'d like to create a suppport ticket, please visit our <a href="http://slocumstudio.freshdesk.com" target="_blank">help desk</a>.', 'baton' ); ?></p>
+						<p><?php _e( 'If you\'d like to create a suppport ticket, please visit our <a href="http://slocumstudio.freshdesk.com" target="_blank">help desk</a>.', 'baton-pro' ); ?></p>
 
-						<h3><?php _e( 'WordPress Snapshot', 'baton' ); ?></h3>
+						<h3><?php _e( 'WordPress Snapshot', 'baton-pro' ); ?></h3>
 
-						<p><?php printf( __( 'The following information can be helpful to us when an issue with %1$s may arise. If a support tech requests a "snapshot", please send us this information by copying and pasting it into the support ticket.', 'baton' ), $this->theme->get( 'Name' ) ); ?></p>
+						<p><?php printf( __( 'The following information can be helpful to us when an issue with %1$s may arise. If a support tech requests a "snapshot", please send us this information by copying and pasting it into the support ticket.', 'baton-pro' ), $this->theme->get( 'Name' ) ); ?></p>
 
 						<?php
 							// WordPress Snapshot Details
@@ -1165,8 +1165,8 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 					<?php do_action( 'sds_theme_options_settings' ); // Hook for extending settings ?>
 
 					<p class="submit">
-						<?php submit_button( __( 'Save Options', 'baton' ), 'primary', 'submit', false ); ?>
-						<?php submit_button( __( 'Restore Defaults', 'baton' ), 'secondary', 'sds_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Save Options', 'baton-pro' ), 'primary', 'submit', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'baton-pro' ), 'secondary', 'sds_theme_options[reset]', false ); ?>
 					</p>
 				</form>
 
@@ -1190,7 +1190,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 						<br />
 
 						<div class="slocum-themes">
-							<?php printf( __( 'Brought to you by <a href="%1$s" target="_blank">Slocum Themes</a>', 'baton' ), 'http://slocumthemes.com/' ); ?>
+							<?php printf( __( 'Brought to you by <a href="%1$s" target="_blank">Slocum Themes</a>', 'baton-pro' ), 'http://slocumthemes.com/' ); ?>
 						</div>
 					</div>
 
@@ -1385,7 +1385,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 
 				// Default featured image size
 				if ( $size === $default_featured_image_size )
-					$avail_image_size_choices[$size] = sprintf( _x( '%1$s %2$s (Default)', 'default featured image size label, %1$s is the image size name, %2$s is the image dimensions', 'baton' ), $size, implode( 'x', $atts ) );
+					$avail_image_size_choices[$size] = sprintf( _x( '%1$s %2$s (Default)', 'default featured image size label, %1$s is the image size name, %2$s is the image dimensions', 'baton-pro' ), $size, implode( 'x', $atts ) );
 				// Other featured image sizes
 				else
 					$avail_image_size_choices[$size] = $size . ' ' . implode( 'x', $atts );
@@ -1478,212 +1478,212 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			$snapshot = array(
 				// Browser
 				'browser_info' => array(
-					'label' => __( 'Browser Info:', 'baton' ),
+					'label' => __( 'Browser Info:', 'baton-pro' ),
 					'value' => ''
 				),
 				/*'browser' => array(
-					'label' => __( 'Browser:', 'baton' ),
+					'label' => __( 'Browser:', 'baton-pro' ),
 					'value' => $browser['browser']
 				),
 				'browser_version' => array(
-					'label' => __( 'Browser Version:', 'baton' ),
+					'label' => __( 'Browser Version:', 'baton-pro' ),
 					'value' => $browser['version']
 				),
 				'browser_platform' => array(
-					'label' => __( 'Platform (Operating System):', 'baton' ),
+					'label' => __( 'Platform (Operating System):', 'baton-pro' ),
 					'value' => $browser['platform']
 				),*/
 				'browser_user_agent' => array(
-					'label' => __( 'User Agent:', 'baton' ),
+					'label' => __( 'User Agent:', 'baton-pro' ),
 					'value' => $_SERVER['HTTP_USER_AGENT']
 				),
 				// Theme
 				'theme' => array(
-					'label' => __( 'Theme:', 'baton' ),
+					'label' => __( 'Theme:', 'baton-pro' ),
 					'value' => $theme_data->Name . ' ' . $theme_data->Version
 				),
 				// Other
 				'front_page' => array(
-					'label' => __( 'Front Page:', 'baton' ),
-					'value' => $front_page ? get_the_title( $front_page ).' (ID# '.$front_page.')'.'' : __( 'n/a', 'baton' )
+					'label' => __( 'Front Page:', 'baton-pro' ),
+					'value' => $front_page ? get_the_title( $front_page ).' (ID# '.$front_page.')'.'' : __( 'n/a', 'baton-pro' )
 				),
 				'page_for_posts' => array(
-					'label' => __( 'Page for Posts:', 'baton' ),
-					'value' => $front_page ? get_the_title( $page_for_posts ).' (ID# '.$page_for_posts.')'.'' : __( 'n/a', 'baton' )
+					'label' => __( 'Page for Posts:', 'baton-pro' ),
+					'value' => $front_page ? get_the_title( $page_for_posts ).' (ID# '.$page_for_posts.')'.'' : __( 'n/a', 'baton-pro' )
 				),
 				'display_errors' => array(
-					'label' => __( 'Display Errors:', 'baton' ),
-					'value' => ini_get( 'display_errors' ) != false ? __( 'On', 'baton' ) : __( 'Off', 'baton' )
+					'label' => __( 'Display Errors:', 'baton-pro' ),
+					'value' => ini_get( 'display_errors' ) != false ? __( 'On', 'baton-pro' ) : __( 'Off', 'baton-pro' )
 				),
 				'jquery_version' => array(
-					'label' => __( 'jQuery Version:', 'baton' ),
-					'value' => wp_script_is( 'jquery', 'registered' ) ? $GLOBALS['wp_scripts']->registered['jquery']->ver : __( 'n/a', 'baton' )
+					'label' => __( 'jQuery Version:', 'baton-pro' ),
+					'value' => wp_script_is( 'jquery', 'registered' ) ? $GLOBALS['wp_scripts']->registered['jquery']->ver : __( 'n/a', 'baton-pro' )
 				),
 				'php_session' => array(
-					'label' => __( 'PHP Session:', 'baton' ),
-					'value' => isset( $_SESSION ) ? __( 'Enabled', 'baton' ) : __( 'Disabled', 'baton' )
+					'label' => __( 'PHP Session:', 'baton-pro' ),
+					'value' => isset( $_SESSION ) ? __( 'Enabled', 'baton-pro' ) : __( 'Disabled', 'baton-pro' )
 				),
 				'php_cookies' => array(
-					'label' => __( 'Use Cookies:', 'baton' ),
-					'value' => ini_get( 'session.use_cookies' ) ? __( 'On', 'baton' ) : __( 'Off', 'baton' )
+					'label' => __( 'Use Cookies:', 'baton-pro' ),
+					'value' => ini_get( 'session.use_cookies' ) ? __( 'On', 'baton-pro' ) : __( 'Off', 'baton-pro' )
 				),
 				'php_cookies_only' => array(
-					'label' => __( 'Use Cookies Only:', 'baton' ),
-					'value' => ini_get( 'session.use_only_cookies' ) ? __( 'On', 'baton' ) : __( 'Off', 'baton' )
+					'label' => __( 'Use Cookies Only:', 'baton-pro' ),
+					'value' => ini_get( 'session.use_only_cookies' ) ? __( 'On', 'baton-pro' ) : __( 'Off', 'baton-pro' )
 				),
 				'php_fsockopen' => array(
-					'label' => __( 'fsockopen() Support:', 'baton' ),
-					'value' => function_exists( 'fsockopen' ) ? __( 'Your server supports fsockopen.', 'baton' ) : __( 'Your server does not support fsockopen.', 'baton' )
+					'label' => __( 'fsockopen() Support:', 'baton-pro' ),
+					'value' => function_exists( 'fsockopen' ) ? __( 'Your server supports fsockopen.', 'baton-pro' ) : __( 'Your server does not support fsockopen.', 'baton-pro' )
 				),
 				'php_curl' => array(
-					'label' => __( 'cURL Support:', 'baton' ),
-					'value' => function_exists( 'curl_init' ) ? __( 'Your server supports cURL.', 'baton' ) : __( 'Your server does not support cURL.', 'baton' )
+					'label' => __( 'cURL Support:', 'baton-pro' ),
+					'value' => function_exists( 'curl_init' ) ? __( 'Your server supports cURL.', 'baton-pro' ) : __( 'Your server does not support cURL.', 'baton-pro' )
 				),
 				'php_soap_client' => array(
-					'label' => __( 'SOAP Client Support:', 'baton' ),
-					'value' => class_exists( 'SoapClient' ) ? __( 'Your server has the SOAP Client enabled.', 'baton' ) : __( 'Your server does not have the SOAP Client enabled.', 'baton' )
+					'label' => __( 'SOAP Client Support:', 'baton-pro' ),
+					'value' => class_exists( 'SoapClient' ) ? __( 'Your server has the SOAP Client enabled.', 'baton-pro' ) : __( 'Your server does not have the SOAP Client enabled.', 'baton-pro' )
 				),
 				'php_suhosin' => array(
-					'label' => __( 'SUHOSIN Support:', 'baton' ),
-					'value' => extension_loaded( 'suhosin' ) ? __( 'Your server has SUHOSIN installed.', 'baton' ) : __( 'Your server does not have SUHOSIN installed.', 'baton' )
+					'label' => __( 'SUHOSIN Support:', 'baton-pro' ),
+					'value' => extension_loaded( 'suhosin' ) ? __( 'Your server has SUHOSIN installed.', 'baton-pro' ) : __( 'Your server does not have SUHOSIN installed.', 'baton-pro' )
 				),
 				'php_open_ssl' => array(
-					'label' => __( 'OpenSSL Support:', 'baton' ),
-					'value' => extension_loaded('openssl') ? __( 'Your server has OpenSSL installed.', 'baton' ) : __( 'Your server does not have OpenSSL installed.', 'baton' )
+					'label' => __( 'OpenSSL Support:', 'baton-pro' ),
+					'value' => extension_loaded('openssl') ? __( 'Your server has OpenSSL installed.', 'baton-pro' ) : __( 'Your server does not have OpenSSL installed.', 'baton-pro' )
 				),
 				'php_version' => array(
-					'label' => __( 'PHP Version:', 'baton' ),
+					'label' => __( 'PHP Version:', 'baton-pro' ),
 					'value' => PHP_VERSION
 				),
 				'mysql_version' => array(
-					'label' => __( 'MySQL Version:', 'baton' ),
+					'label' => __( 'MySQL Version:', 'baton-pro' ),
 					'value' => $wpdb->db_version()
 				),
 				'server_software' => array(
-					'label' => __( 'Server Software:', 'baton' ),
+					'label' => __( 'Server Software:', 'baton-pro' ),
 					'value' => $_SERVER['SERVER_SOFTWARE']
 				),
 				'php_memory_limit' => array(
-					'label' => __( 'PHP Memory Limit:', 'baton' ),
+					'label' => __( 'PHP Memory Limit:', 'baton-pro' ),
 					'value' => ini_get( 'memory_limit' )
 				),
 				'php_upload_max_size' => array(
-					'label' => __( 'PHP Maximum Upload Size:', 'baton' ),
+					'label' => __( 'PHP Maximum Upload Size:', 'baton-pro' ),
 					'value' => ini_get( 'upload_max_filesize' )
 				),
 				'php_post_max_size' => array(
-					'label' => __( 'PHP Maximum Post Size:', 'baton' ),
+					'label' => __( 'PHP Maximum Post Size:', 'baton-pro' ),
 					'value' => ini_get( 'post_max_size' )
 				),
 				'php_max_execution_time' => array(
-					'label' => __( 'PHP Maximum Execution Time:', 'baton' ),
+					'label' => __( 'PHP Maximum Execution Time:', 'baton-pro' ),
 					'value' => ini_get( 'max_execution_time' )
 				),
 				'php_max_input_vars' => array(
-					'label' => __( 'PHP Maximum Input Variables:', 'baton' ),
+					'label' => __( 'PHP Maximum Input Variables:', 'baton-pro' ),
 					'value' => ini_get( 'max_input_vars' )
 				),
 				'php_session_name' => array(
-					'label' => __( 'PHP Session Name:', 'baton' ),
+					'label' => __( 'PHP Session Name:', 'baton-pro' ),
 					'value' => esc_html( ini_get( 'session.name' ) )
 				),
 				'php_cookie_path' => array(
-					'label' => __( 'PHP Cookie Path:', 'baton' ),
+					'label' => __( 'PHP Cookie Path:', 'baton-pro' ),
 					'value' => esc_html( ini_get( 'session.cookie_path' ) )
 				),
 				'php_save_path' => array(
-					'label' => __( 'PHP Save Path:', 'baton' ),
+					'label' => __( 'PHP Save Path:', 'baton-pro' ),
 					'value' => esc_html( ini_get( 'session.save_path' ) )
 				),
 				// WordPress
 				'wp_site_url' => array(
-					'label' => __( 'Site URL:', 'baton' ),
+					'label' => __( 'Site URL:', 'baton-pro' ),
 					'value' => site_url()
 				),
 				'wp_home_url' => array(
-					'label' => __( 'Home URL:', 'baton' ),
+					'label' => __( 'Home URL:', 'baton-pro' ),
 					'value' => home_url()
 				),
 				'wp_version' => array(
-					'label' => __( 'WordPress Version:', 'baton' ),
+					'label' => __( 'WordPress Version:', 'baton-pro' ),
 					'value' => get_bloginfo( 'version' )
 				),
 				'wp_permalink_structure' => array(
-					'label' => __( 'Permalink Structure:', 'baton' ),
+					'label' => __( 'Permalink Structure:', 'baton-pro' ),
 					'value' => get_option( 'permalink_structure' )
 				),
 				'wp_post_types' => array(
-					'label' => __( 'Post Types:', 'baton' ),
+					'label' => __( 'Post Types:', 'baton-pro' ),
 					'value' => implode( ', ', get_post_types( '', 'names' ) )
 				),
 				'wp_post_stati' => array(
-					'label' => __( 'Post Stati:', 'baton' ),
+					'label' => __( 'Post Stati:', 'baton-pro' ),
 					'value' => implode( ', ', get_post_stati() )
 				),
 				'wp_user_count' => array(
-					'label' => __( 'User Count:', 'baton' ),
+					'label' => __( 'User Count:', 'baton-pro' ),
 					'value' => count( get_users() )
 				),
 				'wp_memory_limit' => array(
-					'label' => __( 'Memory Limit:', 'baton' ),
+					'label' => __( 'Memory Limit:', 'baton-pro' ),
 					'value' => WP_MEMORY_LIMIT
 				),
 				'wp_prefix' => array(
-					'label' => __( 'Database Prefix:', 'baton' ),
+					'label' => __( 'Database Prefix:', 'baton-pro' ),
 					'value' => $wpdb->base_prefix
 				),
 				'wp_prefix_length' => array(
-					'label' => __( 'Prefix Length:', 'baton' ),
-					'value' => strlen( $wpdb->prefix ) < 16 ? __( 'Acceptable', 'baton' ) : __( 'Too Long', 'baton' )
+					'label' => __( 'Prefix Length:', 'baton-pro' ),
+					'value' => strlen( $wpdb->prefix ) < 16 ? __( 'Acceptable', 'baton-pro' ) : __( 'Too Long', 'baton-pro' )
 				),
 				'wp_is_multisite' => array(
-					'label' => __( 'Multisite:', 'baton' ),
-					'value' => is_multisite() ? __( 'Yes', 'baton' ) : __( 'No', 'baton' )
+					'label' => __( 'Multisite:', 'baton-pro' ),
+					'value' => is_multisite() ? __( 'Yes', 'baton-pro' ) : __( 'No', 'baton-pro' )
 				),
 				'wp_is_safe_mode' => array(
-					'label' => __( 'Safe Mode:', 'baton' ),
-					'value' => is_multisite() ? __( 'Yes', 'baton' ) : __( 'No', 'baton' )
+					'label' => __( 'Safe Mode:', 'baton-pro' ),
+					'value' => is_multisite() ? __( 'Yes', 'baton-pro' ) : __( 'No', 'baton-pro' )
 				),
 				'wp_is_wp_debug' => array(
-					'label' => __( 'WP DEBUG:', 'baton' ),
-					'value' => defined( 'WP_DEBUG' ) ? WP_DEBUG ? __( 'Enabled', 'baton' ) : __( 'Disabled', 'baton' ) : __( 'Not Set', 'baton' )
+					'label' => __( 'WP DEBUG:', 'baton-pro' ),
+					'value' => defined( 'WP_DEBUG' ) ? WP_DEBUG ? __( 'Enabled', 'baton-pro' ) : __( 'Disabled', 'baton-pro' ) : __( 'Not Set', 'baton-pro' )
 				)
 			);
 
 			if ( is_multisite() ) {
 				$snapshot['wp_multisite_total'] = array(
-					'label' => __( 'Total Sites:', 'baton' ),
+					'label' => __( 'Total Sites:', 'baton-pro' ),
 					'value' => get_blog_count()
 				);
 
 				$snapshot['wp_multisite_base'] = array(
-					'label' => __( 'Base Site:', 'baton' ),
+					'label' => __( 'Base Site:', 'baton-pro' ),
 					'value' => $ms_sites[0]['domain']
 				);
 
 				$snapshot['wp_multisite_all'] = array(
-					'label' => __( 'All Sites:', 'baton' ),
+					'label' => __( 'All Sites:', 'baton-pro' ),
 					'value' => ''
 				);
 
 				foreach ( $ms_sites as $site_index => $site )
 					if ( $site['path'] != '/' )
 						$snapshot['wp_multisite_all_' . $site_index] =array(
-							'label' => sprintf( __( 'Site %1$s:', 'baton' ), $site_index ),
+							'label' => sprintf( __( 'Site %1$s:', 'baton-pro' ), $site_index ),
 							'value' => $site['domain'] . $site['path']
 						);
 			}
 
 			if ( $plugins && $mu_plugins )
 				$snapshot['wp_total_plugin_count'] = array(
-					'label' => __( 'Total Plugins:', 'baton' ),
+					'label' => __( 'Total Plugins:', 'baton-pro' ),
 					'value' => ( count( $plugins ) + count( $mu_plugins ) + count( $nt_plugins ) )
 				);
 
 			// output must-use plugins
 			if ( $mu_plugins ) {
 				$snapshot['wp_must_use_plugins'] = array(
-					'label' => __( 'Must-Use Plugins:', 'baton' ),
+					'label' => __( 'Must-Use Plugins:', 'baton-pro' ),
 					'value' => ''
 				);
 
@@ -1697,7 +1697,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			// if multisite, grab active network as well
 			if ( is_multisite() ) {
 				$snapshot['wp_multisite_network_active'] = array(
-					'label' => sprintf( __( 'Network Active Plugins (%1$s):', 'baton' ), count( $nt_plugins ) ),
+					'label' => sprintf( __( 'Network Active Plugins (%1$s):', 'baton-pro' ), count( $nt_plugins ) ),
 					'value' => ''
 				);
 
@@ -1717,7 +1717,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			// output active plugins
 			if ( $plugins ) {
 				$snapshot['wp_active_plugins'] = array(
-					'label' => sprintf( __( 'Active Plugins (%1$s):', 'baton' ), count( $active_plugins ) ),
+					'label' => sprintf( __( 'Active Plugins (%1$s):', 'baton-pro' ), count( $active_plugins ) ),
 					'value' => ''
 				);
 
@@ -1735,7 +1735,7 @@ if ( ! class_exists( 'SDS_Theme_Options' ) ) {
 			// output inactive plugins
 			if ( $plugins ) {
 				$snapshot['wp_inactive_plugins'] = array(
-					'label' => sprintf( __( 'Inactive Plugins (%1$s):', 'baton' ), ( count( $plugins ) - count( $active_plugins ) ) ),
+					'label' => sprintf( __( 'Inactive Plugins (%1$s):', 'baton-pro' ), ( count( $plugins ) - count( $active_plugins ) ) ),
 					'value' => ''
 				);
 

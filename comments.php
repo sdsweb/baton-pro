@@ -22,7 +22,7 @@ if ( post_password_required() )
 		<header class="comments-title-wrap cf">
 			<h3 class="comments-title">
 				<?php
-					printf( _n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'baton' ),
+					printf( _n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'baton-pro' ),
 					number_format_i18n( get_comments_number() ),
 					'<span>' . get_the_title() . '</span>' );
 				?>
@@ -50,11 +50,11 @@ if ( post_password_required() )
 <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 	<div class="comments-navigation baton-flex baton-flex-2-columns baton-flex-comments-navigation">
 		<div class="comments-navigation-link comments-navigation-previous-link comments-navigation-previous baton-col baton-col-comments-previous">
-			<?php previous_comments_link( __( 'Older Comments', 'baton' ) ); ?>
+			<?php previous_comments_link( __( 'Older Comments', 'baton-pro' ) ); ?>
 		</div>
 
 		<div class="comments-navigation-link comments-navigation-next-link comments-navigation-next baton-col baton-col-comments-next">
-			<?php next_comments_link( __( 'Newer Comments', 'baton' ) ); ?>
+			<?php next_comments_link( __( 'Newer Comments', 'baton-pro' ) ); ?>
 		</div>
 	</div>
 <?php endif; ?>

@@ -91,7 +91,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 			// Make sure we actually have some font support
 			if ( ! empty( $baton_theme_helper->theme_support['fonts'] ) && is_array( $baton_theme_helper->theme_support['fonts'] ) ) {
 				// TODO: Test for i18n
-				$description = sprintf( __( 'Selecting multiple <a href="%1$s" target="_blank">Google Web Fonts</a> may impact the speed/performance of your website.', 'baton' ), esc_url( 'https://www.google.com/fonts/' ) );
+				$description = sprintf( __( 'Selecting multiple <a href="%1$s" target="_blank">Google Web Fonts</a> may impact the speed/performance of your website.', 'baton-pro' ), esc_url( 'https://www.google.com/fonts/' ) );
 				/**
 				 * Fonts
 				 */
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 				// Panel
 				$wp_customize->add_panel( 'baton_fonts', array(
 					'priority' => 30, // After "Design"
-					'title' => __( 'Typography', 'baton' ),
+					'title' => __( 'Typography', 'baton-pro' ),
 					'description' => $description,
 					'theme_supports' => $baton_theme_helper->theme_support_slug
 				) );
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 				// Section (Site Title & Tagline)
 				$wp_customize->add_section( 'baton_fonts_site_title_tagline', array(
 					'priority' => 10,
-					'title' => __( 'Site Title &amp; Tagline', 'baton' ),
+					'title' => __( 'Site Title &amp; Tagline', 'baton-pro' ),
 					'description' =>$description,
 					'panel' => 'baton_fonts'
 				) );
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 				// Section (Navigation)
 				$wp_customize->add_section( 'baton_fonts_navigation', array(
 					'priority' => 15,
-					'title' => __( 'Navigation', 'baton' ),
+					'title' => __( 'Navigation', 'baton-pro' ),
 					'description' => $description,
 					'panel' => 'baton_fonts'
 				) );
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 				// Section (Body/Content)
 				$wp_customize->add_section( 'baton_fonts_headings_body', array(
 					'priority' => 20,
-					'title' => __( 'Headings &amp; Body (Content)', 'baton' ),
+					'title' => __( 'Headings &amp; Body (Content)', 'baton-pro' ),
 					'description' => $description,
 					'panel' => 'baton_fonts'
 				) );
@@ -131,7 +131,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 				// Section (Widgets)
 				$wp_customize->add_section( 'baton_fonts_widgets', array(
 					'priority' => 20,
-					'title' => __( 'Fonts', 'baton' ),
+					'title' => __( 'Fonts', 'baton-pro' ),
 					'description' => $description,
 					'panel' => 'baton_widget_design'
 				) );
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_site_title_font_size',
 							array(
-								'label' => __( 'Site Title Font Size', 'baton' ),
+								'label' => __( 'Site Title Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_site_title_tagline',
 								'settings' => 'baton_site_title_font_size',
 								'priority' => 10,
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 									'style' => 'width: 70px;'
 								),
 								'units' => array(
-									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton' )
+									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton-pro' )
 								)
 							)
 						)
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_site_title_font_family',
 							array(
-								'label' => __( 'Site Title Font Family', 'baton' ),
+								'label' => __( 'Site Title Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_site_title_tagline',
 								'settings' => 'baton_site_title_font_family',
 								'priority' => 15,
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_site_title_letter_spacing',
 							array(
-								'label' => __( 'Site Title Letter Spacing', 'baton' ),
+								'label' => __( 'Site Title Letter Spacing', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_site_title_tagline',
 								'settings' => 'baton_site_title_letter_spacing',
 								'priority' => 20,
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 									'style' => 'width: 70px;'
 								),
 								'units' => array(
-									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton' )
+									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton-pro' )
 								)
 							)
 						)
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_tagline_font_size',
 							array(
-								'label' => __( 'Tagline Font Size', 'baton' ),
+								'label' => __( 'Tagline Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_site_title_tagline',
 								'settings' => 'baton_tagline_font_size',
 								'priority' => 20,
@@ -329,7 +329,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_tagline_font_family',
 							array(
-								'label' => __( 'Tagline Font Family', 'baton' ),
+								'label' => __( 'Tagline Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_site_title_tagline',
 								'settings' => 'baton_tagline_font_family',
 								'priority' => 25,
@@ -366,7 +366,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_tagline_letter_spacing',
 							array(
-								'label' => __( 'Tagline Letter Spacing', 'baton' ),
+								'label' => __( 'Tagline Letter Spacing', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_tagline_tagline',
 								'settings' => 'baton_tagline_letter_spacing',
 								'priority' => 30,
@@ -378,7 +378,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 									'style' => 'width: 70px;'
 								),
 								'units' => array(
-									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton' )
+									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton-pro' )
 								)
 							)
 						)
@@ -414,7 +414,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_navigation_font_size',
 							array(
-								'label' => __( 'Navigation Font Size', 'baton' ),
+								'label' => __( 'Navigation Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_navigation',
 								'settings' => 'baton_navigation_font_size',
 								'priority' => ( ! $is_wp_4 ) ? 30 : 10,
@@ -457,7 +457,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_navigation_font_family',
 							array(
-								'label' => __( 'Navigation Font Family', 'baton' ),
+								'label' => __( 'Navigation Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_navigation',
 								'settings' => 'baton_navigation_font_family',
 								'priority' => ( ! $is_wp_4 ) ? 35 : 15,
@@ -514,7 +514,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 											$wp_customize,
 											'baton_navigation_' . $nav_menu_id . '_font_size',
 											array(
-												'label' => sprintf( __( '%1$s Font Size', 'baton' ), $nav_menu_label ),
+												'label' => sprintf( __( '%1$s Font Size', 'baton-pro' ), $nav_menu_label ),
 												'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_navigation',
 												'settings' => 'baton_navigation_' . $nav_menu_id . '_font_size',
 												'priority' => $priority,
@@ -556,7 +556,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 											$wp_customize,
 											'baton_navigation_' . $nav_menu_id . '_font_family',
 											array(
-												'label' => sprintf( __( '%1$s Font Family', 'baton' ), $nav_menu_label ),
+												'label' => sprintf( __( '%1$s Font Family', 'baton-pro' ), $nav_menu_label ),
 												'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_navigation',
 												'settings' => 'baton_navigation_' . $nav_menu_id . '_font_family',
 												'priority' => $priority + 5, // Priority increases by 5
@@ -602,7 +602,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_headings_font_size',
 							array(
-								'label' => __( 'Heading Font Size', 'baton' ),
+								'label' => __( 'Heading Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 								'settings' => 'baton_headings_font_size',
 								'priority' => ( ! $is_wp_4 ) ? 40 : 10,
@@ -644,7 +644,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_headings_font_family',
 							array(
-								'label' => __( 'Heading Font Family', 'baton' ),
+								'label' => __( 'Heading Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 								'settings' => 'baton_headings_font_family',
 								'priority' => ( ! $is_wp_4 ) ? 45 : 15,
@@ -672,12 +672,12 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 
 					// Create an array of labels for font family support
 					$labels = array(
-						'h1' => __( 'Heading 1', 'baton' ),
-						'h2' => __( 'Heading 2', 'baton' ),
-						'h3' => __( 'Heading 3', 'baton' ),
-						'h4' => __( 'Heading 4', 'baton' ),
-						'h5' => __( 'Heading 5', 'baton' ),
-						'h6' => __( 'Heading 6', 'baton' )
+						'h1' => __( 'Heading 1', 'baton-pro' ),
+						'h2' => __( 'Heading 2', 'baton-pro' ),
+						'h3' => __( 'Heading 3', 'baton-pro' ),
+						'h4' => __( 'Heading 4', 'baton-pro' ),
+						'h5' => __( 'Heading 5', 'baton-pro' ),
+						'h6' => __( 'Heading 6', 'baton-pro' )
 					);
 
 					// Loop through font family support
@@ -713,7 +713,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 										$wp_customize,
 										'baton_' . $key . '_font_size',
 										array(
-											'label' => sprintf( __( '%1$s Font Size', 'baton' ), $labels[$key] ),
+											'label' => sprintf( __( '%1$s Font Size', 'baton-pro' ), $labels[$key] ),
 											'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 											'settings' => 'baton_' . $key . '_font_size',
 											'priority' => $priority, // Priority increases by 5
@@ -754,7 +754,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 										$wp_customize,
 										'baton_' . $key . '_font_family',
 										array(
-											'label' => sprintf( __( '%1$s Font Family', 'baton' ), $labels[$key] ),
+											'label' => sprintf( __( '%1$s Font Family', 'baton-pro' ), $labels[$key] ),
 											'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 											'settings' => 'baton_' . $key . '_font_family',
 											'priority' => $priority + 5, // Priority increases by 5
@@ -795,7 +795,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_body_font_size',
 							array(
-								'label' => __( 'Font Size', 'baton' ),
+								'label' => __( 'Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 								'settings' => 'baton_body_font_size',
 								'priority' => 10, // First
@@ -838,7 +838,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_body_line_height',
 							array(
-								'label' => __( 'Line Height', 'baton' ),
+								'label' => __( 'Line Height', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 								'settings' => 'baton_body_line_height',
 								'priority' => 20, // After Font Size
@@ -881,7 +881,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_body_font_family',
 							array(
-								'label' => __( 'Font Family', 'baton' ),
+								'label' => __( 'Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_headings_body',
 								'settings' => 'baton_body_font_family',
 								'priority' => 30, // After Line Height
@@ -920,7 +920,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_widget_title_font_size',
 							array(
-								'label' => __( 'Widget Title Font Size', 'baton' ),
+								'label' => __( 'Widget Title Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_widgets',
 								'settings' => 'baton_widget_title_font_size',
 								'priority' => 10,
@@ -932,7 +932,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 									'style' => 'width: 70px;'
 								),
 								'units' => array(
-									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton' )
+									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton-pro' )
 								)
 							)
 						)
@@ -966,7 +966,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_widget_title_font_family',
 							array(
-								'label' => __( 'Widget Title Font Family', 'baton' ),
+								'label' => __( 'Widget Title Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_widgets',
 								'settings' => 'baton_widget_title_font_family',
 								'priority' => 15,
@@ -1004,7 +1004,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_widget_font_size',
 							array(
-								'label' => __( 'Widget Font Size', 'baton' ),
+								'label' => __( 'Widget Font Size', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_widgets',
 								'settings' => 'baton_widget_font_size',
 								'priority' => 20,
@@ -1016,7 +1016,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 									'style' => 'width: 70px;'
 								),
 								'units' => array(
-									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton' )
+									'title' => _x( 'pixels', 'title attribute for this Customizer control', 'baton-pro' )
 								)
 							)
 						)
@@ -1050,7 +1050,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 							$wp_customize,
 							'baton_widget_font_family',
 							array(
-								'label' => __( 'Widget Font Family', 'baton' ),
+								'label' => __( 'Widget Font Family', 'baton-pro' ),
 								'section' => ( ! $is_wp_4 ) ? 'baton_fonts' : 'baton_fonts_widgets',
 								'settings' => 'baton_widget_font_family',
 								'priority' => 25,
@@ -1873,7 +1873,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 		public function get_google_fonts_choices( $placeholder = false, $javascript = false ) {
 			// Placeholder
 			if ( $placeholder )
-				return apply_filters( 'get_google_fonts_choices', array( '' => __( 'Choose a Font Family', 'baton' ) ), 'placeholder', $placeholder, $javascript ); // Default
+				return apply_filters( 'get_google_fonts_choices', array( '' => __( 'Choose a Font Family', 'baton-pro' ) ), 'placeholder', $placeholder, $javascript ); // Default
 
 			// JavaScript (don't check cached value)
 			if ( $javascript ) {
@@ -1881,7 +1881,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 
 				// Default
 				$r = array( '' => array(
-					'family' => __( 'Choose a Font Family', 'baton' ),
+					'family' => __( 'Choose a Font Family', 'baton-pro' ),
 					'class' => 'placeholder',
 					// TODO: Is background URL necessary here?
 					'background_url' => ''
@@ -1904,7 +1904,7 @@ if ( ! class_exists( 'Baton_Customizer_Fonts' ) ) {
 			if ( ! $r = wp_cache_get( 'google_fonts_choices', 'baton' ) ) {
 				$fonts = $this->get_google_fonts();
 
-				$r = array( '' => __( 'Choose a Font Family', 'baton' ) ); // Default
+				$r = array( '' => __( 'Choose a Font Family', 'baton-pro' ) ); // Default
 
 				foreach ( $fonts as $font_family => $font )
 					$r[$font_family] = $font_family;

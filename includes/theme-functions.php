@@ -175,7 +175,7 @@ if ( ! function_exists( 'sds_sitemap' ) ) {
 		<div class="sds-sitemap sitemap">
 			<?php if ( apply_filters( 'sds_sitemap_show_pages', true ) ) : // Allow pages to not be displayed ?>
 				<div class="sitemap-pages page-list">
-					<h2 title="<?php esc_attr_e( 'Pages', 'baton' ); ?>"><?php _e( 'Pages', 'baton' ); ?></h2>
+					<h2 title="<?php esc_attr_e( 'Pages', 'baton-pro' ); ?>"><?php _e( 'Pages', 'baton-pro' ); ?></h2>
 					<ul>
 						<?php wp_list_pages( array( 'title_li' => '' ) ); ?>
 					</ul>
@@ -184,7 +184,7 @@ if ( ! function_exists( 'sds_sitemap' ) ) {
 
 			<?php if ( apply_filters( 'sds_sitemap_show_monthly_archives', true ) ) : // Allow monthly archives to not be displayed ?>
 				<div class="sitemap-archives sitemap-monthly-archives monthly-archives archive-list">
-					<h2 title="<?php esc_attr_e( 'Monthly Archives', 'baton' ); ?>"><?php _e( 'Monthly Archives', 'baton' ); ?></h2>
+					<h2 title="<?php esc_attr_e( 'Monthly Archives', 'baton-pro' ); ?>"><?php _e( 'Monthly Archives', 'baton-pro' ); ?></h2>
 					<ul>
 						<?php echo apply_filters( 'sds_sitemap_monthly_archives', wp_get_archives( array( 'echo' => false ) ) ); ?>
 					</ul>
@@ -193,7 +193,7 @@ if ( ! function_exists( 'sds_sitemap' ) ) {
 
 			<?php if ( apply_filters( 'sds_sitemap_show_categories', true ) ) : // Allow categories to not be displayed ?>
 				<div class="sitemap-categories category-list">
-					<h2 title="<?php esc_attr_e( 'Blog Categories', 'baton' ); ?>"><?php _e( 'Blog Categories', 'baton' ); ?></h2>
+					<h2 title="<?php esc_attr_e( 'Blog Categories', 'baton-pro' ); ?>"><?php _e( 'Blog Categories', 'baton-pro' ); ?></h2>
 					<ul>
 						<?php wp_list_categories( array( 'title_li' => '' ) ); ?>
 					</ul>
@@ -286,46 +286,46 @@ if ( ! function_exists( 'sds_archive_title' ) ) {
 			if ( is_author() ) :
 				$author = get_user_by( 'slug', get_query_var( 'author_name' ) ); // Get user data by slug with value of author_name in query
 			?>
-				<h1 title="<?php esc_attr_e( 'Author Archive:', 'baton' ); ?> <?php echo ( $author instanceof WP_User ) ? $author->display_name : false; ?>" class="page-title author-archive-title">
-					<?php _e( 'Author Archive:', 'baton' ); ?> <?php echo ( $author instanceof WP_User ) ? $author->display_name : false; ?>
+				<h1 title="<?php esc_attr_e( 'Author Archive:', 'baton-pro' ); ?> <?php echo ( $author instanceof WP_User ) ? $author->display_name : false; ?>" class="page-title author-archive-title">
+					<?php _e( 'Author Archive:', 'baton-pro' ); ?> <?php echo ( $author instanceof WP_User ) ? $author->display_name : false; ?>
 				</h1>
 			<?php
 			// Categories
 			elseif ( is_category() ) :
 			?>
-				<h1 title="<?php single_cat_title( __( 'Category Archive: ', 'baton' ) ); ?>" class="page-title category-archive-title">
-					<?php single_cat_title( __( 'Category Archive: ', 'baton' ) ); ?>
+				<h1 title="<?php single_cat_title( __( 'Category Archive: ', 'baton-pro' ) ); ?>" class="page-title category-archive-title">
+					<?php single_cat_title( __( 'Category Archive: ', 'baton-pro' ) ); ?>
 				</h1>
 			<?php
 			// Tags
 			elseif ( is_tag() ) :
 			?>
-				<h1 title="<?php single_tag_title( __( 'Tag Archive: ', 'baton' ) ); ?>" class="page-title tag-archive-title">
-					<?php single_tag_title( __( 'Tag Archive: ', 'baton' ) ); ?>
+				<h1 title="<?php single_tag_title( __( 'Tag Archive: ', 'baton-pro' ) ); ?>" class="page-title tag-archive-title">
+					<?php single_tag_title( __( 'Tag Archive: ', 'baton-pro' ) ); ?>
 				</h1>
 			<?php
 			// Daily Archives
 			elseif ( is_day() ) :
 				$the_date = get_the_date();
 			?>
-				<h1 title="<?php esc_attr_e( 'Daily Archives:', 'baton' ); ?> <?php echo $the_date; ?>" class="page-title day-archive-title daily-archive-title">
-					<?php _e( 'Daily Archives:', 'baton' ); ?> <?php echo $the_date; ?>
+				<h1 title="<?php esc_attr_e( 'Daily Archives:', 'baton-pro' ); ?> <?php echo $the_date; ?>" class="page-title day-archive-title daily-archive-title">
+					<?php _e( 'Daily Archives:', 'baton-pro' ); ?> <?php echo $the_date; ?>
 				</h1>
 			<?php
 			// Monthly Archives
 			elseif ( is_month() ) :
 				$the_date = get_the_date( 'F Y' );
 			?>
-				<h1 title="<?php esc_attr_e( 'Monthly Archives:', 'baton' ); ?> <?php echo $the_date; ?>" class="page-title month-archive-title monthly-archive-title">
-					<?php _e( 'Monthly Archives:', 'baton' ); ?> <?php echo $the_date; ?>
+				<h1 title="<?php esc_attr_e( 'Monthly Archives:', 'baton-pro' ); ?> <?php echo $the_date; ?>" class="page-title month-archive-title monthly-archive-title">
+					<?php _e( 'Monthly Archives:', 'baton-pro' ); ?> <?php echo $the_date; ?>
 				</h1>
 			<?php
 			// Yearly Archives
 			elseif ( is_year() ) :
 				$the_date = get_the_date( 'Y' );
 			?>
-				<h1 title="<?php esc_attr_e( 'Yearly Archives:', 'baton' ); ?> <?php echo $the_date; ?>" class="page-title year-archive-title yearly-archive-title">
-					<?php _e( 'Yearly Archives:', 'baton' ); ?> <?php echo $the_date; ?>
+				<h1 title="<?php esc_attr_e( 'Yearly Archives:', 'baton-pro' ); ?> <?php echo $the_date; ?>" class="page-title year-archive-title yearly-archive-title">
+					<?php _e( 'Yearly Archives:', 'baton-pro' ); ?> <?php echo $the_date; ?>
 				</h1>
 			<?php
 			endif;
@@ -340,7 +340,7 @@ if ( ! function_exists( 'sds_no_posts' ) ) {
 	function sds_no_posts() {
 	?>
 		<section class="no-results no-posts">
-			<p><?php _e( 'We were not able to find any posts. Please try again.', 'baton' ); ?></p>
+			<p><?php _e( 'We were not able to find any posts. Please try again.', 'baton-pro' ); ?></p>
 		</section>
 	<?php
 	}
@@ -372,10 +372,10 @@ if ( ! function_exists( 'sds_single_image_navigation' ) ) {
 	?>
 		<section class="single-post-navigation post-navigation single-image-navigation image-navigation">
 			<section class="previous-posts">
-				<?php previous_image_link( false, __( '&laquo; Previous Image', 'baton' ) ); ?>
+				<?php previous_image_link( false, __( '&laquo; Previous Image', 'baton-pro' ) ); ?>
 			</section>
 			<section class="next-posts">
-				<?php next_image_link( false, __( 'Next Image &raquo;', 'baton' ) ); ?>
+				<?php next_image_link( false, __( 'Next Image &raquo;', 'baton-pro' ) ); ?>
 			</section>
 		</section>
 	<?php
@@ -489,7 +489,7 @@ if ( ! function_exists( 'sds_post_meta' ) ) {
 		?>
 			<p class="post-meta has-categories has-tags">
 			<?php
-				printf( __( 'This entry was posted in %1$s and tagged in %2$s.', 'baton' ),
+				printf( __( 'This entry was posted in %1$s and tagged in %2$s.', 'baton-pro' ),
 				get_the_category_list( ', ', 'single' ),
 				get_the_tag_list( '', ', ' ) );
 			?>
@@ -500,7 +500,7 @@ if ( ! function_exists( 'sds_post_meta' ) ) {
 		?>
 			<p class="post-meta has-categories no-tags">
 			<?php
-				printf( __( 'This entry was posted in %1$s.', 'baton' ),
+				printf( __( 'This entry was posted in %1$s.', 'baton-pro' ),
 				get_the_category_list( ', ', 'single' ) );
 			?>
 			</p>
@@ -510,7 +510,7 @@ if ( ! function_exists( 'sds_post_meta' ) ) {
 		?>
 			<p class="post-meta no-categories has-tags">
 			<?php
-				printf( __( 'This entry was tagged in %1$s.', 'baton' ),
+				printf( __( 'This entry was tagged in %1$s.', 'baton-pro' ),
 				get_the_tag_list( '', ', ' ) );
 			?>
 			</p>
@@ -533,8 +533,8 @@ if ( ! function_exists( 'sds_post_navigation' ) ) {
 			'format' => ( ( get_option( 'permalink_structure' ) && ! $wp_query->is_search ) || ( is_home() && get_option( 'show_on_front' ) !== 'page' && ! get_option( 'page_on_front' ) ) ) ? '?paged=%#%' : '&paged=%#%', // %#% will be replaced with page number
 			'current' => max( 1, get_query_var( 'paged' ) ), // Get whichever is the max out of 1 and the current page count
 			'total' => $wp_query->max_num_pages, // Get total number of pages in current query
-			'next_text' => __( 'Next &#8594;', 'baton' ),
-			'prev_text' => __( '&#8592; Previous', 'baton' ),
+			'next_text' => __( 'Next &#8594;', 'baton-pro' ),
+			'prev_text' => __( '&#8592; Previous', 'baton-pro' ),
 			'type' => ( $return ) ? 'array' : 'list'  // Output this as an array or unordered list
 		) );
 
@@ -563,7 +563,7 @@ if ( ! function_exists( 'sds_comment' ) ) {
 			// Display trackbacks differently than normal comments.
 		?>
 		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-			<p><?php _e( 'Pingback:', 'baton' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( 'Edit', '<span class="ping-meta"><span class="edit-link">', '</span></span>' ); ?></p>
+			<p><?php _e( 'Pingback:', 'baton-pro' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( 'Edit', '<span class="ping-meta"><span class="edit-link">', '</span></span>' ); ?></p>
 		</li>
 		<?php
 			break;
@@ -580,14 +580,14 @@ if ( ! function_exists( 'sds_comment' ) ) {
 						<header class="comment-meta">
 							<cite class="fn">
 								<?php
-									printf( __( '<a href="%1$s"><time datetime="%2$s" itemprop="commentTime">%3$s</time></a>', 'baton' ),
+									printf( __( '<a href="%1$s"><time datetime="%2$s" itemprop="commentTime">%3$s</time></a>', 'baton-pro' ),
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										get_comment_time( 'c' ),
-										sprintf( __( '%1$s at %2$s', 'baton' ), get_comment_date(), get_comment_time() )
+										sprintf( __( '%1$s at %2$s', 'baton-pro' ), get_comment_date(), get_comment_time() )
 									);
 								?>
 
-								<?php edit_comment_link( __( 'Edit', 'baton' ), '<span class="edit-link">', '<span>' ); ?>
+								<?php edit_comment_link( __( 'Edit', 'baton-pro' ), '<span class="edit-link">', '<span>' ); ?>
 							</cite>
 						</header>
 					</section>
@@ -595,7 +595,7 @@ if ( ! function_exists( 'sds_comment' ) ) {
 
 				<section class="comment-content-container">
 					<?php if ( $comment->comment_approved == '0' ) : ?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'baton' ); ?></p>
+						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'baton-pro' ); ?></p>
 					<?php endif; ?>
 
 					<section class="comment-content">
@@ -606,7 +606,7 @@ if ( ! function_exists( 'sds_comment' ) ) {
 				<section class="clear">&nbsp;</section>
 
 				<section class="reply">
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'baton' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'baton-pro' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 				</section>
 			</article>
 		</li>
@@ -663,7 +663,7 @@ function sds_customize_register( $wp_customize ) {
 	);
 
 	// Section - overwrite the default title_tagline section properties
-	$wp_customize->get_section( 'title_tagline' )->title = __( 'Logo/Site Title & Tagline', 'baton' );
+	$wp_customize->get_section( 'title_tagline' )->title = __( 'Logo/Site Title & Tagline', 'baton-pro' );
 
 	// Control
 	$wp_customize->add_control(
@@ -671,7 +671,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'logo_attachment_id',
 			array(
-				'label' => __( 'Logo', 'baton' ),
+				'label' => __( 'Logo', 'baton-pro' ),
 				'section'  => 'title_tagline',
 				'settings' => 'sds_theme_options[logo_attachment_id]',
 				'type' => 'sds_theme_options_logo' // Used in js controller
@@ -686,8 +686,8 @@ function sds_customize_register( $wp_customize ) {
 	// Section
 	$wp_customize->add_section( 'sds_theme_options_show_hide', array(
 		'priority' => 30, // After Title & Tagline
-		'title' => __( 'Show or Hide Elements', 'baton' ),
-		'description' => __( 'Use these options to show or hide various elements on your site.', 'baton' )
+		'title' => __( 'Show or Hide Elements', 'baton-pro' ),
+		'description' => __( 'Use these options to show or hide various elements on your site.', 'baton-pro' )
 	) );
 
 	/*
@@ -710,7 +710,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[hide_tagline]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Tagline', 'baton' ),
+				'label' => __( 'Tagline', 'baton-pro' ),
 				'section'  => 'sds_theme_options_show_hide',
 				'settings' => 'sds_theme_options[hide_tagline]',
 				'priority' => 10,
@@ -741,7 +741,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[hide_archive_titles]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Archive Titles', 'baton' ),
+				'label' => __( 'Archive Titles', 'baton-pro' ),
 				'section'  => 'sds_theme_options_show_hide',
 				'settings' => 'sds_theme_options[hide_archive_titles]',
 				'priority' => 20,
@@ -772,7 +772,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[hide_post_meta]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Post Meta', 'baton' ),
+				'label' => __( 'Post Meta', 'baton-pro' ),
 				'section'  => 'sds_theme_options_show_hide',
 				'settings' => 'sds_theme_options[hide_post_meta]',
 				'priority' => 30,
@@ -803,7 +803,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[hide_author_meta]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Author Meta', 'baton' ),
+				'label' => __( 'Author Meta', 'baton-pro' ),
 				'section'  => 'sds_theme_options_show_hide',
 				'settings' => 'sds_theme_options[hide_author_meta]',
 				'priority' => 40,
@@ -835,7 +835,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[footer][hide_branding]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Footer Copyright &amp; Branding', 'baton' ),
+				'label' => __( 'Footer Copyright &amp; Branding', 'baton-pro' ),
 				'section'  => 'sds_theme_options_show_hide',
 				'settings' => 'sds_theme_options[footer][hide_branding]',
 				'priority' => 50,
@@ -868,8 +868,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[color_scheme]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Color Scheme', 'baton' ),
-					'description' => __( 'Select a color scheme to use on your site.', 'baton' ),
+					'label' => __( 'Color Scheme', 'baton-pro' ),
+					'description' => __( 'Select a color scheme to use on your site.', 'baton-pro' ),
 					'section'  => 'colors',
 					'settings' => 'sds_theme_options[color_scheme]',
 					'priority' => 10,
@@ -902,7 +902,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'primary_color',
 			array(
-				'label' => __( 'Primary Theme Color', 'baton' ),
+				'label' => __( 'Primary Theme Color', 'baton-pro' ),
 				'section' => 'colors',
 				'settings' => 'primary_color',
 				'priority' => 10
@@ -931,7 +931,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'secondary_color',
 			array(
-				'label' => __( 'Secondary Theme Color', 'baton' ),
+				'label' => __( 'Secondary Theme Color', 'baton-pro' ),
 				'section' => 'colors',
 				'settings' => 'secondary_color',
 				'priority' => 15
@@ -960,7 +960,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'content_color',
 			array(
-				'label' => __( 'Content Color', 'baton' ),
+				'label' => __( 'Content Color', 'baton-pro' ),
 				'section' => 'colors',
 				'settings' => 'content_color',
 				'priority' => 20
@@ -989,7 +989,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'link_color',
 			array(
-				'label' => __( 'Link Color', 'baton' ),
+				'label' => __( 'Link Color', 'baton-pro' ),
 				'section' => 'colors',
 				'settings' => 'link_color',
 				'priority' => 25
@@ -1011,7 +1011,7 @@ function sds_customize_register( $wp_customize ) {
 		// Section
 		$wp_customize->add_section( 'fonts', array(
 			'priority' => 50, // After Colors
-			'title' => __( 'Fonts', 'baton' ),
+			'title' => __( 'Fonts', 'baton-pro' ),
 		) );
 
 		// Setting
@@ -1031,8 +1031,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[web_font]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Web Fonts', 'baton' ),
-					'description' => __( 'Select a web font to use on your site.', 'baton' ),
+					'label' => __( 'Web Fonts', 'baton-pro' ),
+					'description' => __( 'Select a web font to use on your site.', 'baton-pro' ),
 					'section'  => 'fonts',
 					'settings' => 'sds_theme_options[web_font]',
 					'priority' => 10,
@@ -1049,7 +1049,7 @@ function sds_customize_register( $wp_customize ) {
 	// Section
 	$wp_customize->add_section( 'images', array(
 		'priority' => 55, // After Fonts
-		'title' => __( 'Images', 'baton' )
+		'title' => __( 'Images', 'baton-pro' )
 	) );
 
 	// Setting
@@ -1069,8 +1069,8 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[featured_image_size]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Featured Image Size', 'baton' ),
-				'description' => __( 'Use this section to modify how featured images are displayed on your site.', 'baton' ),
+				'label' => __( 'Featured Image Size', 'baton-pro' ),
+				'description' => __( 'Use this section to modify how featured images are displayed on your site.', 'baton-pro' ),
 				'section'  => 'images',
 				'settings' => 'sds_theme_options[featured_image_size]',
 				'priority' => 10,
@@ -1088,8 +1088,8 @@ function sds_customize_register( $wp_customize ) {
 		// Section
 		$wp_customize->add_section( 'sds_theme_options_content_layouts', array(
 			'priority' => 70, // After Header Image
-			'title' => __( 'Content Layouts', 'baton' ),
-			'description' => __( 'Control the layout of the content on your site here. Choose a global layout scheme to be used across your entire site or specify individual content type layout schemes by adjusting the options below.', 'baton' )
+			'title' => __( 'Content Layouts', 'baton-pro' ),
+			'description' => __( 'Control the layout of the content on your site here. Choose a global layout scheme to be used across your entire site or specify individual content type layout schemes by adjusting the options below.', 'baton-pro' )
 		) );
 
 
@@ -1113,8 +1113,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][global]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Global Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied globally on your site. Select more specific content layouts below.', 'baton' ),
+					'label' => __( 'Global Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied globally on your site. Select more specific content layouts below.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][global]',
 					'priority' => 10,
@@ -1145,8 +1145,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][front_page]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Front Page Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to the front page on your site (if selected in Settings &gt; Reading).', 'baton' ),
+					'label' => __( 'Front Page Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to the front page on your site (if selected in Settings &gt; Reading).', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][front_page]',
 					'priority' => 20,
@@ -1177,8 +1177,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][home]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Home Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to the blog on your site.', 'baton' ),
+					'label' => __( 'Home Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to the blog on your site.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][home]',
 					'priority' => 30,
@@ -1209,8 +1209,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][single]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Single Post Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to single posts on your site.', 'baton' ),
+					'label' => __( 'Single Post Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to single posts on your site.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][single]',
 					'priority' => 40,
@@ -1241,8 +1241,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][page]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Single Page Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to single pages on your site.', 'baton' ),
+					'label' => __( 'Single Page Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to single pages on your site.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][page]',
 					'priority' => 50,
@@ -1273,8 +1273,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][archive]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Archive Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to archives on your site.', 'baton' ),
+					'label' => __( 'Archive Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to archives on your site.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][archive]',
 					'priority' => 60,
@@ -1305,8 +1305,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][category]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Category Archive Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to category archives on your site.', 'baton' ),
+					'label' => __( 'Category Archive Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to category archives on your site.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][category]',
 					'priority' => 70,
@@ -1337,8 +1337,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][tag]', // IDs can have nested array keys
 				array(
-					'label' => __( 'Tag Archive Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to tag archives on your site.', 'baton' ),
+					'label' => __( 'Tag Archive Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to tag archives on your site.', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][tag]',
 					'priority' => 80,
@@ -1369,8 +1369,8 @@ function sds_customize_register( $wp_customize ) {
 				$wp_customize,
 				'sds_theme_options[content_layouts][404]', // IDs can have nested array keys
 				array(
-					'label' => __( '404 Error Content Layout', 'baton' ),
-					'description' => __( 'Select a content layout that will be applied to the 404 error page on your site. <strong>Please Note: The Customizer does not allow for previewing of 404 error pages.</strong>', 'baton' ),
+					'label' => __( '404 Error Content Layout', 'baton-pro' ),
+					'description' => __( 'Select a content layout that will be applied to the 404 error page on your site. <strong>Please Note: The Customizer does not allow for previewing of 404 error pages.</strong>', 'baton-pro' ),
 					'section'  => 'sds_theme_options_content_layouts',
 					'settings' => 'sds_theme_options[content_layouts][404]',
 					'priority' => 90,
@@ -1387,8 +1387,8 @@ function sds_customize_register( $wp_customize ) {
 	// Section
 	$wp_customize->add_section( 'sds_theme_options_social_media', array(
 		'priority' => 75, // After Content Layouts
-		'title' => __( 'Social Media', 'baton' ),
-		'description' => __( 'Enter your social media links here. This section is used throughout the site to display social media links to visitors. Some themes display social media links automatically, and some only display them within the Social Media widget.', 'baton' )
+		'title' => __( 'Social Media', 'baton-pro' ),
+		'description' => __( 'Enter your social media links here. This section is used throughout the site to display social media links to visitors. Some themes display social media links automatically, and some only display them within the Social Media widget.', 'baton-pro' )
 	) );
 
 	/*
@@ -1411,7 +1411,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][facebook_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Facebook', 'baton' ),
+				'label' => __( 'Facebook', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][facebook_url]',
 				'priority' => 10
@@ -1439,7 +1439,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][twitter_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Twitter', 'baton' ),
+				'label' => __( 'Twitter', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][twitter_url]',
 				'priority' => 20
@@ -1467,7 +1467,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][linkedin_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'LinkedIn', 'baton' ),
+				'label' => __( 'LinkedIn', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][linkedin_url]',
 				'priority' => 30
@@ -1495,7 +1495,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][google_plus_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Google+', 'baton' ),
+				'label' => __( 'Google+', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][google_plus_url]',
 				'priority' => 40
@@ -1523,7 +1523,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][youtube_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'YouTube', 'baton' ),
+				'label' => __( 'YouTube', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][youtube_url]',
 				'priority' => 50
@@ -1551,7 +1551,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][vimeo_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Vimeo', 'baton' ),
+				'label' => __( 'Vimeo', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][vimeo_url]',
 				'priority' => 60
@@ -1579,7 +1579,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][instagram_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Instagram', 'baton' ),
+				'label' => __( 'Instagram', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][instagram_url]',
 				'priority' => 70
@@ -1607,7 +1607,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][pinterest_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Pinterest', 'baton' ),
+				'label' => __( 'Pinterest', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][pinterest_url]',
 				'priority' => 80
@@ -1635,7 +1635,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][flickr_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Flickr', 'baton' ),
+				'label' => __( 'Flickr', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][flickr_url]',
 				'priority' => 90
@@ -1663,7 +1663,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][foursquare_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Foursquare', 'baton' ),
+				'label' => __( 'Foursquare', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][foursquare_url]',
 				'priority' => 100
@@ -1691,16 +1691,16 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][rss_url_use_site_feed]', // IDs can have nested array keys
 			array(
-				'label' => __( 'RSS - Use Site RSS Feed', 'baton' ),
-				'description' => __( 'When "yes" is displayed, the RSS feed for your site will be used. Otherwise, you can enter a custom RSS URL to use instead.', 'baton' ),
+				'label' => __( 'RSS - Use Site RSS Feed', 'baton-pro' ),
+				'description' => __( 'When "yes" is displayed, the RSS feed for your site will be used. Otherwise, you can enter a custom RSS URL to use instead.', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][rss_url_use_site_feed]',
 				'priority' => 110,
 				'type' => 'checkbox', // Used in js controller
 				'css_class' => 'sds-theme-options-rss-url-use-site-feed',
 				'css_id' => 'sds_theme_options_rss_url_use_site_feed',
-				'checked_label' => __( 'Yes', 'baton' ),
-				'unchecked_label' => __( 'No', 'baton' ),
+				'checked_label' => __( 'Yes', 'baton-pro' ),
+				'unchecked_label' => __( 'No', 'baton-pro' ),
 				'style' => array(
 					'before' => 'width: 35%; text-align: center;',
 					'after' => 'right: 0; width: 35%; padding: 0 6px; text-align: center;'
@@ -1730,7 +1730,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[social_media][rss_url]', // IDs can have nested array keys
 			array(
-				'label' => __( 'RSS - Custom RSS Feed', 'baton' ),
+				'label' => __( 'RSS - Custom RSS Feed', 'baton-pro' ),
 				'section'  => 'sds_theme_options_social_media',
 				'settings' => 'sds_theme_options[social_media][rss_url]',
 				'priority' => 120,
@@ -1746,7 +1746,7 @@ function sds_customize_register( $wp_customize ) {
 	// Panel
 	$wp_customize->add_panel( 'sds_theme_options_custom_scripts_styles', array(
 		'priority' => 130, // After Static Front Page
-		'title' => __( 'Custom Scripts &amp; Styles', 'baton' )
+		'title' => __( 'Custom Scripts &amp; Styles', 'baton-pro' )
 	) );
 
 
@@ -1756,8 +1756,8 @@ function sds_customize_register( $wp_customize ) {
 	// Section
 	$wp_customize->add_section( 'sds_theme_options_custom_scripts', array(
 		'priority' => 10,
-		'title' => __( 'Custom Scripts', 'baton' ),
-		'description' => sprintf( __( 'Add custom scripts to either the head section or the footer section of your site. See <a href="%1$s" target="_blank">WordPress Codex: Using Javascript</a> for more information.', 'baton' ), esc_url( 'http://codex.wordpress.org/Using_Javascript' ) ),
+		'title' => __( 'Custom Scripts', 'baton-pro' ),
+		'description' => sprintf( __( 'Add custom scripts to either the head section or the footer section of your site. See <a href="%1$s" target="_blank">WordPress Codex: Using Javascript</a> for more information.', 'baton-pro' ), esc_url( 'http://codex.wordpress.org/Using_Javascript' ) ),
 		'panel' => 'sds_theme_options_custom_scripts_styles'
 	) );
 
@@ -1782,7 +1782,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[custom_scripts][wp_head]', // IDs can have nested array keys
 			array(
-				'label' => _x( 'Head', 'Custom scripts for wp_head label', 'baton' ),
+				'label' => _x( 'Head', 'Custom scripts for wp_head label', 'baton-pro' ),
 				'section'  => 'sds_theme_options_custom_scripts',
 				'settings' => 'sds_theme_options[custom_scripts][wp_head]',
 				'priority' => 10,
@@ -1814,7 +1814,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[custom_scripts][wp_footer]', // IDs can have nested array keys
 			array(
-				'label' => _x( 'Footer', 'Custom scripts for wp_footer label', 'baton' ),
+				'label' => _x( 'Footer', 'Custom scripts for wp_footer label', 'baton-pro' ),
 				'section'  => 'sds_theme_options_custom_scripts',
 				'settings' => 'sds_theme_options[custom_scripts][wp_footer]',
 				'priority' => 20,
@@ -1832,8 +1832,8 @@ function sds_customize_register( $wp_customize ) {
 	// Section
 	$wp_customize->add_section( 'sds_theme_options_custom_styles', array(
 		'priority' => 20,
-		'title' => __( 'Custom Styles', 'baton' ),
-		'description' => sprintf( __( 'Add custom styles your site. See <a href="%1$s" target="_blank">Mozilla Developer Network: CSS</a> for more information.', 'baton' ), esc_url( 'https://developer.mozilla.org/en-US/docs/Web/CSS' ) ),
+		'title' => __( 'Custom Styles', 'baton-pro' ),
+		'description' => sprintf( __( 'Add custom styles your site. See <a href="%1$s" target="_blank">Mozilla Developer Network: CSS</a> for more information.', 'baton-pro' ), esc_url( 'https://developer.mozilla.org/en-US/docs/Web/CSS' ) ),
 		'panel' => 'sds_theme_options_custom_scripts_styles'
 	) );
 
@@ -1858,7 +1858,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[custom_styles]', // IDs can have nested array keys
 			array(
-				'label' => _x( 'CSS', 'Custom styles label', 'baton' ),
+				'label' => _x( 'CSS', 'Custom styles label', 'baton-pro' ),
 				'section'  => 'sds_theme_options_custom_styles',
 				'settings' => 'sds_theme_options[custom_styles]',
 				'priority' => 10,
@@ -1876,8 +1876,8 @@ function sds_customize_register( $wp_customize ) {
 	// Section
 	$wp_customize->add_section( 'sds_footer_copyright_branding', array(
 		'priority' => 140, // After Custom Scripts and Styles
-		'title' => __( 'Copyright &amp; Branding', 'baton' ),
-		'description' => __( 'Use this section to modify the footer branding of your website. Entering a value here will over-write the default footer branding. You may use the following HTML tags: <code>&lt;a&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;span&gt;</code>', 'baton' )
+		'title' => __( 'Copyright &amp; Branding', 'baton-pro' ),
+		'description' => __( 'Use this section to modify the footer branding of your website. Entering a value here will over-write the default footer branding. You may use the following HTML tags: <code>&lt;a&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;span&gt;</code>', 'baton-pro' )
 	) );
 
 	/*
@@ -1900,7 +1900,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[footer][copyright]',
 			array(
-				'label' => __( 'Footer Copyright', 'baton' ),
+				'label' => __( 'Footer Copyright', 'baton-pro' ),
 				'section' => 'sds_footer_copyright_branding',
 				'settings' => 'sds_theme_options[footer][copyright]',
 				'priority' => 10
@@ -1928,7 +1928,7 @@ function sds_customize_register( $wp_customize ) {
 			$wp_customize,
 			'sds_theme_options[footer][branding]', // IDs can have nested array keys
 			array(
-				'label' => __( 'Footer Branding', 'baton' ),
+				'label' => __( 'Footer Branding', 'baton-pro' ),
 				'section' => 'sds_footer_copyright_branding',
 				'settings' => 'sds_theme_options[footer][branding]',
 				'priority' => 20
@@ -2356,9 +2356,9 @@ function sds_after_setup_theme() {
 
 	// Register WordPress Menus
 	register_nav_menus( array(
-		'top_nav' => __( 'Top Navigation', 'baton' ),
-		'primary_nav' => __( 'Primary Navigation', 'baton' ),
-		'footer_nav' => __( 'Footer Navigation', 'baton' )
+		'top_nav' => __( 'Top Navigation', 'baton-pro' ),
+		'primary_nav' => __( 'Primary Navigation', 'baton-pro' ),
+		'footer_nav' => __( 'Footer Navigation', 'baton-pro' )
 	) );
 }
 
@@ -2373,9 +2373,9 @@ function sds_widgets_init() {
 
 	// Primary sidebar
 	register_sidebar( array(
-		'name'          => __( 'Primary Sidebar', 'baton' ),
+		'name'          => __( 'Primary Sidebar', 'baton-pro' ),
 		'id'            => 'primary-sidebar',
-		'description'   => __( 'This widget area is the primary widget area.', 'baton' ),
+		'description'   => __( 'This widget area is the primary widget area.', 'baton-pro' ),
 		'before_widget' => '<section id="primary-sidebar-%1$s" class="widget primary-sidebar primary-sidebar-widget %2$s">',
 		'after_widget'  => '<section class="clear"></section></section>',
 		'before_title'  => '<h3 class="widgettitle widget-title primary-sidebar-widget-title">',
@@ -2384,9 +2384,9 @@ function sds_widgets_init() {
 
 	// Secondary sidebar
 	register_sidebar( array(
-		'name'          => __( 'Secondary Sidebar', 'baton' ),
+		'name'          => __( 'Secondary Sidebar', 'baton-pro' ),
 		'id'            => 'secondary-sidebar',
-		'description'   => __( 'This widget area is the secondary widget area.', 'baton' ),
+		'description'   => __( 'This widget area is the secondary widget area.', 'baton-pro' ),
 		'before_widget' => '<section id="secondary-sidebar-%1$s" class="widget secondary-sidebar secondary-sidebar-widget %2$s">',
 		'after_widget'  => '<section class="clear"></section></section>',
 		'before_title'  => '<h3 class="widgettitle widget-title secondary-sidebar-widget-title">',
@@ -2395,9 +2395,9 @@ function sds_widgets_init() {
 
 	// Front Page Slider
 	register_sidebar( array(
-		'name'          => __( 'Front Page Slider', 'baton' ),
+		'name'          => __( 'Front Page Slider', 'baton-pro' ),
 		'id'            => 'front-page-slider-sidebar',
-		'description'   => __( '*This widget area is only displayed if a Front Page is selected via Settings &gt; Reading in the Dashboard.* This widget area is displayed above the content on the Front Page.', 'baton' ),
+		'description'   => __( '*This widget area is only displayed if a Front Page is selected via Settings &gt; Reading in the Dashboard.* This widget area is displayed above the content on the Front Page.', 'baton-pro' ),
 		'before_widget' => '<section id="front-page-slider-%1$s" class="widget front-page-slider front-page-slider-widget slider %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title front-page-slider-title">',
@@ -2406,9 +2406,9 @@ function sds_widgets_init() {
 
 	// Front Page
 	register_sidebar( array(
-		'name'          => __( 'Front Page', 'baton' ),
+		'name'          => __( 'Front Page', 'baton-pro' ),
 		'id'            => 'front-page-sidebar',
-		'description'   => __( '*This widget area is only displayed if a Front Page is selected via Settings &gt; Reading in the Dashboard.* This widget area is displayed below the Front Page Slider on the Front Page and will replace the Front Page content.', 'baton' ),
+		'description'   => __( '*This widget area is only displayed if a Front Page is selected via Settings &gt; Reading in the Dashboard.* This widget area is displayed below the Front Page Slider on the Front Page and will replace the Front Page content.', 'baton-pro' ),
 		'before_widget' => '<section id="front-page-%1$s" class="widget front-page front-page-sidebar %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title front-page-title">',
@@ -2417,9 +2417,9 @@ function sds_widgets_init() {
 
 	// Header Call To Action
 	register_sidebar( array(
-		'name'          => __( 'Header Call To Action', 'baton' ),
+		'name'          => __( 'Header Call To Action', 'baton-pro' ),
 		'id'            => 'header-call-to-action-sidebar',
-		'description'   => __( 'This widget area is used to display a call to action in the header.', 'baton' ),
+		'description'   => __( 'This widget area is used to display a call to action in the header.', 'baton-pro' ),
 		'before_widget' => '<section id="header-call-to-action-%1$s" class="widget header-call-to-action-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title header-call-to-action-widget-title">',
@@ -2428,9 +2428,9 @@ function sds_widgets_init() {
 
 	// After Posts
 	register_sidebar( array(
-		'name'          => __( 'After Posts', 'baton' ),
+		'name'          => __( 'After Posts', 'baton-pro' ),
 		'id'            => 'after-posts-sidebar',
-		'description'   => __( 'This widget area is displayed below the content on single posts only.', 'baton' ),
+		'description'   => __( 'This widget area is displayed below the content on single posts only.', 'baton-pro' ),
 		'before_widget' => '<section id="after-posts-%1$s" class="widget after-posts after-posts-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title after-posts-title">',
@@ -2439,9 +2439,9 @@ function sds_widgets_init() {
 
 	// Footer
 	register_sidebar( array(
-		'name'          => __( 'Footer', 'baton' ),
+		'name'          => __( 'Footer', 'baton-pro' ),
 		'id'            => 'footer-sidebar',
-		'description'   => __( 'This widget area is displayed in the footer of all pages.', 'baton' ),
+		'description'   => __( 'This widget area is displayed in the footer of all pages.', 'baton-pro' ),
 		'before_widget' => '<section id="footer-widget-%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title footer-widget-title">',
@@ -2450,9 +2450,9 @@ function sds_widgets_init() {
 
 	// Copyright
 	register_sidebar( array(
-		'name'          => __( 'Copyright Area', 'baton' ),
+		'name'          => __( 'Copyright Area', 'baton-pro' ),
 		'id'            => 'copyright-area-sidebar',
-		'description'   => __( 'This widget area is designed for small text blurbs or disclaimers at the bottom of the website.', 'baton' ),
+		'description'   => __( 'This widget area is designed for small text blurbs or disclaimers at the bottom of the website.', 'baton-pro' ),
 		'before_widget' => '<section id="copyright-area-widget-%1$s" class="widget copyright-area copyright-area-widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widgettitle widget-title copyright-area-widget-title">',
@@ -2531,7 +2531,7 @@ function sds_show_author_meta() {
  * This function returns the default copyright.
  */
 function sds_get_copyright() {
-	return apply_filters( 'sds_copyright', sprintf( wp_kses( __( 'Copyright &copy; %1$s <a href="%2$s">%3$s</a>. All Rights Reserved.', 'baton' ), array( 'a' => array( 'href' => array() ) ) ), date( 'Y' ), esc_url( home_url( '/' ) ), get_bloginfo( 'name' ) ) );
+	return apply_filters( 'sds_copyright', sprintf( wp_kses( __( 'Copyright &copy; %1$s <a href="%2$s">%3$s</a>. All Rights Reserved.', 'baton-pro' ), array( 'a' => array( 'href' => array() ) ) ), date( 'Y' ), esc_url( home_url( '/' ) ), get_bloginfo( 'name' ) ) );
 }
 
 /**
@@ -2540,7 +2540,7 @@ function sds_get_copyright() {
 function sds_get_copyright_branding() {
 	$sds_theme = SDS_Theme_Options_Instance()->get_parent_theme();
 
-	return apply_filters( 'sds_copyright_branding', sprintf( __( '<a href="%1$s" target="_blank">%2$s by Slocum Studio</a>', 'baton' ), esc_url( sprintf( 'http://slocumthemes.com/?utm_source=%1$s&amp;utm_medium=footer-plugs&amp;utm_campaign=WordPressThemes', esc_url( home_url( '/' ) ) ) ), $sds_theme->get( 'Name' ) ), $sds_theme->get( 'Name' ), $sds_theme );
+	return apply_filters( 'sds_copyright_branding', sprintf( __( '<a href="%1$s" target="_blank">%2$s by Slocum Studio</a>', 'baton-pro' ), esc_url( sprintf( 'http://slocumthemes.com/?utm_source=%1$s&amp;utm_medium=footer-plugs&amp;utm_campaign=WordPressThemes', esc_url( home_url( '/' ) ) ) ), $sds_theme->get( 'Name' ) ), $sds_theme->get( 'Name' ), $sds_theme );
 }
 
 

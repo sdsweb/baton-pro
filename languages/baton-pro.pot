@@ -1,14 +1,14 @@
-# Copyright (C) 2016 Slocum Studio
+# Copyright (C) 2017 Slocum Studio
 # This file is distributed under the GPL2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Baton Pro 1.0.3\n"
+"Project-Id-Version: Baton Pro 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/baton-pro\n"
-"POT-Creation-Date: 2016-03-24 17:03-0400\n"
+"POT-Creation-Date: 2017-03-01 11:53-0500\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-24 17:05-0400\n"
+"PO-Revision-Date: 2017-03-01 11:53-0500\n"
 "X-Generator: Poedit 1.8.7\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -89,71 +89,71 @@ msgstr ""
 msgid "RSS"
 msgstr ""
 
-#: functions.php:175
+#: functions.php:247
 msgid "Previous Post"
 msgstr ""
 
-#: functions.php:181
+#: functions.php:253
 msgid "Next Post"
 msgstr ""
 
-#: functions.php:218 functions.php:220 functions.php:554
+#: functions.php:290 functions.php:292 functions.php:627
 #: includes/customizer/class-sds-theme-options-customize-web-font-control.php:38
-#: includes/theme-options.php:420 theme/class-baton-customizer.php:807
-#: theme/class-baton-customizer.php:1288
+#: includes/theme-options.php:420 theme/class-baton-customizer.php:821
+#: theme/class-baton-customizer.php:1302
 msgid "Default"
 msgstr ""
 
 #. Template Name of the plugin/theme
-#: functions.php:224
+#: functions.php:296
 msgid "Full Width"
 msgstr ""
 
-#: functions.php:228
+#: functions.php:300
 msgid "Content Left"
 msgstr ""
 
-#: functions.php:232
+#: functions.php:304
 msgid "Content Right"
 msgstr ""
 
-#: functions.php:363 functions.php:368
+#: functions.php:435 functions.php:440
 msgid "Continue Reading"
 msgstr ""
 
-#: functions.php:401 includes/theme-functions.php:566
+#: functions.php:473 includes/theme-functions.php:566
 msgid "Pingback:"
 msgstr ""
 
-#: functions.php:421
+#: functions.php:493
 msgid "<a href=\"%1$s\"><time datetime=\"%2$s\">%3$s</time></a>"
 msgstr ""
 
-#: functions.php:424 includes/theme-functions.php:586
+#: functions.php:496 includes/theme-functions.php:586
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:428 includes/theme-functions.php:590
+#: functions.php:500 includes/theme-functions.php:590
 msgid "Edit"
 msgstr ""
 
-#: functions.php:437 includes/theme-functions.php:598
+#: functions.php:509 includes/theme-functions.php:598
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:448 includes/theme-functions.php:609
+#: functions.php:520 includes/theme-functions.php:609
 msgid "Reply"
 msgstr ""
 
-#: functions.php:593
+#: functions.php:666
 msgid "Blue"
 msgstr ""
 
-#: functions.php:632
+#: functions.php:705
 msgid "Green"
 msgstr ""
 
-#: functions.php:671
+#: functions.php:744
 msgid "Red"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgid "Toggle Navigation"
 msgstr ""
 
 #: header.php:38 header.php:111 theme/class-baton-customizer-fonts.php:118
-#: theme/class-baton-customizer.php:945 theme/class-baton-customizer.php:1302
+#: theme/class-baton-customizer.php:959 theme/class-baton-customizer.php:1316
 msgid "Navigation"
 msgstr ""
 
@@ -568,7 +568,7 @@ msgstr ""
 msgid "Use these options to show or hide various elements on your site."
 msgstr ""
 
-#: includes/theme-functions.php:713 theme/class-baton-customizer.php:884
+#: includes/theme-functions.php:713 theme/class-baton-customizer.php:898
 msgid "Tagline"
 msgstr ""
 
@@ -589,7 +589,7 @@ msgid "Footer Copyright &amp; Branding"
 msgstr ""
 
 #: includes/theme-functions.php:871 includes/theme-options.php:162
-#: theme/class-baton-customizer.php:528
+#: theme/class-baton-customizer.php:525
 msgid "Color Scheme"
 msgstr ""
 
@@ -896,7 +896,7 @@ msgstr ""
 msgid "This widget area is displayed below the content on single posts only."
 msgstr ""
 
-#: includes/theme-functions.php:2442 theme/class-baton-customizer.php:2091
+#: includes/theme-functions.php:2442 theme/class-baton-customizer.php:2105
 msgid "Footer"
 msgstr ""
 
@@ -1524,11 +1524,11 @@ msgstr ""
 msgid "View more posts from this author"
 msgstr ""
 
-#: loop-image.php:87
+#: loop-image.php:88
 msgid "Edit Image"
 msgstr ""
 
-#: loop-page-full-width.php:42 loop-single.php:43 loop.php:43
+#: loop-page-full-width.php:42 loop-single.php:44 loop.php:44
 msgid "Edit Post"
 msgstr ""
 
@@ -1540,11 +1540,11 @@ msgstr ""
 msgid "Search results for \"%s\""
 msgstr ""
 
-#: loop-search.php:73
+#: loop-search.php:70
 msgid "No results for \"%s\""
 msgstr ""
 
-#: loop-search.php:83
+#: loop-search.php:80
 msgid "Would you like to search again?"
 msgstr ""
 
@@ -1676,7 +1676,7 @@ msgid "Heading 6"
 msgstr ""
 
 #: theme/class-baton-customizer-fonts.php:798
-#: theme/class-baton-customizer.php:1071 theme/class-baton-customizer.php:1435
+#: theme/class-baton-customizer.php:1085 theme/class-baton-customizer.php:1449
 msgid "Font Size"
 msgstr ""
 
@@ -1685,7 +1685,7 @@ msgid "Line Height"
 msgstr ""
 
 #: theme/class-baton-customizer-fonts.php:884
-#: theme/class-baton-customizer.php:1080 theme/class-baton-customizer.php:1445
+#: theme/class-baton-customizer.php:1094 theme/class-baton-customizer.php:1459
 msgid "Font Family"
 msgstr ""
 
@@ -1711,472 +1711,473 @@ msgstr ""
 msgid "Choose a Font Family"
 msgstr ""
 
-#: theme/class-baton-customizer.php:246
+#: theme/class-baton-customizer.php:243
 msgid "General Settings"
 msgstr ""
 
-#: theme/class-baton-customizer.php:286
+#: theme/class-baton-customizer.php:283
 msgid "Site Layout"
 msgstr ""
 
-#: theme/class-baton-customizer.php:310
+#: theme/class-baton-customizer.php:307
 msgid "Maximum Width"
 msgstr ""
 
-#: theme/class-baton-customizer.php:311
+#: theme/class-baton-customizer.php:308
 msgid "The default width is 1272px."
 msgstr ""
 
-#: theme/class-baton-customizer.php:324
+#: theme/class-baton-customizer.php:321
 msgctxt "title attribute for max width Customizer control"
 msgid "pixels"
 msgstr ""
 
-#: theme/class-baton-customizer.php:368
+#: theme/class-baton-customizer.php:365
 msgid "Reset Settings"
 msgstr ""
 
-#: theme/class-baton-customizer.php:391 theme/class-baton-customizer.php:396
+#: theme/class-baton-customizer.php:388 theme/class-baton-customizer.php:393
 msgid "Reset Colors"
 msgstr ""
 
-#: theme/class-baton-customizer.php:392
+#: theme/class-baton-customizer.php:389
 msgid ""
 "Reset all individual color settings to their default values based on the "
 "selected color scheme."
 msgstr ""
 
-#: theme/class-baton-customizer.php:421 theme/class-baton-customizer.php:426
+#: theme/class-baton-customizer.php:418 theme/class-baton-customizer.php:423
 msgid "Reset Background Images"
 msgstr ""
 
-#: theme/class-baton-customizer.php:422
+#: theme/class-baton-customizer.php:419
 msgid ""
 "Reset all individual background image settings back to their default values."
 msgstr ""
 
-#: theme/class-baton-customizer.php:451 theme/class-baton-customizer.php:456
+#: theme/class-baton-customizer.php:448 theme/class-baton-customizer.php:453
 msgid "Reset Font Attributes"
 msgstr ""
 
-#: theme/class-baton-customizer.php:452
+#: theme/class-baton-customizer.php:449
 msgid ""
 "Reset all individual font size, letter spacing, and line height settings "
 "back to their default values."
 msgstr ""
 
-#: theme/class-baton-customizer.php:481 theme/class-baton-customizer.php:486
+#: theme/class-baton-customizer.php:478 theme/class-baton-customizer.php:483
 msgid "Reset Font Families"
 msgstr ""
 
-#: theme/class-baton-customizer.php:482
+#: theme/class-baton-customizer.php:479
 msgid "Reset all individual font family settings back to their default values."
 msgstr ""
 
-#: theme/class-baton-customizer.php:511
+#: theme/class-baton-customizer.php:508
 msgid "Reset All of the Above"
 msgstr ""
 
-#: theme/class-baton-customizer.php:512
+#: theme/class-baton-customizer.php:509
 msgid ""
 "Reset ALL individual color, background image, font attribute, and font "
 "family settings back to their default values."
 msgstr ""
 
-#: theme/class-baton-customizer.php:516
+#: theme/class-baton-customizer.php:513
 msgid "Reset All"
 msgstr ""
 
-#: theme/class-baton-customizer.php:533
+#: theme/class-baton-customizer.php:530
 msgid ""
 "Select a color scheme to use on your site. Individual color settings exist "
 "throughout the Customizer for even more flexibility."
 msgstr ""
 
-#: theme/class-baton-customizer.php:544
+#: theme/class-baton-customizer.php:541
 msgid "Background Colors &amp; Images"
 msgstr ""
 
-#: theme/class-baton-customizer.php:552 theme/class-baton-customizer.php:1921
+#: theme/class-baton-customizer.php:549 theme/class-baton-customizer.php:1935
 msgid "Body"
 msgstr ""
 
-#: theme/class-baton-customizer.php:608 theme/class-baton-customizer.php:1621
-#: theme/class-baton-customizer.php:1696
+#: theme/class-baton-customizer.php:622 theme/class-baton-customizer.php:1635
+#: theme/class-baton-customizer.php:1710
 msgid "Content"
 msgstr ""
 
-#: theme/class-baton-customizer.php:631
+#: theme/class-baton-customizer.php:645
 msgid "Content Background Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:657
+#: theme/class-baton-customizer.php:671
 msgid "Content Background Image"
 msgstr ""
 
-#: theme/class-baton-customizer.php:686 theme/class-baton-customizer.php:1168
-#: theme/class-baton-customizer.php:1535 theme/class-baton-customizer.php:2278
+#: theme/class-baton-customizer.php:700 theme/class-baton-customizer.php:1182
+#: theme/class-baton-customizer.php:1549 theme/class-baton-customizer.php:2292
 msgid "Background Repeat"
 msgstr ""
 
-#: theme/class-baton-customizer.php:692 theme/class-baton-customizer.php:1174
-#: theme/class-baton-customizer.php:1541 theme/class-baton-customizer.php:2284
+#: theme/class-baton-customizer.php:706 theme/class-baton-customizer.php:1188
+#: theme/class-baton-customizer.php:1555 theme/class-baton-customizer.php:2298
 msgid "No Repeat"
 msgstr ""
 
-#: theme/class-baton-customizer.php:693 theme/class-baton-customizer.php:1175
-#: theme/class-baton-customizer.php:1542 theme/class-baton-customizer.php:2285
+#: theme/class-baton-customizer.php:707 theme/class-baton-customizer.php:1189
+#: theme/class-baton-customizer.php:1556 theme/class-baton-customizer.php:2299
 msgid "Tile"
 msgstr ""
 
-#: theme/class-baton-customizer.php:694 theme/class-baton-customizer.php:1176
-#: theme/class-baton-customizer.php:1543 theme/class-baton-customizer.php:2286
+#: theme/class-baton-customizer.php:708 theme/class-baton-customizer.php:1190
+#: theme/class-baton-customizer.php:1557 theme/class-baton-customizer.php:2300
 msgid "Tile Horizontally"
 msgstr ""
 
-#: theme/class-baton-customizer.php:695 theme/class-baton-customizer.php:1177
-#: theme/class-baton-customizer.php:1544 theme/class-baton-customizer.php:2287
+#: theme/class-baton-customizer.php:709 theme/class-baton-customizer.php:1191
+#: theme/class-baton-customizer.php:1558 theme/class-baton-customizer.php:2301
 msgid "Tile Vertically"
 msgstr ""
 
-#: theme/class-baton-customizer.php:719 theme/class-baton-customizer.php:1201
-#: theme/class-baton-customizer.php:1569 theme/class-baton-customizer.php:2312
+#: theme/class-baton-customizer.php:733 theme/class-baton-customizer.php:1215
+#: theme/class-baton-customizer.php:1583 theme/class-baton-customizer.php:2326
 msgid "Background Position"
 msgstr ""
 
-#: theme/class-baton-customizer.php:725 theme/class-baton-customizer.php:1207
-#: theme/class-baton-customizer.php:1575 theme/class-baton-customizer.php:2318
+#: theme/class-baton-customizer.php:739 theme/class-baton-customizer.php:1221
+#: theme/class-baton-customizer.php:1589 theme/class-baton-customizer.php:2332
 msgid "Left"
 msgstr ""
 
-#: theme/class-baton-customizer.php:726 theme/class-baton-customizer.php:1208
-#: theme/class-baton-customizer.php:1576 theme/class-baton-customizer.php:2319
+#: theme/class-baton-customizer.php:740 theme/class-baton-customizer.php:1222
+#: theme/class-baton-customizer.php:1590 theme/class-baton-customizer.php:2333
 msgid "Center"
 msgstr ""
 
-#: theme/class-baton-customizer.php:727 theme/class-baton-customizer.php:1209
-#: theme/class-baton-customizer.php:1577 theme/class-baton-customizer.php:2320
+#: theme/class-baton-customizer.php:741 theme/class-baton-customizer.php:1223
+#: theme/class-baton-customizer.php:1591 theme/class-baton-customizer.php:2334
 msgid "Right"
 msgstr ""
 
-#: theme/class-baton-customizer.php:751 theme/class-baton-customizer.php:1233
-#: theme/class-baton-customizer.php:1602 theme/class-baton-customizer.php:2345
+#: theme/class-baton-customizer.php:765 theme/class-baton-customizer.php:1247
+#: theme/class-baton-customizer.php:1616 theme/class-baton-customizer.php:2359
 msgid "Background Attachment"
 msgstr ""
 
-#: theme/class-baton-customizer.php:757 theme/class-baton-customizer.php:1239
-#: theme/class-baton-customizer.php:1608 theme/class-baton-customizer.php:2351
+#: theme/class-baton-customizer.php:771 theme/class-baton-customizer.php:1253
+#: theme/class-baton-customizer.php:1622 theme/class-baton-customizer.php:2365
 msgid "Scroll"
 msgstr ""
 
-#: theme/class-baton-customizer.php:758 theme/class-baton-customizer.php:1240
-#: theme/class-baton-customizer.php:1609 theme/class-baton-customizer.php:2352
+#: theme/class-baton-customizer.php:772 theme/class-baton-customizer.php:1254
+#: theme/class-baton-customizer.php:1623 theme/class-baton-customizer.php:2366
 msgid "Fixed"
 msgstr ""
 
-#: theme/class-baton-customizer.php:770
+#: theme/class-baton-customizer.php:784
 msgid "Header"
 msgstr ""
 
-#: theme/class-baton-customizer.php:778 theme/class-baton-customizer.php:800
-#: theme/class-baton-customizer.php:1259 theme/class-baton-customizer.php:1281
+#: theme/class-baton-customizer.php:792 theme/class-baton-customizer.php:814
+#: theme/class-baton-customizer.php:1273 theme/class-baton-customizer.php:1295
 msgid "Alignment"
 msgstr ""
 
-#: theme/class-baton-customizer.php:806 theme/class-baton-customizer.php:1287
+#: theme/class-baton-customizer.php:820 theme/class-baton-customizer.php:1301
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: theme/class-baton-customizer.php:808 theme/class-baton-customizer.php:1289
+#: theme/class-baton-customizer.php:822 theme/class-baton-customizer.php:1303
 msgid "Centered"
 msgstr ""
 
-#: theme/class-baton-customizer.php:809 theme/class-baton-customizer.php:1290
+#: theme/class-baton-customizer.php:823 theme/class-baton-customizer.php:1304
 msgid "Flipped"
 msgstr ""
 
-#: theme/class-baton-customizer.php:810
+#: theme/class-baton-customizer.php:824
 msgid "Navigation Below"
 msgstr ""
 
-#: theme/class-baton-customizer.php:822
+#: theme/class-baton-customizer.php:836
 msgid "Site Title"
 msgstr ""
 
-#: theme/class-baton-customizer.php:845
+#: theme/class-baton-customizer.php:859
 msgid "Site Title Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:907
+#: theme/class-baton-customizer.php:921
 msgid "Tagline Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:955
+#: theme/class-baton-customizer.php:969
 msgctxt "primary navigation color label"
 msgid "Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:977 theme/class-baton-customizer.php:1337
+#: theme/class-baton-customizer.php:991 theme/class-baton-customizer.php:1351
 msgid "Hover/Active Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1004 theme/class-baton-customizer.php:1365
+#: theme/class-baton-customizer.php:1018 theme/class-baton-customizer.php:1379
 msgid "Sub Menu Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1031 theme/class-baton-customizer.php:1393
+#: theme/class-baton-customizer.php:1045 theme/class-baton-customizer.php:1407
 msgid "Sub Menu Hover Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1058 theme/class-baton-customizer.php:1421
+#: theme/class-baton-customizer.php:1072 theme/class-baton-customizer.php:1435
 msgid "Sub Menu Background Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1090 theme/class-baton-customizer.php:1455
-#: theme/class-baton-customizer.php:2198
+#: theme/class-baton-customizer.php:1104 theme/class-baton-customizer.php:1469
+#: theme/class-baton-customizer.php:2212
 msgid "Background"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1113 theme/class-baton-customizer.php:1479
-#: theme/class-baton-customizer.php:2222
+#: theme/class-baton-customizer.php:1127 theme/class-baton-customizer.php:1493
+#: theme/class-baton-customizer.php:2236
 msgid "Background Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1139 theme/class-baton-customizer.php:1506
-#: theme/class-baton-customizer.php:2249
+#: theme/class-baton-customizer.php:1153 theme/class-baton-customizer.php:1520
+#: theme/class-baton-customizer.php:2263
 msgid "Background Image"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1251
+#: theme/class-baton-customizer.php:1265
 msgid "Secondary Header"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1303
+#: theme/class-baton-customizer.php:1317
 msgid ""
 "This section is displayed on the front-end when a \"Secondary Navigation\" "
 "menu is set under Appearance &gt; Menus or a widget is placed in the "
 "\"Secondary Sidebar\" under Appearance &gt; Widgets."
 msgstr ""
 
-#: theme/class-baton-customizer.php:1314
+#: theme/class-baton-customizer.php:1328
 msgctxt "secondary navigation color label"
 msgid "Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1630 theme/class-baton-customizer.php:2100
+#: theme/class-baton-customizer.php:1644 theme/class-baton-customizer.php:2114
 msgid "Colors"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1654
+#: theme/class-baton-customizer.php:1668
 msgid "Archive Title"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1682
+#: theme/class-baton-customizer.php:1696
 msgid "Post Title"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1706 theme/class-baton-customizer.php:2150
+#: theme/class-baton-customizer.php:1720 theme/class-baton-customizer.php:2164
 msgid "Link"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1730
+#: theme/class-baton-customizer.php:1744
 msgid "Button Text"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1758
+#: theme/class-baton-customizer.php:1772
 msgid "Button Text Hover"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1786
+#: theme/class-baton-customizer.php:1800
 msgid "Button Background"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1814
+#: theme/class-baton-customizer.php:1828
 msgid "Button Background Hover"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1828 theme/class-baton-customizer.php:2177
+#: theme/class-baton-customizer.php:1842 theme/class-baton-customizer.php:2191
 msgid "Headings"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1952
+#: theme/class-baton-customizer.php:1966
 msgid "More Link"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1975
+#: theme/class-baton-customizer.php:1989
 msgid "Button Label"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1989
+#: theme/class-baton-customizer.php:2003
 msgid "Widget Design"
 msgstr ""
 
-#: theme/class-baton-customizer.php:1998
+#: theme/class-baton-customizer.php:2012
 msgctxt "widget colors Customizer section label"
 msgid "Colors"
 msgstr ""
 
-#: theme/class-baton-customizer.php:2022
+#: theme/class-baton-customizer.php:2036
 msgid "Widget Title Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:2050
+#: theme/class-baton-customizer.php:2064
 msgctxt "widget text color Customizer control label"
 msgid "Text Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:2077
+#: theme/class-baton-customizer.php:2091
 msgctxt "widget link color Customizer control label"
 msgid "Link Color"
 msgstr ""
 
-#: theme/class-baton-customizer.php:2123
+#: theme/class-baton-customizer.php:2137
 msgid "Text Color"
 msgstr ""
 
-#: theme/class-baton.php:218
+#: theme/class-baton.php:259
 msgid "Secondary Navigation"
 msgstr ""
 
-#: theme/class-baton.php:1072
+#: theme/class-baton.php:1127
 msgid ""
 "<div class=\"updated\"><p>Welcome to Baton Pro! Get started by visiting the "
 "<a href=\"%1$s\">Customizer</a>!</p></div>"
 msgstr ""
 
-#: theme/class-baton.php:1139
+#: theme/class-baton.php:1208
 msgid ""
 "*This widget area is only displayed if a Front Page is selected via Settings "
 "&gt; Reading in the Dashboard.* This widget area is displayed on the Front "
 "Page and will replace the Front Page content."
 msgstr ""
 
-#: theme/class-baton.php:1197
+#: theme/class-baton.php:1267
 msgid "Note Baton"
 msgstr ""
 
 #. Author of the plugin/theme
-#: theme/class-baton.php:1682
+#: theme/class-baton.php:1847
 msgid "Slocum Studio"
 msgstr ""
 
-#: theme/class-baton.php:1782 theme/class-baton.php:1863
-#: theme/class-baton.php:1898 theme/class-baton.php:1932
+#: theme/class-baton.php:1947 theme/class-baton.php:2028
+#: theme/class-baton.php:2063
 msgid "Button"
 msgstr ""
 
-#: theme/class-baton.php:1789
+#: theme/class-baton.php:1954
 msgid "Button Alternate"
 msgstr ""
 
-#: theme/class-baton.php:1807
+#: theme/class-baton.php:1972
 msgid "Baton Hero"
 msgstr ""
 
-#: theme/class-baton.php:1811
+#: theme/class-baton.php:1976
 msgid "Baton Features"
 msgstr ""
 
-#: theme/class-baton.php:1855
+#: theme/class-baton.php:2020
 msgid "Baton Hero 1"
 msgstr ""
 
-#: theme/class-baton.php:1861
+#: theme/class-baton.php:2026
 msgid "Hero 1"
 msgstr ""
 
-#: theme/class-baton.php:1862 theme/class-baton.php:1897
-#: theme/class-baton.php:1931 theme/class-baton.php:1996
-#: theme/class-baton.php:2013 theme/class-baton.php:2024
-#: theme/class-baton.php:2034 theme/class-baton.php:2044
-#: theme/class-baton.php:2054 theme/class-baton.php:2085
-#: theme/class-baton.php:2094 theme/class-baton.php:2102
-#: theme/class-baton.php:2110 theme/class-baton.php:2118
+#: theme/class-baton.php:2027 theme/class-baton.php:2062
+#: theme/class-baton.php:2096 theme/class-baton.php:2129
+#: theme/class-baton.php:2162 theme/class-baton.php:2179
+#: theme/class-baton.php:2190 theme/class-baton.php:2200
+#: theme/class-baton.php:2210 theme/class-baton.php:2220
+#: theme/class-baton.php:2251 theme/class-baton.php:2260
+#: theme/class-baton.php:2268 theme/class-baton.php:2276
+#: theme/class-baton.php:2284
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eros tortor, "
 "molestie eget tortor sit amet, feugiat semper ante. Aliquam a pellentesque "
 "purus, quis vulputate lacus."
 msgstr ""
 
-#: theme/class-baton.php:1891
+#: theme/class-baton.php:2056
 msgid "Baton Hero 2"
 msgstr ""
 
-#: theme/class-baton.php:1896
+#: theme/class-baton.php:2061
 msgid "Hero 2"
 msgstr ""
 
-#: theme/class-baton.php:1926
+#: theme/class-baton.php:2091 theme/class-baton.php:2095
 msgid "Baton Hero 3 (Content Left)"
 msgstr ""
 
-#: theme/class-baton.php:1930
-msgid "Hero 3"
+#: theme/class-baton.php:2128
+msgid "Baton Hero 3 (Content Right)"
 msgstr ""
 
-#: theme/class-baton.php:1991
+#: theme/class-baton.php:2157
 msgid "Baton Features 1"
 msgstr ""
 
-#: theme/class-baton.php:1995 theme/class-baton.php:2069
+#: theme/class-baton.php:2161 theme/class-baton.php:2235
 msgid "Features"
 msgstr ""
 
-#: theme/class-baton.php:2012 theme/class-baton.php:2023
-#: theme/class-baton.php:2033 theme/class-baton.php:2043
-#: theme/class-baton.php:2053 theme/class-baton.php:2084
-#: theme/class-baton.php:2093 theme/class-baton.php:2101
-#: theme/class-baton.php:2109 theme/class-baton.php:2117
+#: theme/class-baton.php:2178 theme/class-baton.php:2189
+#: theme/class-baton.php:2199 theme/class-baton.php:2209
+#: theme/class-baton.php:2219 theme/class-baton.php:2250
+#: theme/class-baton.php:2259 theme/class-baton.php:2267
+#: theme/class-baton.php:2275 theme/class-baton.php:2283
 msgid "Feature"
 msgstr ""
 
-#: theme/class-baton.php:2014 theme/class-baton.php:2025
-#: theme/class-baton.php:2035 theme/class-baton.php:2045
-#: theme/class-baton.php:2055
+#: theme/class-baton.php:2180 theme/class-baton.php:2191
+#: theme/class-baton.php:2201 theme/class-baton.php:2211
+#: theme/class-baton.php:2221
 msgid "Read More"
 msgstr ""
 
-#: theme/class-baton.php:2065
+#: theme/class-baton.php:2231
 msgid "Baton Features 2"
 msgstr ""
 
-#: theme/class-baton.php:2440
+#: theme/class-baton.php:2607
 msgid "Category - %1$s - %2$s"
 msgstr ""
 
-#: theme/class-baton.php:2450
+#: theme/class-baton.php:2617
 msgid "Tag - %1$s - %2$s"
 msgstr ""
 
-#: theme/class-baton.php:2460 theme/class-baton.php:2464
+#: theme/class-baton.php:2627 theme/class-baton.php:2631
 msgid "%1$s - %2$s - %3$s"
 msgstr ""
 
-#: theme/class-baton.php:2477 theme/class-baton.php:2481
+#: theme/class-baton.php:2644 theme/class-baton.php:2648
 msgid "Post Type Archive - %1$s - %2$s"
 msgstr ""
 
-#: theme/class-baton.php:2488
+#: theme/class-baton.php:2655
 msgid "Blog (Front Page) - %1$s"
 msgstr ""
 
-#: theme/class-baton.php:2492
+#: theme/class-baton.php:2659
 msgid "Blog - %1$s"
 msgstr ""
 
-#: theme/class-baton.php:2502
+#: theme/class-baton.php:2669
 msgid "Author Archive - %1$s - %2$s"
 msgstr ""
 
-#: theme/class-baton.php:2506
+#: theme/class-baton.php:2673
 msgid "This is the %1$s widget area."
 msgstr ""
 
-#: theme/class-baton.php:2625 theme/class-baton.php:2633
+#: theme/class-baton.php:2792 theme/class-baton.php:2800
 msgid "Baton Landing Page"
 msgstr ""
 
-#: theme/class-baton.php:2687
+#: theme/class-baton.php:2854
 msgctxt "\"read more\" label for Conductor widgets"
 msgid "Continue Reading"
 msgstr ""
@@ -2195,12 +2196,16 @@ msgid ""
 "multipurpose theme with an intuitive drag-and-drop homepage layout builder "
 "for a wide range of website designs. Create your layouts using our live edit "
 "front-end widgets to perfectly match your design and content together. Baton "
-"is compatible with popular plugins like Jetpack, Yoast SEO, Gravity Forms "
-"and more."
+"is compatible with popular plugins like Jetpack, Yoast SEO, Gravity Forms, "
+"WooCommerce, and more."
 msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://slocumthemes.com/"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Beaver Builder"
 msgstr ""
 
 #. Template Name of the plugin/theme

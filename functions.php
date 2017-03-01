@@ -22,47 +22,47 @@ if ( ! function_exists( 'sds_social_media' ) ) {
 			$social_font_map = array(
 				'facebook_url' => array(
 					'icon' => 'fa fa-facebook',
-					'label' => __( 'Facebook', 'baton' )
+					'label' => __( 'Facebook', 'baton-pro' )
 				),
 				'twitter_url' => array(
 					'icon' => 'fa fa-twitter',
-					'label' => __( 'Twitter', 'baton' )
+					'label' => __( 'Twitter', 'baton-pro' )
 				),
 				'linkedin_url' => array(
 					'icon' => 'fa fa-linkedin',
-					'label' => __( 'LinkedIn', 'baton' )
+					'label' => __( 'LinkedIn', 'baton-pro' )
 				),
 				'google_plus_url' => array(
 					'icon' => 'fa fa-google-plus',
-					'label' => __( 'Google+', 'baton' )
+					'label' => __( 'Google+', 'baton-pro' )
 				),
 				'youtube_url' => array(
 					'icon' => 'fa fa-youtube',
-					'label' => __( 'YouTube', 'baton' )
+					'label' => __( 'YouTube', 'baton-pro' )
 				),
 				'vimeo_url' => array(
 					'icon' => 'fa fa-vimeo-square',
-					'label' => __( 'Vimeo', 'baton' )
+					'label' => __( 'Vimeo', 'baton-pro' )
 				),
 				'pinterest_url' => array(
 					'icon' => 'fa fa-pinterest',
-					'label' => __( 'Pinterest', 'baton' )
+					'label' => __( 'Pinterest', 'baton-pro' )
 				),
 				'instagram_url' => array(
 					'icon' => 'fa fa-instagram',
-					'label' => __( 'Instagram', 'baton' )
+					'label' => __( 'Instagram', 'baton-pro' )
 				),
 				'flickr_url' => array(
 					'icon' => 'fa fa-flickr',
-					'label' => __( 'Flickr', 'baton' )
+					'label' => __( 'Flickr', 'baton-pro' )
 				),
 				'foursquare_url' => array(
 					'icon' => 'fa fa-foursquare',
-					'label' => __( 'Foursquare', 'baton' )
+					'label' => __( 'Foursquare', 'baton-pro' )
 				),
 				'rss_url' => array(
 					'icon' => 'fa fa-rss',
-					'label' => __( 'RSS', 'baton' )
+					'label' => __( 'RSS', 'baton-pro' )
 				),
 			);
 
@@ -244,13 +244,13 @@ if ( ! function_exists( 'sds_single_post_navigation' ) ) {
 		<div class="article-post-navigation single-post-navigation post-navigation baton-flex baton-flex-2-columns baton-flex-post-navigation <?php echo esc_attr( ( $next_post_link || $previous_post_link ) ? 'has-links': 'no-links' ); ?>">
 			<div class="previous-posts baton-col baton-col-previous-posts">
 				<?php if ( $next_post_link ) : ?>
-					<span class="article-post-navigation-label"><?php _e( 'Previous Post', 'baton' ); ?></span>
+					<span class="article-post-navigation-label"><?php _e( 'Previous Post', 'baton-pro' ); ?></span>
 					<?php echo $next_post_link; ?>
 				<?php endif; ?>
 			</div>
 			<div class="next-posts baton-col baton-col-next-posts">
 				<?php if ( $previous_post_link ) : ?>
-					<span class="article-post-navigation-label"><?php _e( 'Next Post', 'baton' ); ?></span>
+					<span class="article-post-navigation-label"><?php _e( 'Next Post', 'baton-pro' ); ?></span>
 					<?php echo $previous_post_link; ?>
 				<?php endif; ?>
 			</div>
@@ -287,21 +287,21 @@ if ( ! function_exists( 'sds_content_layouts' ) ) {
 	function sds_content_layouts() {
 		$content_layouts = array(
 			'default' => array( // Name used in saved option
-				'label' => __( 'Default', 'baton' ), // Label on options panel (required)
+				'label' => __( 'Default', 'baton-pro' ), // Label on options panel (required)
 				'preview' => '<div class="cols cols-1 cols-default"><div class="col col-content" title="%1$s"><span class="label">%1$s</span></div></div>', // Preview on options panel (required; %1$s is replaced with values below on options panel if specified)
-				'preview_values' => array( __( 'Default', 'baton' ) ),
+				'preview_values' => array( __( 'Default', 'baton-pro' ) ),
 				'default' => true
 			),
 			'cols-1' => array( // Full Width
-				'label' => __( 'Full Width', 'baton' ),
+				'label' => __( 'Full Width', 'baton-pro' ),
 				'preview' => '<div class="cols cols-1"><div class="col col-content"></div></div>',
 			),
 			'cols-2' => array( // Content Left, Primary Sidebar Right
-				'label' => __( 'Content Left', 'baton' ),
+				'label' => __( 'Content Left', 'baton-pro' ),
 				'preview' => '<div class="cols cols-2"><div class="col col-content"></div><div class="col col-sidebar"></div></div>'
 			),
 			'cols-2-r' => array( // Content Right, Primary Sidebar Left
-				'label' => __( 'Content Right', 'baton' ),
+				'label' => __( 'Content Right', 'baton-pro' ),
 				'preview' => '<div class="cols cols-2 cols-2-r"><div class="col col-sidebar"></div><div class="col col-content"></div></div>'
 			)
 		);
@@ -432,12 +432,12 @@ if ( ! function_exists( 'sds_copyright_branding' ) ) {
 function baton_more_link_label( $return_default_only = false ) {
 	// Return default
 	if ( $return_default_only )
-		return __( 'Continue Reading', 'baton' );
+		return __( 'Continue Reading', 'baton-pro' );
 
 	// Get theme mod
 	$label = get_theme_mod( 'baton_more_link_label' );
 
-	return ( ! empty( $label ) ) ? $label : __( 'Continue Reading', 'baton' );
+	return ( ! empty( $label ) ) ? $label : __( 'Continue Reading', 'baton-pro' );
 }
 
 /**
@@ -470,7 +470,7 @@ if ( ! function_exists( 'baton_comment' ) ) {
 			case 'trackback':
 			?>
 				<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'pingback' ); ?>>
-					<p><?php _e( 'Pingback:', 'baton' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( 'Edit', '<span class="ping-meta"><span class="edit-link">', '</span></span>' ); ?></p>
+					<p><?php _e( 'Pingback:', 'baton-pro' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( 'Edit', '<span class="ping-meta"><span class="edit-link">', '</span></span>' ); ?></p>
 				</li>
 			<?php
 			break;
@@ -490,14 +490,14 @@ if ( ! function_exists( 'baton_comment' ) ) {
 									<div class="comment-meta">
 										<cite>
 											<?php
-												printf( __( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>', 'baton' ),
+												printf( __( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>', 'baton-pro' ),
 													esc_url( get_comment_link( $comment->comment_ID ) ),
 													get_comment_time( 'c' ),
-													sprintf( __( '%1$s at %2$s', 'baton' ), get_comment_date(), get_comment_time() )
+													sprintf( __( '%1$s at %2$s', 'baton-pro' ), get_comment_date(), get_comment_time() )
 												);
 											?>
 
-											<?php edit_comment_link( __( 'Edit', 'baton' ), '<span class="edit-link">', '<span>' ); ?>
+											<?php edit_comment_link( __( 'Edit', 'baton-pro' ), '<span class="edit-link">', '<span>' ); ?>
 										</cite>
 									</div>
 								</div>
@@ -506,7 +506,7 @@ if ( ! function_exists( 'baton_comment' ) ) {
 
 						<div class="comment-content-wrap">
 							<?php if ( $comment->comment_approved === '0' ) : ?>
-								<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'baton' ); ?></p>
+								<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'baton-pro' ); ?></p>
 							<?php endif; ?>
 
 							<div class="comment-content">
@@ -517,7 +517,7 @@ if ( ! function_exists( 'baton_comment' ) ) {
 						<div class="clear"></div>
 
 						<div class="comment-reply">
-							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'baton' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'baton-pro' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 						</div>
 					</article>
 				</li>
@@ -624,7 +624,7 @@ if ( ! function_exists( 'sds_color_schemes' ) ) {
 		$color_schemes = array(
 			// Default (any additional color schemes should contain all of these properties as well as a 'deps' property)
 			'default' => array( // Name used in saved option
-				'label' => __( 'Default', 'baton' ), // Label on options panel (required)
+				'label' => __( 'Default', 'baton-pro' ), // Label on options panel (required)
 				'stylesheet' => false, // Stylesheet URL, relative to theme directory (required)
 				'preview' => '#7cb2c2', // Preview color on options panel (required)
 				'default' => true,
@@ -663,7 +663,7 @@ if ( ! function_exists( 'sds_color_schemes' ) ) {
 			),
 			// Blue
 			'blue' => array(
-				'label' => __( 'Blue', 'baton' ),
+				'label' => __( 'Blue', 'baton-pro' ),
 				'stylesheet' => '/css/blue.css',
 				'preview' => '#3f70d4',
 				'deps' => 'baton',
@@ -702,7 +702,7 @@ if ( ! function_exists( 'sds_color_schemes' ) ) {
 			),
 			// Green
 			'green' => array(
-				'label' => __( 'Green', 'baton' ),
+				'label' => __( 'Green', 'baton-pro' ),
 				'stylesheet' => '/css/green.css',
 				'preview' => '#66bc7d',
 				'deps' => 'baton',
@@ -741,7 +741,7 @@ if ( ! function_exists( 'sds_color_schemes' ) ) {
 			),
 			// Red
 			'red' => array(
-				'label' => __( 'Red', 'baton' ),
+				'label' => __( 'Red', 'baton-pro' ),
 				'stylesheet' => '/css/red.css',
 				'preview' => '#ff5b5d',
 				'deps' => 'baton',
@@ -893,6 +893,20 @@ function baton_is_note_baton_sidebar_active( $sidebar_id = false, $post_id = fal
 		}
 		else
 			return false;
+	}
+}
+
+
+/***************
+ * WooCommerce *
+ ***************/
+
+/**
+ * This function outputs WooCommerce pagination
+ */
+if ( ! function_exists( 'woocommerce_pagination' ) ) {
+	function woocommerce_pagination() {
+		get_template_part( 'loop', 'navigation' ); // Loop - Navigation
 	}
 }
 

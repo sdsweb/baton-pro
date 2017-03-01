@@ -35,7 +35,7 @@ class SDS_Theme_Options_Customize_Web_Font_Control extends WP_Customize_Control 
 					<input type="radio" id="sds_theme_options_web_font_default" name="sds_theme_options[web_font]" <?php checked( ! $this->value() || $this->value() === 'default' ); ?> value="default" <?php $this->link(); ?> />
 					<div class="sds-theme-options-web-font-selected">&nbsp;</div>
 				</label>
-				<span class="sds-theme-options-web-font-label-default"><?php _e( 'Default', 'baton' ); ?></span>
+				<span class="sds-theme-options-web-font-label-default"><?php _e( 'Default', 'baton-pro' ); ?></span>
 			</div>
 
 			<?php
@@ -48,7 +48,7 @@ class SDS_Theme_Options_Customize_Web_Font_Control extends WP_Customize_Control 
 							<div class="sds-theme-options-web-font-selected">&nbsp;</div>
 						</label>
 						<span class="sds-theme-options-web-font-label"><?php echo ( isset( $atts['label'] ) ) ? $atts['label'] : false; ?></span>
-						<span class="sds-theme-options-web-font-preview"><?php _e( 'Grumpy wizards make toxic brew for the evil Queen and Jack.', 'baton' ); ?></span>
+						<span class="sds-theme-options-web-font-preview"><?php _e( 'Grumpy wizards make toxic brew for the evil Queen and Jack.', 'baton-pro' ); ?></span>
 					</div>
 			<?php
 				endforeach;
