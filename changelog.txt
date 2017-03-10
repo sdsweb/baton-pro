@@ -2,9 +2,15 @@
 Theme: Baton Pro
 Author: Slocum Themes/Slocum Design Studio
 Author URI: https://slocumthemes.com/
-Current Version: 1.1.0
+Current Version: 1.1.1
 ==========================================
 
+
+1.1.1 // March 10 2017
+----------------------
+- Adjusted CSS for Conductor Widgets in various configurations/areas
+- Fixed a display bug where WooCommerce up-sells on single products were too small
+- Fixed a display bug where mc-gravity confirmation had a white background
 
 1.1.0 // March 01 2017
 ----------------------
