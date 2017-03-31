@@ -5,7 +5,7 @@
  * Text Domain: baton-pro
  * Author: Slocum Studio
  * Author URI: https://slocumthemes.com/
- * Version: 1.1.1
+ * Version: 1.1.2
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce, education, entertainment, food-and-drink, news, photography, portfolio
@@ -1955,6 +1955,17 @@ a img.aligncenter {
 	margin-top: 0;
 }
 
+.content .conductor-table .article-content,
+.page .content .conductor-table .article-content,
+.content.no-posts .conductor-table .article-content,
+.attachment .content .conductor-table .article-content,
+.content .conductor-table .article-title-wrap,
+.page .content .conductor-table .article-title-wrap,
+.content.no-posts .conductor-table .article-title-wrap,
+.attachment .content .conductor-table .article-title-wrap {
+	padding: 0;
+}
+
 .conductor-widget-grid .content .article-title-wrap,
 .conductor-widget-grid .content .article-content {
 	padding: 0 1rem;
@@ -2625,11 +2636,14 @@ nav .primary-nav .children .children:after {
 	padding: 0;
 }
 
-.content .article-title-wrap, .content .article-content {
+.content .article-title-wrap,
+.content .article-content {
 	padding: 0 6rem;
 }
 
-.page .content .article-content, .content.no-posts .article-content, .attachment .content .article-content {
+.page .content .article-content,
+.content.no-posts .article-content,
+.attachment .content .article-content {
 	padding-bottom: 2rem;
 }
 
