@@ -2,9 +2,16 @@
 Theme: Baton Pro
 Author: Slocum Themes/Slocum Design Studio
 Author URI: https://slocumthemes.com/
-Current Version: 1.1.1
+Current Version: 1.1.2
 ==========================================
 
+
+1.1.2 // March 31 2017
+----------------------
+- Adjusted "before" and "after" actions in the Baton::conductor_widget_featured_image() callback to ensure
+  they were triggered regardless of the current post featured image existence
+- Introduced "Show or Hide Categories/Tags Above Post Titles" Theme Option
+- Adjusted padding on elements inside of Conductor Widget table displays within content
 
 1.1.1 // March 10 2017
 ----------------------

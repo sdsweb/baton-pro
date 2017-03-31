@@ -4,7 +4,7 @@
  *
  * @class Baton
  * @author Slocum Studio
- * @version 1.1.1
+ * @version 1.1.2
  * @since 1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		/**
 		 * @var string, Current version number
 		 */
-		public $version = '1.1.1';
+		public $version = '1.1.2';
 
 		/**
 		 * @var string, Slug for Slocum Theme support
@@ -121,6 +121,8 @@ if ( ! class_exists( 'Baton' ) ) {
 			add_action( 'wp_footer', array( $this, 'wp_footer' ) ); // Responsive navigation functionality
 
 			// Theme Options
+			add_filter( 'sds_theme_options_defaults', array( $this, 'sds_theme_options_defaults' ) ); // SDS Theme Options Defaults
+			add_filter( 'sanitize_option_sds_theme_options', array( $this, 'sanitize_option_sds_theme_options' ) ); // Sanitize Option - SDS Theme Options
 
 			// Theme Updates
 			add_action( 'admin_init', array( $this, 'admin_init' ) ); // Check and handle updates for theme
@@ -1154,6 +1156,9 @@ if ( ! class_exists( 'Baton' ) ) {
 		public function baton_admin_init() {
 			global $wp_settings_sections, $wp_settings_fields;
 
+			// Add the Baton Hide Categories/Tags Above Post Titles Field
+			add_settings_field( 'baton_hide_cats_tags_above_post_titles_field', __( 'Show or Hide Categories/Tags Above Post Titles:', 'baton-pro' ), array( $this, 'baton_hide_cats_tags_above_post_titles_field' ), 'sds-theme-options[general]', 'sds_theme_options_show_hide_elements_section' );
+
 			// Remove the featured image size section
 			unset( $wp_settings_sections['sds-theme-options[general]']['sds_theme_options_featured_image_size_section'] );
 
@@ -1162,6 +1167,20 @@ if ( ! class_exists( 'Baton' ) ) {
 
 			// Hook into update
 			add_filter( 'update_post_metadata', array( $this, 'update_post_metadata' ), 10, 4 );
+		}
+
+		/**
+		 * This function is the callback for the Baton Hide Categories/Tags Above Post Titles Field.
+		 */
+		function baton_hide_cats_tags_above_post_titles_field() {
+			global $sds_theme_options;
+		?>
+			<div class="checkbox sds-theme-options-checkbox checkbox-show-hide checkbox-show-hide-baton-cats-tags-above-post-titles" data-label-left="<?php esc_attr_e( 'Show', 'baton' ); ?>" data-label-right="<?php esc_attr_e( 'Hide', 'baton' ); ?>">
+				<input type="checkbox" id="sds_theme_options_hide_baton_cats_tags_above_post_titles" name="sds_theme_options[baton][hide_cats_tags_above_post_titles]" <?php checked( ( isset( $sds_theme_options['baton']['hide_cats_tags_above_post_titles'] ) && ! empty( $sds_theme_options['baton']['hide_cats_tags_above_post_titles'] ) ) ? $sds_theme_options['baton']['hide_cats_tags_above_post_titles'] : false ); ?> />
+				<label for="sds_theme_options_hide_baton_cats_tags_above_post_titles">| | |</label>
+			</div>
+			<span class="description"><?php _e( 'When "show" is displayed, the categories and tags will be displayed above post titles and vise-versa.', 'baton-pro' ); ?></span>
+		<?php
 		}
 
 		/**
@@ -1818,6 +1837,29 @@ if ( ! class_exists( 'Baton' ) ) {
 		/*****************
 		 * Theme Options *
 		 *****************/
+
+		/**
+		 * This function adjusts the SDS Theme Options defaults.
+		 */
+		public function sds_theme_options_defaults( $defaults ) {
+			// Baton
+			$defaults['baton'] = array();
+
+			// Baton - Hide Categories/Tags Above Post Titles
+			$defaults['baton']['hide_cats_tags_above_post_titles'] = false;
+
+			return $defaults;
+		}
+
+		/**
+		 * This function sanitizes SDS Theme Options.
+		 */
+		public function sanitize_option_sds_theme_options( $input ) {
+			// Baton - Hide Categories/Tags Above Post Titles
+			$input['baton']['hide_cats_tags_above_post_titles'] = ( isset( $input['baton']['hide_cats_tags_above_post_titles'] ) && $input['baton']['hide_cats_tags_above_post_titles'] );
+
+			return $input;
+		}
 
 
 		/*****************
@@ -2952,7 +2994,7 @@ if ( ! class_exists( 'Baton' ) ) {
 				// Loop through hooks to find the featured image priority
 				foreach ( $hooks as $priority => $callback )
 					// conductor_widget_featured_image; $callback[1] is the function name
-					if ( is_array( $callback ) && $callback[1] === 'conductor_widget_featured_image' ) {
+					if ( ( ! is_array( $callback ) && $callback === 'conductor_widget_featured_image' ) || ( is_array( $callback ) && $callback[1] === 'conductor_widget_featured_image' ) ) {
 						$featured_image_priority = $priority;
 						break;
 					}
@@ -2961,7 +3003,7 @@ if ( ! class_exists( 'Baton' ) ) {
 				if ( $featured_image_priority ) {
 					// Determine if only the featured image is visible
 					foreach ( $instance['output'] as $priority => $output ) {
-						if ( $output['id'] !== 'featured_image' && $output['visible'] === true )
+						if ( $output['id'] !== 'featured_image' && $output['visible'] === true && $featured_image_only )
 							$featured_image_only = false;
 
 						// Increase the count of elements before the featured image
@@ -3178,8 +3220,9 @@ if ( ! class_exists( 'Baton' ) ) {
 			$priority = $instance['output_elements']['featured_image'];
 			$output = $instance['output'][$priority];
 
+			do_action( 'conductor_widget_featured_image_before', $post, $instance );
+
 			if ( has_post_thumbnail( $post->ID ) ) :
-				do_action( 'conductor_widget_featured_image_before', $post, $instance );
 
 				// Output desired featured image size
 				if ( ! empty( $instance['post_thumbnails_size'] ) )
@@ -3195,8 +3238,9 @@ if ( ! class_exists( 'Baton' ) ) {
 				</div>
 				<!-- End Post Thumbnail/Featured Image -->
 		<?php
-				do_action( 'conductor_widget_featured_image_after', $post, $instance );
 			endif;
+
+			do_action( 'conductor_widget_featured_image_after', $post, $instance );
 		}
 
 		/**

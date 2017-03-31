@@ -193,6 +193,12 @@ if ( ! function_exists( 'sds_post_meta' ) ) {
  */
 if ( ! function_exists( 'baton_categories_tags' ) ) {
 	function baton_categories_tags( $force_display = false ) {
+		global $sds_theme_options;
+
+		// Bail we shouldn't show categories and tags above post titles
+		if ( $sds_theme_options['baton']['hide_cats_tags_above_post_titles'] )
+			return;
+
 		// Grab categories and tags
 		$categories = get_the_category();
 		$tags = get_the_tags();
