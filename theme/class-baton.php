@@ -4,7 +4,7 @@
  *
  * @class Baton
  * @author Slocum Studio
- * @version 1.1.3
+ * @version 1.1.4
  * @since 1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Baton' ) ) {
 		/**
 		 * @var string, Current version number
 		 */
-		public $version = '1.1.3';
+		public $version = '1.1.4';
 
 		/**
 		 * @var string, Slug for Slocum Theme support

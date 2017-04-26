@@ -12,7 +12,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.0.4';
+		public $version = '1.1.4';
 
 		/**
 		 * @var string, Transient name
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			// Customizer
 			add_filter( 'sds_color_scheme_customizer_color_controls', array( $this, 'sds_color_scheme_customizer_color_controls' ) ); // Adjust color controls in SDS Core
 			add_action( 'customize_register', array( $this, 'customize_register' ), 25 ); // Add settings/sections/controls to Customizer
-			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 20 );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 0 );
 			add_filter( 'default_option_sds_theme_options', array( $this, 'option_sds_theme_options' ) );
 			add_filter( 'option_sds_theme_options', array( $this, 'option_sds_theme_options' ) );
 			add_filter( 'sanitize_option_sds_theme_options', array( $this, 'sanitize_option_sds_theme_options' ), 20 ); // After SDS Core
@@ -2421,9 +2421,16 @@ if ( ! class_exists( 'Baton_Customizer' ) ) {
 			// Baton Customizer CSS
 			wp_enqueue_style( 'baton-customizer', get_template_directory_uri() . '/customizer/css/baton-customizer.css', array( 'sds-theme-options' ) );
 
-			// Select2
-			wp_enqueue_script( 'select2', get_template_directory_uri() . '/customizer/js/select2/select2.min.js', array( 'jquery' ), $this->version );
-			wp_enqueue_style( 'select2', get_template_directory_uri() . '/customizer/js/select2/select2.css' );
+			/*
+			 * Select2
+			 *
+			 * Due to potential conflicts that arise when multiple Select2 versions are enqueued on a page, we have
+			 * to enqueue this script in the <head> element to ensure we can capture the correct jQuery Select2 function.
+			 * This is also why we are hooking into customize_controls_enqueue_scripts with a priority of 0.
+			 */
+			wp_enqueue_script( 'baton-select2', get_template_directory_uri() . '/customizer/js/select2/select2.min.js', array( 'jquery' ), $this->version );
+			wp_add_inline_script( 'baton-select2', '( function ( $ ) { $.fn.baton_select2 = $.fn.select2; }( jQuery ) );' );
+			wp_enqueue_style( 'baton-select2', get_template_directory_uri() . '/customizer/js/select2/select2.css' );
 		}
 
 		/**

@@ -202,7 +202,7 @@ window.baton_customize_controls = window.baton_customize_controls || {};
 
 						// Setup Select2
 						setTimeout( function() {
-							$select.select2();
+							$select.baton_select2();
 						}, 500 );
 					}
 				} );
