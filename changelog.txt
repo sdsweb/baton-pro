@@ -2,9 +2,13 @@
 Theme: Baton Pro
 Author: Slocum Themes/Slocum Design Studio
 Author URI: https://slocumthemes.com/
-Current Version: 1.1.3
+Current Version: 1.1.4
 ==========================================
 
+
+1.1.4 // April 26 2017
+---------------------
+- Added logic to ensure Baton Pro Select2.js library was used on Baton Pro Customizer controls
 
 1.1.3 // April 5 2017
 ---------------------
